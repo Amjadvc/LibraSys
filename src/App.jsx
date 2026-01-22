@@ -9,6 +9,8 @@ import CreateCategory from "./pages/CategoryPages/CreateCategory";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./components/layout/AppLayout";
 import Login from "./pages/Login";
+import BookRequests from "./pages/BookRequests";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -29,6 +31,10 @@ function App() {
           <Route path="/categories" element={<Categories />}>
             <Route path="new" element={<CreateCategory />} />
           </Route>
+
+          <Route path="/book-requests" element={<BookRequests />} />
+
+          <Route path="/users" element={<Users />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
