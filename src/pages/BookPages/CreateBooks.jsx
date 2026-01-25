@@ -1,5 +1,11 @@
+import PageTitle from "../../components/ui/PageTitle";
+
 function CreateBooks() {
-  return <div>CreateBooks</div>;
+  return (
+    <div>
+      <PageTitle title="Create Books" />
+    </div>
+  );
 }
 
 export default CreateBooks;

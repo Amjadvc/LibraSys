@@ -1,5 +1,13 @@
+import PageTitle from "../../components/ui/PageTitle";
+import BooksTable from "../../features/books/BooksTable";
+
 function Books() {
-  return <div>Books</div>;
+  return (
+    <>
+      <PageTitle title="All books" />
+      <BooksTable />
+    </>
+  );
 }
 
 export default Books;

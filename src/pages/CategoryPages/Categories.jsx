@@ -1,5 +1,11 @@
+import PageTitle from "../../components/ui/PageTitle";
+
 function Categories() {
-  return <div>Categories</div>;
+  return (
+    <div>
+      <PageTitle title="Categories" />
+    </div>
+  );
 }
 
 export default Categories;

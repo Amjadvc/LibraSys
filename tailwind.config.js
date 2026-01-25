@@ -52,7 +52,7 @@ const tailWindConfig = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
 
 export default tailWindConfig;

@@ -1,5 +1,11 @@
+import PageTitle from "../../components/ui/PageTitle";
+
 function Authors() {
-  return <div>Authors</div>;
+  return (
+    <div>
+      <PageTitle title="Authors" />
+    </div>
+  );
 }
 
 export default Authors;

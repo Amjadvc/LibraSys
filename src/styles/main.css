@@ -18,3 +18,9 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* @media (max-width: 992px) {
+  html {
+    background: red;
+  }
+} */

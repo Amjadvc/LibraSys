@@ -20,17 +20,14 @@ function App() {
           <Route index element={<Navigate replace to="dashboard" />} />
           <Route path="/dashboard" element={<Dashboard />} />
 
-          <Route path="/authors" element={<Authors />}>
-            <Route path="new" element={<CreateAuthor />} />
-          </Route>
+          <Route path="/authors" element={<Authors />} />
+          <Route path="/authors/new" element={<CreateAuthor />} />
 
-          <Route path="/books" element={<Books />}>
-            <Route path="new" element={<CreateBooks />} />
-          </Route>
+          <Route path="/books" element={<Books />} />
+          <Route path="/books/new" element={<CreateBooks />} />
 
-          <Route path="/categories" element={<Categories />}>
-            <Route path="new" element={<CreateCategory />} />
-          </Route>
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories/new" element={<CreateCategory />} />
 
           <Route path="/book-requests" element={<BookRequests />} />
 
