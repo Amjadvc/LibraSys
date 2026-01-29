@@ -7,8 +7,8 @@ function AppLayout() {
     <div className="grid h-screen grid-cols-[18rem_1fr] grid-rows-[auto_1fr]">
       <Header />
       <Sidebar />
-      <main className="mx-auto my-0 flex w-full flex-col gap-[2.4rem] overflow-auto bg-background px-[3rem] pb-[32px] pt-[40px]">
-        <div className="container mx-auto my-0 flex flex-col gap-[2.4rem]">
+      <main className="mx-auto my-0 flex w-full flex-col gap-[2.4px] overflow-auto bg-background px-[3rem] pb-[32px] pt-[40px]">
+        <div className="container mx-auto my-0 flex flex-col gap-[24px]">
           <Outlet />
         </div>
       </main>

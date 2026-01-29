@@ -1,5 +1,5 @@
 const variants = {
-  regular: `px-10 py-6 border border-[#e2d7c8] rounded-[8px]`,
+  regular: `px-10 py-4 border border-[#d1d5db] rounded-[8px] bg-white`,
   modal: `w-[800px] `,
 };
 

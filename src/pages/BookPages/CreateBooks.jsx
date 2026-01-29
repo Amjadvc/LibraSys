@@ -1,10 +1,12 @@
 import PageTitle from "../../components/ui/PageTitle";
+import CreateBookForm from "../../features/books/CreateBookForm";
 
 function CreateBooks() {
   return (
-    <div>
+    <>
       <PageTitle title="Create Books" />
-    </div>
+      <CreateBookForm />
+    </>
   );
 }
 

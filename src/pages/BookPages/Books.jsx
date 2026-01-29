@@ -1,11 +1,11 @@
 import PageTitle from "../../components/ui/PageTitle";
-import BooksTable from "../../features/books/BooksTable";
+import BookTable from "../../features/books/BookTable";
 
 function Books() {
   return (
     <>
       <PageTitle title="All books" />
-      <BooksTable />
+      <BookTable />
     </>
   );
 }

@@ -4,12 +4,11 @@ function Input({ type = "text", isDarkMode, className = "", ...props }) {
     bg-white
     rounded-[8px]
     px-3 py-2
-  
     shadow-sm
     outline-none
     text-[14px]
     text-[#363062]
-    focus-within:ring-2 focus-within:ring-[#363062]/30
+    focus-within:ring-2 focus-within:ring-[#7772ab]
   `;
 
   const dateClasses =

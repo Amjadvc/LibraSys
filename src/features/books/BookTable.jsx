@@ -4,7 +4,7 @@ import Table from "../../components/ui/Table";
 import BookRow from "./BookRow";
 import { books } from "./data/books";
 
-function BooksTable() {
+function BookTable() {
   return (
     <Menus>
       <ScrollWrapper>
@@ -31,4 +31,4 @@ function BooksTable() {
   );
 }
 
-export default BooksTable;
+export default BookTable;

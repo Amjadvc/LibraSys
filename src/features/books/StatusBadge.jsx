@@ -1,9 +1,9 @@
 // Helper function to style status
 function StatusBadge({ status }) {
   const color =
-    status === "Available"
+    status === "available"
       ? "bg-green-100 text-green-800"
-      : status === "Borrowed"
+      : status === "borrowed"
         ? "bg-red-100 text-red-800"
         : "bg-gray-100 text-gray-800";
   return (
