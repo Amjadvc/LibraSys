@@ -20,7 +20,7 @@ function LoginForm() {
         alt="user password"
       />
 
-      <Button>Login</Button>
+      <Button variant="primary">Login</Button>
     </form>
   );
 }

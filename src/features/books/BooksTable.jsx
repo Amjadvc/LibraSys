@@ -1,70 +1,33 @@
+import { Menus } from "../../components/ui/Menus";
 import ScrollWrapper from "../../components/ui/ScrollWrapper";
 import Table from "../../components/ui/Table";
-
-const users = [
-  {
-    id: 1,
-    name: "Ahmed Hassan",
-    email: "ahmed.hassan@example.com",
-    role: "Admin",
-    status: "Active",
-  },
-  {
-    id: 2,
-    name: "Sara Ali",
-    email: "sara.ali@example.com",
-    role: "Editor",
-    status: "Inactive",
-  },
-  {
-    id: 3,
-    name: "Omar Khaled",
-    email: "omar.khaled@example.com",
-    role: "User",
-    status: "Active",
-  },
-  {
-    id: 4,
-    name: "Lina Mostafa",
-    email: "lina.mostafa@example.com",
-    role: "User",
-    status: "Pending",
-  },
-  {
-    id: 5,
-    name: "Youssef Adel",
-    email: "youssef.adel@example.com",
-    role: "Admin",
-    status: "Active",
-  },
-];
+import BookRow from "./BookRow";
+import { books } from "./data/books";
 
 function BooksTable() {
   return (
-    <ScrollWrapper>
-      <Table columns="80px 1fr 120px 120px">
-        <Table.Header>
-          <div>ID</div>
-          <div>Name</div>
-          <div>Role</div>
-          <div>Status</div>
-        </Table.Header>
+    <Menus>
+      <ScrollWrapper>
+        <Table columns="100px 3fr 1.5fr 1fr 1fr 1fr 50px">
+          <Table.Header>
+            <div>cover</div>
+            <div>title</div>
+            <div>category</div>
+            <div>price</div>
+            <div>mortgage</div>
+            <div>status</div>
+            <div></div>
+          </Table.Header>
 
-        <Table.Body
-          data={users}
-          render={(user) => (
-            <Table.Row key={user.id}>
-              <div>{user.id}</div>
-              <div>{user.name}</div>
-              <div>{user.role}</div>
-              <div>{user.status}</div>
-            </Table.Row>
-          )}
-        />
+          <Table.Body
+            data={books}
+            render={(book) => <BookRow key={book.id} book={book} />}
+          />
 
-        <Table.Footer>Showing {users.length} users</Table.Footer>
-      </Table>
-    </ScrollWrapper>
+          <Table.Footer>Showing {books.length}book</Table.Footer>
+        </Table>
+      </ScrollWrapper>
+    </Menus>
   );
 }
 

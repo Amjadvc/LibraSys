@@ -22,7 +22,7 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-gray-200 bg-gray-50 px-6 py-4 text-xs font-semibold uppercase tracking-wide text-gray-600"
+      className="grid items-center gap-x-6 border-b border-gray-200 bg-[#e2d7c8] px-6 py-4 text-[14px] font-semibold capitalize tracking-wide text-[#3a317a]"
     >
       {children}
     </div>
@@ -59,7 +59,7 @@ function TableFooter({ children }) {
   if (!children) return null;
 
   return (
-    <footer className="flex justify-center bg-gray-50 px-4 py-3">
+    <footer className="flex justify-center bg-[#e2d7c8] px-4 py-3">
       {children}
     </footer>
   );

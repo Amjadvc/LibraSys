@@ -23,9 +23,11 @@ export function Menu({ children }) {
 }
 
 export function Toggle({ id }) {
-  const { open, openId, close } = useContext(MenuesContext);
-  function handleClick() {
-    id === openId ? close() : open(id);
+  const { close, open, openId } = useContext(MenuesContext);
+
+  function handleClick(e) {
+    e.stopPropagation();
+    openId === "" || openId !== id ? open(id) : close();
   }
   return (
     <button
@@ -45,9 +47,34 @@ export function List({ id, children }) {
   return (
     <ul
       ref={ref}
-      className="absolute right-0 top-10 z-10 m-0 list-none rounded-md bg-white p-0 shadow-md"
+      className="absolute right-0 top-10 z-10 m-0 list-none overflow-hidden rounded-md bg-gray-50 p-0 shadow-md"
     >
       {children}
     </ul>
   );
 }
+
+function Button({ children, icon, onClick }) {
+  const { close } = useContext(MenuesContext);
+
+  function handleClicks() {
+    onClick?.();
+    close();
+  }
+  return (
+    <li>
+      <button
+        onClick={handleClicks}
+        className="flex w-full min-w-[187px] items-center gap-4 border-0 bg-transparent px-10 py-4 text-left text-[14px] text-brand transition-all duration-200 hover:bg-[#e4e4e4]"
+      >
+        <span>{icon}</span>
+        {children && <span>{children}</span>}
+      </button>
+    </li>
+  );
+}
+
+Menus.Menu = Menu;
+Menus.Toggle = Toggle;
+Menus.List = List;
+Menus.Button = Button;
