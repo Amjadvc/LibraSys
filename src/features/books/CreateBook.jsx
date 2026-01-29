@@ -11,28 +11,59 @@ const categories = [
   { id: 4, name: "History" },
 ];
 
-function CreateBookForm() {
+function CreateBook() {
   return (
     <Form>
+      <FormRow label="ISBN" type="createBookFormStyle">
+        <Input
+          type="text"
+          name="ISBN"
+          placeholder="13-digit ISBN"
+          maxLength={13}
+          className="h-[44px]"
+        />
+      </FormRow>
       <FormRow label="Title" type="createBookFormStyle">
-        <Input type="text" name="title" className="h-[40px]" />
+        <Input
+          type="text"
+          name="title"
+          placeholder="Enter book title"
+          className="h-[44px]"
+        />
       </FormRow>
       <FormRow label="Price" type="createBookFormStyle">
-        <Input type="number" step="0.01" name="price" className="h-[40px]" />
+        <Input
+          type="number"
+          step="0.01"
+          name="price"
+          placeholder="Enter price (e.g. 19.99)"
+          className="h-[44px]"
+        />
       </FormRow>
 
       <FormRow label="Mortgage" type="createBookFormStyle">
-        <Input type="number" step="0.01" name="mortgage" className="h-[40px]" />
+        <Input
+          type="number"
+          step="0.01"
+          name="mortgage"
+          placeholder="Enter mortgage value"
+          className="h-[44px]"
+        />
       </FormRow>
 
       <FormRow label="Authorship Date" type="createBookFormStyle">
-        <Input type="date" name="authorship_date" className="h-[40px]" />
+        <Input
+          type="date"
+          name="authorship_date"
+          placeholder="Select authorship date"
+          className="h-[44px]"
+        />
       </FormRow>
 
       <FormRow label="Category" type="createBookFormStyle">
         <select
           name="category_id"
-          className="h-[40px] rounded-[8px] border border-gray-300 px-3 py-2 text-[14px] text-[#363062] shadow-sm outline-none focus-within:ring-2 focus-within:ring-[#363062]/30"
+          className="h-[44px] rounded-[8px] border border-gray-300 px-3 py-2 text-[14px] text-[#363062] shadow-sm outline-none focus-within:ring-2 focus-within:ring-[#363062]/30"
         >
           <option value="">Select category</option>
           {categories.map((cat) => (
@@ -51,11 +82,11 @@ function CreateBookForm() {
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancle</Button>
-        <Button variant="formbutton">Edit book</Button>
+        <Button variant="third">Cancel</Button>
+        <Button variant="formbutton">Add new book</Button>
       </FormRow>
     </Form>
   );
 }
 
-export default CreateBookForm;
+export default CreateBook;

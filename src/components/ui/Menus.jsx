@@ -65,7 +65,7 @@ function Button({ children, icon, onClick }) {
     <li>
       <button
         onClick={handleClicks}
-        className="flex w-full min-w-[187px] items-center gap-4 border-0 bg-transparent px-10 py-4 text-left text-[14px] text-brand transition-all duration-200 hover:bg-[#e4e4e4]"
+        className="flex w-full min-w-[187px] items-center gap-4 border-0 bg-transparent px-10 py-4 text-left text-[14px] text-[#424242] transition-all duration-200 hover:bg-[#e4e4e4]"
       >
         <span>{icon}</span>
         {children && <span>{children}</span>}

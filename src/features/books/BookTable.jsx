@@ -1,4 +1,5 @@
 import { Menus } from "../../components/ui/Menus";
+import Pagination from "../../components/ui/Pagination";
 import ScrollWrapper from "../../components/ui/ScrollWrapper";
 import Table from "../../components/ui/Table";
 import BookRow from "./BookRow";
@@ -24,7 +25,9 @@ function BookTable() {
             render={(book) => <BookRow key={book.id} book={book} />}
           />
 
-          <Table.Footer>Showing {books.length}book</Table.Footer>
+          <Table.Footer>
+            <Pagination count={100} />
+          </Table.Footer>
         </Table>
       </ScrollWrapper>
     </Menus>

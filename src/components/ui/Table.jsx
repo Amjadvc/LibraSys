@@ -8,7 +8,7 @@ function Table({ columns, minWidth = 800, children }) {
       <div
         role="table"
         style={{ minWidth }}
-        className="w-full min-w-[800px] rounded-[7px] border border-gray-200 bg-white text-[14px]"
+        className="w-full min-w-[800px] overflow-hidden rounded-[7px] border border-gray-200 bg-white text-[14px]"
       >
         {children}
       </div>
@@ -22,7 +22,7 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-gray-200 bg-[#e2d7c8] px-6 py-4 text-[14px] font-semibold capitalize tracking-wide text-[#3a317a]"
+      className="grid items-center gap-x-6 border-b border-gray-200 bg-[#e2d7c8] px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-[#4b5563]"
     >
       {children}
     </div>
