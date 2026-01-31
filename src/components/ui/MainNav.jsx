@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   HiOutlineBookOpen,
   HiOutlineClipboardList,
@@ -6,9 +6,9 @@ import {
   HiOutlineTag,
   HiOutlineUserGroup,
   HiOutlineUsers,
-} from "react-icons/hi";
-import NavItem from "./NavItem";
-import DropdownNavItem from "./DropdownNavItem";
+} from 'react-icons/hi';
+import NavItem from './NavItem';
+import DropdownNavItem from './DropdownNavItem';
 
 function MainNav() {
   const [openMenu, setOpenMenu] = useState(null);
@@ -17,7 +17,7 @@ function MainNav() {
     setOpenMenu(null);
   }
 
-  const iconStyle = `h-[20px] w-[20px] text-gray-400 transition-all duration-300 group-hover:text-brand group-aria-[current=page]:text-brand`;
+  const iconStyle = `h-[20px] w-[20px] text-text-500 transition-all duration-300 group-hover:text-text-700 group-aria-[current=page]:text-primary-700 `;
 
   return (
     <nav>
@@ -45,8 +45,8 @@ function MainNav() {
           openMenu={openMenu}
           setOpenMenu={setOpenMenu}
           items={[
-            { to: "/books", label: "All books" },
-            { to: "/books/new", label: "Add book" },
+            { to: '/books', label: 'All books' },
+            { to: '/books/new', label: 'Add book' },
           ]}
         />
 
@@ -58,8 +58,8 @@ function MainNav() {
           openMenu={openMenu}
           setOpenMenu={setOpenMenu}
           items={[
-            { to: "/authors", label: "All authors" },
-            { to: "/authors/new", label: "Add author" },
+            { to: '/authors', label: 'All authors' },
+            { to: '/authors/new', label: 'Add author' },
           ]}
         />
 
@@ -71,8 +71,8 @@ function MainNav() {
           openMenu={openMenu}
           setOpenMenu={setOpenMenu}
           items={[
-            { to: "/categories", label: "All categories" },
-            { to: "/categories/new", label: "Add categore" },
+            { to: '/categories', label: 'All categories' },
+            { to: '/categories/new', label: 'Add categore' },
           ]}
         />
       </ul>

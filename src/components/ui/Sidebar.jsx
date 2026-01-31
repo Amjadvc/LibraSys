@@ -1,5 +1,5 @@
-import Logo from "./Logo";
-import MainNav from "./MainNav";
+import Logo from './Logo';
+import MainNav from './MainNav';
 
 function Sidebar() {
   return (
@@ -11,5 +11,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-// bg-[#e2d7c8]

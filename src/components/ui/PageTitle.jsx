@@ -1,6 +1,6 @@
 function PageTitle({ title, classes }) {
   return (
-    <h1 className={`text-[32px] font-semibold text-brand ${classes}`}>
+    <h1 className={`text-text-800 text-[32px] font-semibold ${classes}`}>
       {title}
     </h1>
   );

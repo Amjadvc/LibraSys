@@ -1,14 +1,14 @@
-import HeaderMenu from "./HeaderMenu";
+import HeaderMenu from './HeaderMenu';
 
 function Header() {
   return (
-    <header className="flex items-center justify-end border-b border-border bg-[#fbfaf7] px-12 py-3">
+    <header className="bg-background-50 border-background-200 flex items-center justify-end border-b px-12 py-3 shadow-sm">
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-3 text-[14px] font-medium text-brand">
+        <div className="text-text-700 flex items-center gap-3 text-[14px] font-medium">
           <img
             src="/default-user.jpg"
             alt="user avatar"
-            className="block w-9 rounded-full object-cover outline outline-1 outline-[#e5e7eb]"
+            className="border-background-200 block w-9 rounded-full border object-cover"
           />
           <span>test</span>
         </div>

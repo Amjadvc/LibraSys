@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Kaushan Script";
-  src: url("../assets/fonts/kaushan/KaushanScript-Regular.ttf")
-    format("truetype");
+  font-family: 'Kaushan Script';
+  src: url('../assets/fonts/kaushan/KaushanScript-Regular.ttf')
+    format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf")
-    format("truetype");
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf')
+    format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -28,14 +28,14 @@
     --text-400: #7664ce;
     --text-500: #533dc2;
     --text-600: #43319b;
-    --text-700: #322574;
+    --text-700: #322574; /* logo  sidebar text*/
     --text-800: #21184e;
     --text-900: #110c27;
     --text-950: #080613;
 
-    --background-50: #eeecf9;
-    --background-100: #dcd8f3;
-    --background-200: #bab2e6;
+    --background-50: #eeecf9; /* main */
+    --background-100: #dcd8f3; /*sidebar*/
+    --background-200: #bab2e6; /*sidebar border*/
     --background-300: #978bda;
     --background-400: #7565cd;
     --background-500: #523ec1;
@@ -74,7 +74,7 @@
     --accent-200: #d9b3e5;
     --accent-300: #c68dd8;
     --accent-400: #b467cb;
-    --accent-500: #a141be;
+    --accent-500: #a141be; /* used sidebar */
     --accent-600: #813498;
     --accent-700: #602772;
     --accent-800: #401a4c;

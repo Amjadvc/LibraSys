@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
 const TableContext = createContext();
 
@@ -8,7 +8,7 @@ function Table({ columns, minWidth = 800, children }) {
       <div
         role="table"
         style={{ minWidth }}
-        className="w-full min-w-[800px] overflow-hidden rounded-[7px] border border-gray-200 bg-white text-[14px]"
+        className="border-background-200 bg-background-50 w-full min-w-[800px] overflow-hidden rounded-[7px] border text-[14px]"
       >
         {children}
       </div>
@@ -22,21 +22,21 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-gray-200 bg-[#e2d7c8] px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-[#4b5563]"
+      className="bg-background-100 border-background-200 text-text-700 grid items-center gap-x-6 border-b px-6 py-4 text-[14px] font-semibold uppercase tracking-wide"
     >
       {children}
     </div>
   );
 }
 
-function TableRow({ children }) {
+function TableRow({ children, className }) {
   const { columns } = useContext(TableContext);
 
   return (
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-gray-100 px-6 py-3 last:border-b-0"
+      className={`border-background-200 hover:bg-background-100 grid cursor-pointer items-center gap-x-6 border-b px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
     >
       {children}
     </div>
@@ -46,7 +46,7 @@ function TableRow({ children }) {
 function TableBody({ data, render }) {
   if (!data.length) {
     return (
-      <p className="my-6 text-center text-base font-medium text-gray-500">
+      <p className="text-text-500 my-6 text-center text-base font-medium">
         No data to show at the moment
       </p>
     );
@@ -59,7 +59,7 @@ function TableFooter({ children }) {
   if (!children) return null;
 
   return (
-    <footer className="flex justify-center bg-[#e2d7c8] px-4 py-3">
+    <footer className="bg-background-100 flex justify-center px-4 py-3">
       {children}
     </footer>
   );

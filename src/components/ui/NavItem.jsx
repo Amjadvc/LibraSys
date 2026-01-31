@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 function NavItem({ to, onClick, children }) {
   return (
@@ -6,7 +6,7 @@ function NavItem({ to, onClick, children }) {
       <NavLink
         to={to}
         onClick={onClick}
-        className="bg-primary-100 hover:text-brand aria-[current=page]:text-brand aria-[current=page]:bg-primary-100 hover:bg-background-200 group flex w-full items-center gap-3 rounded-md px-[24px] py-[12px] text-gray-600 transition-all duration-300"
+        className="text-text-600 hover:text-text-800 aria-[current=page]:text-text-800 aria-[current=page]:bg-background-200 hover:bg-background-200 aria-[current=page]:before:bg-accent-500 group flex w-full items-center gap-3 rounded-md px-[24px] py-[12px] transition-all duration-300 aria-[current=page]:before:left-0 aria-[current=page]:before:top-1/2 aria-[current=page]:before:h-6 aria-[current=page]:before:w-1 aria-[current=page]:before:rounded-r"
       >
         {children}
       </NavLink>

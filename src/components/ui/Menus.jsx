@@ -1,6 +1,6 @@
-import { createContext, useContext, useState } from "react";
-import { HiEllipsisVertical } from "react-icons/hi2";
-import { useOutsideClick } from "../../hooks/useOutsideClick";
+import { createContext, useContext, useState } from 'react';
+import { HiEllipsisVertical } from 'react-icons/hi2';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 const MenuesContext = createContext();
 
@@ -27,14 +27,14 @@ export function Toggle({ id }) {
 
   function handleClick(e) {
     e.stopPropagation();
-    openId === "" || openId !== id ? open(id) : close();
+    openId === '' || openId !== id ? open(id) : close();
   }
   return (
     <button
       onClick={handleClick}
-      className="translate-x-2 rounded-sm p-1 transition-all duration-200 hover:bg-gray-100"
+      className="hover:bg-accent-100 translate-x-2 rounded-sm p-1 transition-all duration-200"
     >
-      <HiEllipsisVertical className="h-6 w-6 text-gray-700" />
+      <HiEllipsisVertical className="text-accent-500 h-6 w-6" />
     </button>
   );
 }
@@ -47,7 +47,7 @@ export function List({ id, children }) {
   return (
     <ul
       ref={ref}
-      className="absolute right-0 top-10 z-10 m-0 list-none overflow-hidden rounded-md bg-gray-50 p-0 shadow-md"
+      className="bg-background-50 absolute right-0 top-10 z-10 m-0 list-none overflow-hidden rounded-md p-0 shadow-md"
     >
       {children}
     </ul>
@@ -65,7 +65,7 @@ function Button({ children, icon, onClick }) {
     <li>
       <button
         onClick={handleClicks}
-        className="flex w-full min-w-[187px] items-center gap-4 border-0 bg-transparent px-10 py-4 text-left text-[14px] text-[#424242] transition-all duration-200 hover:bg-[#e4e4e4]"
+        className="text-text-700 hover:bg-accent-200 flex min-w-[150px] items-center gap-3 px-4 py-3 text-left text-[14px] font-medium transition-all duration-200 hover:text-white"
       >
         <span>{icon}</span>
         {children && <span>{children}</span>}

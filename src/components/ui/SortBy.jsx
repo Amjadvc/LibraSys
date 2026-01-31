@@ -1,14 +1,14 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from 'react-router-dom';
 
 function SortBy({ options }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function handleChange(e) {
-    searchParams.set("sortBy", e.target.value);
+    searchParams.set('sortBy', e.target.value);
     setSearchParams(searchParams);
   }
 
-  const sortBy = searchParams.get("sortBy") || "";
+  const sortBy = searchParams.get('sortBy') || '';
 
   return <Select options={options} value={sortBy} onChange={handleChange} />;
 }
@@ -20,10 +20,14 @@ function Select({ options, value, onChange }) {
     <select
       value={value}
       onChange={onChange}
-      className="min-h-[] rounded-lg border bg-transparent px-3 py-[10px] text-[16px] font-semibold text-brand shadow-md outline-none"
+      className="border-background-200 bg-background-50 text-text-700 hover:border-background-400 focus:border-primary-400 focus:ring-primary-200 h-full min-h-11 rounded-md border px-3 text-[15px] font-medium shadow-md transition-colors duration-200 focus:outline-none focus:ring-2"
     >
       {options.map((option) => (
-        <option value={option.value} key={option.value}>
+        <option
+          value={option.value}
+          key={option.value}
+          className="bg-background-50 text-text-800"
+        >
           {option.label}
         </option>
       ))}
