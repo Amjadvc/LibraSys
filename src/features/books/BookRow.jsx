@@ -1,11 +1,11 @@
 import { HiPencil, HiTrash } from "react-icons/hi2";
-import { Menus } from "../../components/ui/Menus";
+import { formatCurrency } from "../../utils/helpers";
+import Menus from "../../components/ui/Menus";
 import Table from "../../components/ui/Table";
 import Modal from "../../components/ui/Modal";
 import ConfirmDelete from "../../components/ui/ConfirmDelete";
-import EditBook from "./EditBook";
-import { formatCurrency } from "../../utils/helpers";
 import StatusBadge from "./StatusBadge";
+import EditBook from "./EditBook";
 
 function BookRow({
   book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },

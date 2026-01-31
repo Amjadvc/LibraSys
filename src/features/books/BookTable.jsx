@@ -1,4 +1,4 @@
-import { Menus } from "../../components/ui/Menus";
+import Menus from "../../components/ui/Menus";
 import Pagination from "../../components/ui/Pagination";
 import ScrollWrapper from "../../components/ui/ScrollWrapper";
 import Table from "../../components/ui/Table";

@@ -4,23 +4,22 @@ import {
   HiOutlineUser,
 } from "react-icons/hi2";
 import ButtonIcon from "./ButtonIcon";
+import DarkModeToggle from "./DarkModeToggle";
 
 function HeaderMenu() {
   return (
     <ul className="flex gap-1">
       <li>
         <ButtonIcon>
-          <HiOutlineUser className="h-[26px] w-[26px] text-brand" />
+          <HiOutlineUser className="text-brand h-[26px] w-[26px]" />
         </ButtonIcon>
       </li>
       <li>
-        <ButtonIcon>
-          <HiOutlineSun className="h-[26px] w-[26px] text-brand" />
-        </ButtonIcon>
+        <DarkModeToggle />
       </li>
       <li>
         <ButtonIcon>
-          <HiArrowRightOnRectangle className="h-[26px] w-[26px] text-brand" />
+          <HiArrowRightOnRectangle className="text-brand h-[26px] w-[26px]" />
         </ButtonIcon>
       </li>
     </ul>

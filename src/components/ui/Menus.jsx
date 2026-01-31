@@ -4,7 +4,7 @@ import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 const MenuesContext = createContext();
 
-export function Menus({ children }) {
+export default function Menus({ children }) {
   const [openId, setOpenId] = useState(null);
 
   const close = () => setOpenId(null);
