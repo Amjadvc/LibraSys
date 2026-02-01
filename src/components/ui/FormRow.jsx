@@ -3,7 +3,8 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
     py-4
     first:pt-0 last:pb-0
     last:border-b-0
-    border-b border-[#d1d5db]
+    border-b border-background-200
+    dark:border-background-700
     max-[992px]:grid-cols-1 max-[992px]:gap-4
   `;
 
@@ -21,9 +22,9 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
   };
 
   const rowClasses =
-    row === "one"
-      ? "max-[992px]:grid-cols-[15rem_1fr] max-[992px]:grid-rows-1"
-      : "";
+    row === 'one'
+      ? 'max-[992px]:grid-cols-[15rem_1fr] max-[992px]:grid-rows-1'
+      : '';
 
   return (
     <div
@@ -32,7 +33,7 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
       {label && (
         <label
           htmlFor={children.props.id}
-          className="text-[14px] font-medium text-[#3d3c3d]"
+          className="text-[14px] font-medium text-text-600 dark:text-text-300"
         >
           {label}
         </label>

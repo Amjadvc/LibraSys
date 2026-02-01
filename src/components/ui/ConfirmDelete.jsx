@@ -3,7 +3,7 @@ import Button from './Button';
 function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
   return (
     <div className="flex flex-col gap-8">
-      <h3 className="text-accent-500 dark:text-accent-300 text-2xl font-semibold leading-[1]">
+      <h3 className="text-2xl font-semibold leading-[1] text-accent-500 dark:text-accent-300">
         Delete {resourceName}
       </h3>
 
@@ -15,7 +15,7 @@ function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
       <div className="flex justify-end gap-5 max-sm:justify-center">
         <Button variant="third">Cancel</Button>
 
-        <Button variant="danger" onClick={onConfirm}>
+        <Button variant="danger" onClick={onConfirm} disabled={disabled}>
           Delete
         </Button>
       </div>

@@ -11,15 +11,15 @@ function BookRow({
   book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },
 }) {
   return (
-    <Table.Row className="hover:bg-gray-50">
+    <Table.Row className="hover:bg-50">
       <div>
         <img
           src={cover || '/placeholder-book.png'}
           alt={title}
-          className="border-background-200 h-12 w-20 rounded border object-cover"
+          className="h-12 w-20 rounded border border-background-200 object-cover"
         />
       </div>
-      <div className="text-text-800 font-medium">{title}</div>
+      <div className="font-medium text-text-800">{title}</div>
       <div className="text-text-600">{category.name}</div>
       <div className="text-accent-500">{formatCurrency(price)}</div>
       <div className="text-accent-400">{formatCurrency(mortgage)}</div>
@@ -34,7 +34,7 @@ function BookRow({
             <Modal.Open opens="edit">
               <Menus.Button
                 icon={<HiPencil className="text-accent-500" />}
-                className="hover:bg-accent-50 text-accent-500"
+                className="text-accent-500 hover:bg-accent-50"
               >
                 Edit
               </Menus.Button>
@@ -43,7 +43,7 @@ function BookRow({
             <Modal.Open opens="delete">
               <Menus.Button
                 icon={<HiTrash className="text-accent-500" />}
-                className="hover:bg-accent-50 text-accent-500"
+                className="text-accent-500 hover:bg-accent-50"
               >
                 Delete
               </Menus.Button>
