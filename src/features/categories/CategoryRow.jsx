@@ -14,12 +14,12 @@ function CategoryRow({ category: { name, image } }) {
         <div className="center flex gap-5">
           <Modal.Open opens="edit">
             <ButtonIcon>
-              <HiPencil className="h-4 w-4 text-accent-500" />
+              <HiPencil className="h-4 w-4 text-primary-500 transition-all duration-150 hover:text-primary-600" />
             </ButtonIcon>
           </Modal.Open>
           <Modal.Open opens="delete">
             <ButtonIcon>
-              <HiTrash className="h-4 w-4 text-accent-500" />
+              <HiTrash className="h-4 w-4 text-accent-500 transition-all duration-150 hover:text-accent-600" />
             </ButtonIcon>
           </Modal.Open>
         </div>

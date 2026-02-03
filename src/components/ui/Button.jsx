@@ -2,10 +2,10 @@ const baseStyles = 'flex items-center justify-center outline-none transition';
 
 const variants = {
   primary:
-    'h-[45px] min-w-[140px] rounded-[20px] bg-brand text-[20px] font-semibold text-white',
+    'h-[45px] min-w-[140px] rounded-[20px]  text-[20px] font-semibold text-white',
 
   secondary:
-    'h-[45px] min-w-[140px] gap-2 rounded-[8px] bg-brand text-[18px] font-semibold text-white',
+    'h-[45px] min-w-[140px] gap-2 rounded-[8px]  text-[18px] font-semibold text-white',
 
   third: `
     rounded-[8px]
@@ -28,9 +28,12 @@ const variants = {
     'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-text-50 dark:text-white transition-colors',
 };
 
-function Button({ children, onClick, variant = 'primary' }) {
+function Button({ children, onClick, variant = 'primary', customStyle = '' }) {
   return (
-    <button onClick={onClick} className={`${baseStyles} ${variants[variant]}`}>
+    <button
+      onClick={onClick}
+      className={`${baseStyles} ${variants[variant]} ${customStyle}`}
+    >
       {children}
     </button>
   );
