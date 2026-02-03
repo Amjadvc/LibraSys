@@ -2,7 +2,6 @@ import { HiChevronRight } from 'react-icons/hi';
 import { VscDash } from 'react-icons/vsc';
 import { NavLink } from 'react-router-dom';
 
-// const NavLinkStyle = `group flex w-full items-center gap-3 rounded-md px-[24px] py-[12px] text-gray-600 transition-all duration-300 hover:bg-[#f1efe9] hover:text-brand aria-[current=page]:bg-[#f1efe9] aria-[current=page]:text-brand`;
 const NavLinkStyle =
   'text-text-600 hover:text-text-800 aria-[current=page]:text-text-800 aria-[current=page]:bg-background-200 hover:bg-background-200 aria-[current=page]:before:bg-accent-500 group flex w-full items-center gap-3 rounded-md px-[24px] py-[12px] transition-all duration-300 aria-[current=page]:before:left-0 aria-[current=page]:before:top-1/2 aria-[current=page]:before:h-6 aria-[current=page]:before:w-1 aria-[current=page]:before:rounded-r';
 const InnerLinkStyle = `text-text-600 hover:text-text-800 aria-[current=page]:text-text-800 group flex w-full items-center gap-[10px] rounded-md px-[24px] py-[4px] transition-all duration-300 `;
@@ -44,7 +43,7 @@ function DropdownNavItem({
           return (
             <li key={item.to}>
               <NavLink to={item.to} end className={InnerLinkStyle}>
-                <VscDash className="text-text-500 group-hover:text-accent-500 group-aria-[current=page]:text-accent-500 h-[20px] w-[30px] transition-all duration-300" />
+                <VscDash className="h-[20px] w-[30px] text-text-500 transition-all duration-300 group-hover:text-accent-500 group-aria-[current=page]:text-accent-500" />
                 <span className="text-[16px] font-medium">{item.label}</span>
               </NavLink>
             </li>

@@ -8,7 +8,7 @@ function Table({ columns, minWidth = 800, children }) {
       <div
         role="table"
         style={{ minWidth }}
-        className="border-background-200 bg-background-50 w-full min-w-[800px] overflow-hidden rounded-[7px] border text-[14px]"
+        className="w-full min-w-[800px] overflow-hidden rounded-[7px] border border-background-200 bg-background-50 text-[14px]"
       >
         {children}
       </div>
@@ -22,7 +22,7 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="bg-background-100 border-background-200 text-text-700 grid items-center gap-x-6 border-b px-6 py-4 text-[14px] font-semibold uppercase tracking-wide"
+      className="grid items-center gap-x-6 border-b border-background-200 bg-background-100 px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-text-700"
     >
       {children}
     </div>
@@ -36,7 +36,8 @@ function TableRow({ children, className }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className={`border-background-200 hover:bg-background-100 grid cursor-pointer items-center gap-x-6 border-b px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
+      // hover:bg-background-100
+      className={`grid cursor-pointer items-center gap-x-6 border-b border-background-200 px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
     >
       {children}
     </div>
@@ -46,7 +47,7 @@ function TableRow({ children, className }) {
 function TableBody({ data, render }) {
   if (!data.length) {
     return (
-      <p className="text-text-500 my-6 text-center text-base font-medium">
+      <p className="my-6 text-center text-base font-medium text-text-500">
         No data to show at the moment
       </p>
     );
@@ -59,7 +60,7 @@ function TableFooter({ children }) {
   if (!children) return null;
 
   return (
-    <footer className="bg-background-100 flex justify-center px-4 py-3">
+    <footer className="flex justify-center bg-background-100 px-4 py-3">
       {children}
     </footer>
   );

@@ -1,10 +1,13 @@
-import PageTitle from "../../components/ui/PageTitle";
+import PageTitle from '../../components/ui/PageTitle';
+import CategoryTable from '../../features/categories/CategoryTable';
 
 function Categories() {
   return (
-    <div>
+    <>
       <PageTitle title="Categories" />
-    </div>
+
+      <CategoryTable />
+    </>
   );
 }
 

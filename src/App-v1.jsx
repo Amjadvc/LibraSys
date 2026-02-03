@@ -23,13 +23,18 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             {/* BOOKS MODULE */}
-            <Route path="books">
-              <Route index element={<Books />} />
-              <Route path="categories" element={<Categories />} />
-              <Route path="authors" element={<Authors />} />
-            </Route>
+
+            <Route path="/authors" element={<Authors />} />
+            <Route path="/authors/new" element={<CreateAuthor />} />
+
+            <Route path="/books" element={<Books />} />
+            <Route path="/books/new" element={<CreateBooks />} />
+
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/new" element={<CreateCategory />} />
 
             <Route path="/book-requests" element={<BookRequests />} />
+
             <Route path="/users" element={<Users />} />
           </Route>
 

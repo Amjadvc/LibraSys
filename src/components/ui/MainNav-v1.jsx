@@ -3,6 +3,8 @@ import {
   HiOutlineBookOpen,
   HiOutlineClipboardList,
   HiOutlineHome,
+  HiOutlineTag,
+  HiOutlineUserGroup,
   HiOutlineUsers,
 } from 'react-icons/hi';
 import NavItem from './NavItem';
@@ -34,10 +36,36 @@ function MainNav() {
           setOpenMenu={setOpenMenu}
           items={[
             { to: '/books', label: 'All Books' },
-            { to: '/books/categories', label: 'Categories' },
-            { to: '/books/authors', label: 'Authors' },
+            { to: '/authors', label: 'Authors' },
+            { to: '/categories', label: 'Categories' },
           ]}
         />
+
+        {/* <DropdownNavItem
+          to="/authors"
+          icon={HiOutlineUserGroup}
+          label="Authors"
+          closeAllMenus={closeAllMenus}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+          items={[
+            { to: '/authors', label: 'All authors' },
+            { to: '/authors/new', label: 'Add author' },
+          ]}
+        />
+
+        <DropdownNavItem
+          to="/categories"
+          icon={HiOutlineTag}
+          label="Categories"
+          closeAllMenus={closeAllMenus}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+          items={[
+            { to: '/categories', label: 'All categories' },
+            { to: '/categories/new', label: 'Add categore' },
+          ]}
+        /> */}
 
         <NavItem to="/book-requests" onClick={closeAllMenus}>
           <HiOutlineClipboardList className={iconStyle} />
