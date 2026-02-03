@@ -5,7 +5,6 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
     last:border-b-0
     border-b border-background-200
     dark:border-background-700
-    max-[992px]:grid-cols-1 max-[992px]:gap-4
   `;
 
   const typeClasses = {
@@ -13,6 +12,11 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
       grid items-center gap-6
       grid-cols-[130px_260px_1fr]
       min-[993px]:max-[1200px]:grid-cols-[150px_230px_1fr]
+      max-[992px]:grid-cols-1 max-[992px]:gap-4
+
+    `,
+    catergoryFormStyle: `
+      grid items-center gap-6
     `,
     createBookFormStyle: `
       grid items-center gap-6

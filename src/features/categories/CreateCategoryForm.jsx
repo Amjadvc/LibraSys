@@ -6,7 +6,7 @@ import Input from '../../components/ui/Input';
 function CreateCategoryForm() {
   return (
     <Form>
-      <FormRow label="Category Name" type="bookFormStyle">
+      <FormRow label="Category Name" type="catergoryFormStyle">
         <Input type="text" name="title" className="h-[40px]" />
       </FormRow>
       <FormRow

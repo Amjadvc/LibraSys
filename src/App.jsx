@@ -1,11 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
-import Authors from './pages/AuthorPages/Authors';
-import CreateAuthor from './pages/AuthorPages/CreateAuthor';
-import Books from './pages/BookPages/Books';
-import CreateBooks from './pages/BookPages/CreateBooks';
-import Categories from './pages/CategoryPages/Categories';
-import CreateCategory from './pages/CategoryPages/CreateCategory';
+import Authors from './pages/Authors';
+import Books from './pages/Books';
+import CreateBooks from './pages/CreateBooks';
+import Categories from './pages/Categories';
 import PageNotFound from './pages/PageNotFound';
 import Users from './pages/Users';
 import Login from './pages/Login';

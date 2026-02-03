@@ -1,5 +1,5 @@
-import PageTitle from "../../components/ui/PageTitle";
-import CreateBook from "../../features/books/CreateBook";
+import PageTitle from "../components/ui/PageTitle";
+import CreateBook from "../features/books/CreateBook";
 
 function CreateBooks() {
   return (

@@ -8,7 +8,7 @@ function Table({ columns, minWidth = 800, children }) {
       <div
         role="table"
         style={{ minWidth }}
-        className="w-full min-w-[800px] overflow-hidden rounded-[7px] border border-background-200 bg-background-50 text-[14px]"
+        className="w-full overflow-hidden rounded-[7px] border border-background-200 bg-background-50 text-[14px]"
       >
         {children}
       </div>

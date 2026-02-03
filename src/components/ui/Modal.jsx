@@ -9,29 +9,32 @@ export const ModalContext = createContext();
 const baseModalClasses = `
   fixed left-1/2 top-1/2
   -translate-x-1/2 -translate-y-1/2
-  overflow-y-auto
-  rounded-2xl bg-background-50 shadow-lg
-  transition-all duration-500
+  max-h-[calc(100vh-50px)]
   text-text-700
   dark:bg-background-800 dark:text-text-100
+  rounded-2xl bg-background-50 shadow-lg
+  transition-all duration-500
   overflow-y-auto
+  scrollbar-thin
+  scrollbar-track-background-100
+  scrollbar-thumb-accent-500
+  dark:scrollbar-track-background-800
+  dark:scrollbar-thumb-accent-300
 `;
 
 const modalVariants = {
   select: 'max-w-[500px] w-[95%] overflow-y-visible px-12 py-8',
-  form: 'w-[92%] lg:max-w-[800px] px-12 py-8 ',
+  form: 'w-[92%] lg:max-w-[800px] px-12 py-8 ', //book
+  smallForm: 'w-[100%] max-w-[450px] px-12 py-6', //category //autheor
 };
 
-function CloseButton({
-  onClick,
-  colorClass = 'text-gray-500 dark:text-gray-300',
-}) {
+function CloseButton({ onClick }) {
   return (
     <button
       onClick={onClick}
-      className="hover:bg-accent-100 absolute right-5 top-3 translate-x-3 rounded-sm p-1 transition-all duration-200 hover:text-white"
+      className="absolute right-5 top-3 translate-x-3 rounded-sm p-1 transition-all duration-200 hover:bg-accent-100 hover:text-white"
     >
-      <HiXMark className={`h-6 w-6 ${colorClass}`} />
+      <HiXMark className={`h-6 w-6 text-gray-500`} />
     </button>
   );
 }
@@ -66,10 +69,7 @@ function Window({ children, name, type }) {
         ref={ref}
         className={`${baseModalClasses} ${modalVariants[type] || ''}`}
       >
-        <CloseButton
-          onClick={close}
-          colorClass={type === 'form' ? 'text-accent-500' : 'text-gray-500'}
-        />
+        <CloseButton onClick={close} />
         <div>{cloneElement(children, { onCloseModal: close })}</div>
       </div>
     </div>,

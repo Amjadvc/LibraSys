@@ -8,7 +8,7 @@ function CategoryTable() {
   return (
     <Menus>
       <ScrollWrapper>
-        <Table columns="4fr 1fr">
+        <Table columns="4fr 1fr" minWidth={500}>
           <Table.Header>
             <div>Name</div>
             <div>actions</div>

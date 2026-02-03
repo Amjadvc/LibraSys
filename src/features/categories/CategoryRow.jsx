@@ -3,7 +3,7 @@ import Table from '../../components/ui/Table';
 import ButtonIcon from '../../components/ui/ButtonIcon';
 import { HiPencil, HiTrash } from 'react-icons/hi2';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
-import EditCategory from './EditCategory';
+import EditCategoryForm from './EditCategoryForm';
 
 function CategoryRow({ category: { name, image } }) {
   return (
@@ -24,8 +24,8 @@ function CategoryRow({ category: { name, image } }) {
           </Modal.Open>
         </div>
 
-        <Modal.Window name="edit" type="form">
-          <EditCategory />
+        <Modal.Window name="edit" type="smallForm">
+          <EditCategoryForm />
         </Modal.Window>
 
         <Modal.Window name="delete" type="select">

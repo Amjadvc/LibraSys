@@ -3,10 +3,10 @@ import Form from '../../components/ui/Form';
 import FormRow from '../../components/ui/FormRow';
 import Input from '../../components/ui/Input';
 
-function EditCategory() {
+function EditCategoryForm() {
   return (
     <Form>
-      <FormRow label="Category Name *" type="bookFormStyle">
+      <FormRow label="Category Name *" type="catergoryFormStyle">
         <Input type="text" name="title" className="h-[40px]" />
       </FormRow>
       <FormRow
@@ -20,4 +20,4 @@ function EditCategory() {
   );
 }
 
-export default EditCategory;
+export default EditCategoryForm;
