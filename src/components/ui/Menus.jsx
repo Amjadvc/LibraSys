@@ -32,9 +32,9 @@ export function Toggle({ id }) {
   return (
     <button
       onClick={handleClick}
-      className="hover:bg-accent-100 translate-x-2 rounded-sm p-1 transition-all duration-200"
+      className="translate-x-2 rounded-sm p-1 transition-all duration-200 hover:bg-accent-100"
     >
-      <HiEllipsisVertical className="text-accent-500 h-6 w-6" />
+      <HiEllipsisVertical className="h-6 w-6 text-accent-500" />
     </button>
   );
 }
@@ -47,7 +47,7 @@ export function List({ id, children }) {
   return (
     <ul
       ref={ref}
-      className="bg-background-50 absolute right-0 top-10 z-10 m-0 list-none overflow-hidden rounded-md p-0 shadow-md"
+      className="absolute right-0 top-10 z-10 m-0 list-none overflow-hidden rounded-md bg-background-50 p-0 shadow-md"
     >
       {children}
     </ul>
@@ -65,7 +65,7 @@ function Button({ children, icon, onClick }) {
     <li>
       <button
         onClick={handleClicks}
-        className="text-text-700 hover:bg-accent-200 flex min-w-[150px] items-center gap-3 px-4 py-3 text-left text-[14px] font-medium transition-all duration-200 hover:text-white"
+        className="flex min-w-[150px] items-center gap-3 px-4 py-3 text-left text-[14px] font-medium text-text-700 transition-all duration-200 hover:bg-accent-200 hover:text-white"
       >
         <span>{icon}</span>
         {children && <span>{children}</span>}

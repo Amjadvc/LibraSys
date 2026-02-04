@@ -1,22 +1,22 @@
 import Button from '../../components/ui/Button';
 import Modal from '../../components/ui/Modal';
-import CreateCategoryForm from './CreateCategoryForm';
+import CreateAuthorForm from './CreateAuthorForm';
 
-function AddCategory() {
+function AddAuthor() {
   return (
     <div>
       <Modal>
-        <Modal.Open opens="category">
+        <Modal.Open opens="author">
           <Button variant="formbutton" customStyle="py-2 px-[8px]">
-            Add Category
+            Add Author
           </Button>
         </Modal.Open>
-        <Modal.Window name="category" type="smallForm">
-          <CreateCategoryForm />
+        <Modal.Window name="author" type="form">
+          <CreateAuthorForm />
         </Modal.Window>
       </Modal>
     </div>
   );
 }
 
-export default AddCategory;
+export default AddAuthor;

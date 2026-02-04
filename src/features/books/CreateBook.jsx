@@ -63,7 +63,6 @@ function CreateBook() {
       <FormRow label="Category" type="createBookFormStyle">
         <select
           name="category_id"
-          // className="h-[44px] rounded-[8px] border border-gray-300 px-3 py-2 text-[14px] text-[#363062] shadow-sm outline-none focus-within:ring-2 focus-within:ring-[#363062]/30"
           className="h-[40px] rounded-[8px] border border-background-300 bg-background-50 px-3 text-[14px] text-text-700 shadow-sm outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-400 dark:border-background-700 dark:bg-background-900 dark:text-text-100"
         >
           <option value="">Select category</option>
