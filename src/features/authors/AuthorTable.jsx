@@ -11,7 +11,7 @@ function AuthorTable() {
           <div>Name</div>
           <div>Birth Date</div>
           <div>Country</div>
-          <div>actions</div>
+          <div>doing</div>
         </Table.Header>
 
         <Table.Body
