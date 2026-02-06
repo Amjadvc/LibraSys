@@ -24,3 +24,4 @@ function AuthorTable() {
 }
 
 export default AuthorTable;
+  

@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import BookRequests from './pages/BookRequests';
 import AppLayout from './components/ui/AppLayout';
 import { DarkModeProvider } from './context/DarkModeContext';
+import CreateBook from './features/books/CreateBook';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route index element={<Books />} />
               <Route path="categories" element={<Categories />} />
               <Route path="authors" element={<Authors />} />
+              <Route path="add" element={<CreateBook />} />
             </Route>
 
             <Route path="/book-requests" element={<BookRequests />} />

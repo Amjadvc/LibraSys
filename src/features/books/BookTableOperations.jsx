@@ -10,11 +10,11 @@ function BookTableOperations() {
         filterField="discount"
         options={[
           { value: 'all', label: 'All' },
-          { value: 'no-discount', label: 'No discount' },
-          { value: 'with-discount', label: 'With discount' },
+          { value: 'available', label: 'Available' },
+          { value: 'borrowed', label: 'Borrowed' },
         ]}
       />
-      <SortBy
+      {/* <SortBy
         options={[
           { value: 'startDate-desc', label: 'Sort by date (recent first)' },
           { value: 'startDate-asc', label: 'Sort by date (earlier first)' },
@@ -24,9 +24,9 @@ function BookTableOperations() {
           },
           { value: 'totalPrice-asc', label: 'Sort by amount (low first)' },
         ]}
-      />
+      /> */}
 
-      <SearchInput placeholder="Search guests..." />
+      <SearchInput placeholder="Search books..." />
     </TableOperations>
   );
 }
