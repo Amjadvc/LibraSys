@@ -2,8 +2,12 @@ import Button from '../../components/ui/Button';
 import Form from '../../components/ui/Form';
 import FormRow from '../../components/ui/FormRow';
 import Input from '../../components/ui/Input';
+import Select from 'react-select';
+import { useCountry } from '../../hooks/useCountry';
+import { customStyles } from '../../styles/CustomeStye.js';
 
 function CreateAuthorForm() {
+  const { countries } = useCountry();
   return (
     <Form>
       <FormRow label="Author name" type="bookFormStyle">
@@ -20,11 +24,22 @@ function CreateAuthorForm() {
       </FormRow>
 
       <FormRow label="Country" type="bookFormStyle">
-        <Input
-          type="text"
-          name="country"
-          placeholder="e.g. USA"
-          className="h-[44px]"
+        <Select
+          options={countries}
+          styles={customStyles}
+          placeholder="Select a nationality..."
+          formatOptionLabel={(option) => (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <img
+                src={option.flag}
+                alt={`${option?.label} Flag`}
+                width="20"
+                height="15"
+                style={{ borderRadius: '3px', objectFit: 'cover' }}
+              />
+              <span>{option.label}</span>
+            </div>
+          )}
         />
       </FormRow>
 

@@ -11,15 +11,12 @@ const baseModalClasses = `
   -translate-x-1/2 -translate-y-1/2
   max-h-[calc(100vh-50px)]
   text-text-700
-  dark:bg-background-800 dark:text-text-100
   rounded-2xl bg-background-50 shadow-lg
   transition-all duration-500
   overflow-y-auto
   scrollbar-thin
   scrollbar-track-background-100
   scrollbar-thumb-accent-500
-  dark:scrollbar-track-background-800
-  dark:scrollbar-thumb-accent-300
 `;
 
 const modalVariants = {

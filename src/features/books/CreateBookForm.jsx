@@ -11,10 +11,10 @@ const categories = [
   { id: 4, name: 'History' },
 ];
 
-function CreateBook() {
+function CreateBookForm() {
   return (
     <Form>
-      <FormRow label="ISBN" type="createBookFormStyle">
+      <FormRow label="ISBN" type="bookFormStyle">
         <Input
           type="text"
           name="ISBN"
@@ -23,7 +23,7 @@ function CreateBook() {
           className="h-[44px]"
         />
       </FormRow>
-      <FormRow label="Title" type="createBookFormStyle">
+      <FormRow label="Title" type="bookFormStyle">
         <Input
           type="text"
           name="title"
@@ -31,7 +31,7 @@ function CreateBook() {
           className="h-[44px]"
         />
       </FormRow>
-      <FormRow label="Price" type="createBookFormStyle">
+      <FormRow label="Price" type="bookFormStyle">
         <Input
           type="number"
           step="0.01"
@@ -41,7 +41,7 @@ function CreateBook() {
         />
       </FormRow>
 
-      <FormRow label="Mortgage" type="createBookFormStyle">
+      <FormRow label="Mortgage" type="bookFormStyle">
         <Input
           type="number"
           step="0.01"
@@ -51,7 +51,7 @@ function CreateBook() {
         />
       </FormRow>
 
-      <FormRow label="Authorship Date" type="createBookFormStyle">
+      <FormRow label="Authorship Date" type="bookFormStyle">
         <Input
           type="date"
           name="authorship_date"
@@ -60,7 +60,7 @@ function CreateBook() {
         />
       </FormRow>
 
-      <FormRow label="Category" type="createBookFormStyle">
+      <FormRow label="Category" type="bookFormStyle">
         <select
           name="category_id"
           className="h-[40px] rounded-[8px] border border-background-300 bg-background-50 px-3 text-[14px] text-text-700 shadow-sm outline-none transition-all focus:border-primary-500 focus:ring-2 focus:ring-primary-400 dark:border-background-700 dark:bg-background-900 dark:text-text-100"
@@ -74,7 +74,7 @@ function CreateBook() {
         </select>
       </FormRow>
 
-      <FormRow label="Book Cover" type="createBookFormStyle">
+      <FormRow label="Book Cover" type="bookFormStyle">
         <FileInput name="cover" disabled={false} accept="image/*" />
       </FormRow>
 
@@ -89,4 +89,4 @@ function CreateBook() {
   );
 }
 
-export default CreateBook;
+export default CreateBookForm;

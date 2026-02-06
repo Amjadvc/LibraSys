@@ -4,14 +4,29 @@ import Table from '../../components/ui/Table';
 import ButtonIcon from '../../components/ui/ButtonIcon';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
 import CreateAuthorForm from './CreateAuthorForm';
+import { useCountry } from '../../hooks/useCountry';
 
 function AuthorRow({ author: { name, birth_date, country } }) {
+  const { countries } = useCountry();
+  const countryMap = countries.reduce((acc, c) => {
+    acc[c.label] = c; // key by country name
+    return acc;
+  }, {});
+
   return (
     <Table.Row>
       <div className="font-semibold text-text-800">{name}</div>
       <div className="text-[14px] text-text-500">{birth_date}</div>
-      <div>
-        <span className="inline-flex items-center rounded-full bg-background-200 px-3 py-[2px] text-[13px] font-medium text-text-700">
+      <div className="flex items-center gap-2">
+        {countryMap[country] && (
+          <img
+            src={countryMap[country].flag}
+            alt={`${country} flag`}
+            className="h-[16px] w-[24px] rounded-sm object-cover"
+          />
+        )}
+
+        <span className="text-[14px] font-semibold text-text-800">
           {country}
         </span>
       </div>

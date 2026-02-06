@@ -5,7 +5,7 @@ const variants = {
     'h-[45px] min-w-[140px] rounded-[20px]  text-[20px] font-semibold text-white',
 
   secondary:
-    'h-[45px] min-w-[140px] gap-2 rounded-[8px]  text-[18px] font-semibold text-white',
+    'h-[45px] min-w-[140px] gap-2 rounded-[8px]  text-[18px] font-semibold',
 
   third: `
     rounded-[8px]

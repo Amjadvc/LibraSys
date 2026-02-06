@@ -12,11 +12,11 @@ function Input({ type = 'text', isDarkMode, className = '', ...props }) {
   transition-all
   focus:ring-2 focus:ring-primary-400
   focus:border-primary-500
-  dark:bg-background-900
-  dark:border-background-700
-  dark:text-text-100
-  dark:focus:ring-primary-600
   `;
+  //  dark:bg-background-900
+  // dark:border-background-700
+  // dark:text-text-100
+  // dark:focus:ring-primary-600
 
   const dateClasses =
     type === 'date'

@@ -1,4 +1,4 @@
-import { HiPencil, HiTrash } from 'react-icons/hi2';
+import { HiEye, HiPencil, HiTrash } from 'react-icons/hi2';
 import { formatCurrency } from '../../utils/helpers';
 import Menus from '../../components/ui/Menus';
 import Table from '../../components/ui/Table';
@@ -6,10 +6,12 @@ import Modal from '../../components/ui/Modal';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
 import StatusBadge from './StatusBadge';
 import EditBook from './EditBook';
+import { useNavigate } from 'react-router-dom';
 
 function BookRow({
   book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },
 }) {
+  const navigate = useNavigate();
   return (
     <Table.Row className="hover:bg-50">
       <div>
@@ -31,6 +33,13 @@ function BookRow({
         <Menus.Menu>
           <Menus.Toggle id={bookId} />
           <Menus.List id={bookId}>
+            <Menus.Button
+              icon={<HiEye className="text-accent-500" />}
+              className="text-accent-500 hover:bg-accent-50"
+              onClick={() => navigate(`book/${bookId}`)}
+            >
+              See Details
+            </Menus.Button>
             <Modal.Open opens="edit">
               <Menus.Button
                 icon={<HiPencil className="text-accent-500" />}

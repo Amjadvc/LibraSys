@@ -4,8 +4,8 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
     first:pt-0 last:pb-0
     last:border-b-0
     border-b border-background-200
-    dark:border-background-700
   `;
+  // dark:border-background-700
 
   const typeClasses = {
     bookFormStyle: `
@@ -37,7 +37,7 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
       {label && (
         <label
           htmlFor={children.props.id}
-          className="text-[14px] font-medium text-text-600 dark:text-text-300"
+          className="text-[14px] font-medium text-text-800"
         >
           {label}
         </label>

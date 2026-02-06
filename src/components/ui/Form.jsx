@@ -4,10 +4,7 @@ const variants = {
     border border-background-200
     bg-background-50
     text-text-700
-    shadow-sm
-    dark:bg-background-800
-    dark:border-background-700
-    dark:text-text-100`,
+    shadow-sm`,
   modal: `w-[800px] `,
 };
 

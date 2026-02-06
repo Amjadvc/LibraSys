@@ -36,8 +36,7 @@ function TableRow({ children, className }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      // hover:bg-background-100
-      className={`grid cursor-pointer items-center gap-x-6 border-b border-background-200 px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
+      className={`grid items-center gap-x-6 border-b border-background-200 px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
     >
       {children}
     </div>
