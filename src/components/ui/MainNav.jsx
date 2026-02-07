@@ -2,11 +2,16 @@ import { useState } from 'react';
 import {
   HiOutlineBookOpen,
   HiOutlineClipboardList,
+  HiOutlineCube,
   HiOutlineHome,
   HiOutlineUsers,
 } from 'react-icons/hi';
 import NavItem from './NavItem';
 import DropdownNavItem from './DropdownNavItem';
+import {
+  HiOutlineArchiveBox,
+  HiOutlineClipboardDocumentList,
+} from 'react-icons/hi2';
 
 function MainNav() {
   const [openMenu, setOpenMenu] = useState(null);
@@ -38,6 +43,10 @@ function MainNav() {
             { to: '/books/authors', label: 'Authors' },
           ]}
         />
+        <NavItem to="/inventory" onClick={closeAllMenus}>
+          <HiOutlineArchiveBox className={iconStyle} />
+          <span className="text-[17px] font-medium">Inventory</span>
+        </NavItem>
 
         <NavItem to="/book-requests" onClick={closeAllMenus}>
           <HiOutlineClipboardList className={iconStyle} />

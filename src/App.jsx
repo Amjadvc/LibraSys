@@ -11,6 +11,7 @@ import BookRequests from './pages/BookRequests';
 import AppLayout from './components/ui/AppLayout';
 import { DarkModeProvider } from './context/DarkModeContext';
 import BookDetails from './features/books/BookDetails';
+import Inventory from './pages/Inventory';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
               <Route path="categories" element={<Categories />} />
               <Route path="authors" element={<Authors />} />
             </Route>
+
+            <Route path="/inventory" element={<Inventory />} />
 
             <Route path="/book-requests" element={<BookRequests />} />
             <Route path="/users" element={<Users />} />
