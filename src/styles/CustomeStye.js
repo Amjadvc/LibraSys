@@ -1,7 +1,7 @@
 export const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    height: 44,
+    minHeight: 44,
     borderRadius: 8,
     border: `1px solid var(--background-300)`,
     backgroundColor: `var(--background-50)`,
@@ -18,6 +18,18 @@ export const customStyles = {
     fontSize: 14,
     color: 'var(--text-700)',
   }),
+  multiValue: (provided) => ({
+    ...provided,
+    backgroundColor: 'var(--primary-100)',
+    borderRadius: 6,
+  }),
+  multiValueLabel: (provided) => ({
+    ...provided,
+    color: 'var(--primary-700)',
+    fontSize: 13,
+    fontWeight: 500,
+    padding: '4px 6px',
+  }),
   placeholder: (provided) => ({
     ...provided,
     color: 'var(--text-400)',
@@ -28,7 +40,7 @@ export const customStyles = {
     zIndex: 9999,
     borderRadius: 8,
     overflow: 'hidden',
-    maxHeight: '100px',
+    // maxHeight: '150px',
     backgroundColor: 'var(--background-50)',
   }),
   option: (provided, state) => ({

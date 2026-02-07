@@ -3,8 +3,8 @@ import Modal from '../../components/ui/Modal';
 import Table from '../../components/ui/Table';
 import ButtonIcon from '../../components/ui/ButtonIcon';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
-import CreateAuthorForm from './CreateAuthorForm';
 import { useCountry } from '../../hooks/useCountry';
+import EditAuthorForm from './EditAuthorForm';
 
 function AuthorRow({ author: { name, birth_date, country } }) {
   const { countries } = useCountry();
@@ -45,8 +45,8 @@ function AuthorRow({ author: { name, birth_date, country } }) {
           </Modal.Open>
         </div>
 
-        <Modal.Window name="edit" type="smallForm">
-          <CreateAuthorForm />
+        <Modal.Window name="edit" type="form">
+          <EditAuthorForm />
         </Modal.Window>
 
         <Modal.Window name="delete" type="select">

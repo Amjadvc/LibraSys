@@ -142,4 +142,9 @@
     --accent-900: #ecd9f2;
     --accent-950: #f6ecf8;
   }
+
+  input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
 }

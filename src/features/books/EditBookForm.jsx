@@ -1,8 +1,8 @@
+import Button from '../../components/ui/Button';
+import FileInput from '../../components/ui/FileInput';
 import Form from '../../components/ui/Form';
 import FormRow from '../../components/ui/FormRow';
 import Input from '../../components/ui/Input';
-import FileInput from '../../components/ui/FileInput';
-import Button from '../../components/ui/Button';
 import Select from 'react-select';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
@@ -57,53 +57,26 @@ const authorOptions = authors.map((author) => ({
   label: author.name,
 }));
 
-function CreateBookForm() {
+function EditBookForm() {
   const { isDarkMode } = useDarkMode();
   return (
     <Form>
-      <FormRow label="ISBN" type="bookFormStyle">
-        <Input
-          type="text"
-          name="ISBN"
-          placeholder="13-digit ISBN"
-          maxLength={13}
-          className="h-[44px]"
-        />
-      </FormRow>
       <FormRow label="Title" type="bookFormStyle">
-        <Input
-          type="text"
-          name="title"
-          placeholder="Enter book title"
-          className="h-[44px]"
-        />
+        <Input type="text" name="title" className="h-[40px]" />
       </FormRow>
       <FormRow label="Price" type="bookFormStyle">
-        <Input
-          type="number"
-          step="0.01"
-          name="price"
-          placeholder="Enter price (e.g. 19.99)"
-          className="h-[44px]"
-        />
+        <Input type="number" step="0.01" name="price" className="h-[40px]" />
       </FormRow>
 
       <FormRow label="Mortgage" type="bookFormStyle">
-        <Input
-          type="number"
-          step="0.01"
-          name="mortgage"
-          placeholder="Enter mortgage value"
-          className="h-[44px]"
-        />
+        <Input type="number" step="0.01" name="mortgage" className="h-[40px]" />
       </FormRow>
 
       <FormRow label="Authorship Date" type="bookFormStyle">
         <Input
           type="date"
           name="authorship_date"
-          placeholder="Select authorship date"
-          className="h-[44px]"
+          className="h-[40px]"
           isDarkMode={isDarkMode}
         />
       </FormRow>
@@ -133,11 +106,11 @@ function CreateBookForm() {
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancel</Button>
-        <Button variant="formbutton">Add new book</Button>
+        <Button variant="third">Cancle</Button>
+        <Button variant="formbutton">Edit book</Button>
       </FormRow>
     </Form>
   );
 }
 
-export default CreateBookForm;
+export default EditBookForm;

@@ -5,8 +5,8 @@ import Table from '../../components/ui/Table';
 import Modal from '../../components/ui/Modal';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
 import StatusBadge from './StatusBadge';
-import EditBook from './EditBook';
 import { useNavigate } from 'react-router-dom';
+import EditBookForm from './EditBookForm';
 
 function BookRow({
   book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },
@@ -64,7 +64,7 @@ function BookRow({
           <ConfirmDelete resourceName="books" />
         </Modal.Window>
         <Modal.Window name="edit" type="form">
-          <EditBook />
+          <EditBookForm />
         </Modal.Window>
       </Modal>
     </Table.Row>

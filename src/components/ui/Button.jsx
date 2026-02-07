@@ -13,8 +13,6 @@ const variants = {
     text-primary-600
     hover:bg-primary-100
     hover:border-primary-600
-    dark:text-primary-400
-    dark:hover:bg-primary-800
     px-5 py-2
     text-[16px]
     font-medium

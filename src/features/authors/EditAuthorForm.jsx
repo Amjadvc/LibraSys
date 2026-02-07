@@ -7,7 +7,7 @@ import { useCountry } from '../../hooks/useCountry';
 import { customStyles } from '../../styles/CustomeStye.js';
 import { useDarkMode } from '../../context/DarkModeContext.jsx';
 
-function CreateAuthorForm() {
+function EditAuthorForm() {
   const { countries } = useCountry();
   const { isDarkMode } = useDarkMode();
   return (
@@ -61,4 +61,4 @@ function CreateAuthorForm() {
   );
 }
 
-export default CreateAuthorForm;
+export default EditAuthorForm;
