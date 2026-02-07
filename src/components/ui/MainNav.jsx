@@ -4,6 +4,7 @@ import {
   HiOutlineClipboardList,
   HiOutlineCube,
   HiOutlineHome,
+  HiOutlineSwitchHorizontal,
   HiOutlineUsers,
 } from 'react-icons/hi';
 import NavItem from './NavItem';
@@ -47,6 +48,20 @@ function MainNav() {
           <HiOutlineArchiveBox className={iconStyle} />
           <span className="text-[17px] font-medium">Inventory</span>
         </NavItem>
+
+        <DropdownNavItem
+          to="/transactions"
+          icon={HiOutlineSwitchHorizontal}
+          label="Transactions"
+          closeAllMenus={closeAllMenus}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+          items={[
+            { to: '/transactions', label: 'Delivery' },
+            { to: '/transactions/returns', label: 'Returns' },
+            { to: '/transactions/terminate', label: 'Terminate' },
+          ]}
+        />
 
         <NavItem to="/book-requests" onClick={closeAllMenus}>
           <HiOutlineClipboardList className={iconStyle} />

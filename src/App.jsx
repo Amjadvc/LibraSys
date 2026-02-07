@@ -12,6 +12,9 @@ import AppLayout from './components/ui/AppLayout';
 import { DarkModeProvider } from './context/DarkModeContext';
 import BookDetails from './features/books/BookDetails';
 import Inventory from './pages/Inventory';
+import BookDelivery from './pages/BookDelivery';
+import BookReturns from './pages/BookReturns';
+import TerminateBooks from './pages/TerminateBooks';
 
 function App() {
   return (
@@ -22,7 +25,6 @@ function App() {
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
 
-            {/* BOOKS MODULE */}
             <Route path="books">
               <Route index element={<Books />} />
               <Route path="book/:id" element={<BookDetails />} />
@@ -31,6 +33,12 @@ function App() {
             </Route>
 
             <Route path="/inventory" element={<Inventory />} />
+
+            <Route path="transactions">
+              <Route index element={<BookDelivery />} />
+              <Route path="returns" element={<BookReturns />} />
+              <Route path="terminate" element={<TerminateBooks />} />
+            </Route>
 
             <Route path="/book-requests" element={<BookRequests />} />
             <Route path="/users" element={<Users />} />
