@@ -84,6 +84,10 @@ function InventoryOperationForm() {
         </FormRow>
       )}
 
+      <FormRow label="Operation Date & Time" type="createBookFormStyle">
+        <Input type="date" className="h-[44px]" />
+      </FormRow>
+
       <FormRow
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
