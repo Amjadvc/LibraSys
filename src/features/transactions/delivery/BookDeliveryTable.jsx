@@ -1,15 +1,15 @@
-import Pagination from '../../components/ui/Pagination';
-import ScrollWrapper from '../../components/ui/ScrollWrapper';
-import Table from '../../components/ui/Table';
+import Pagination from '../../../components/ui/Pagination';
+import ScrollWrapper from '../../../components/ui/ScrollWrapper';
+import Table from '../../../components/ui/Table';
 import BookDeliveryRow from './BookDeliveryRow';
 import { transactions } from './data/fakeTransactions';
 
 function BookDeliveryTable() {
   return (
     <ScrollWrapper>
-      <Table columns="70px 3fr 1.5fr 1fr  2fr 1fr 100px" minWidth={500}>
+      <Table columns="70px 2.4fr 1.4fr 100px 1fr 1fr 100px" minWidth={800}>
         <Table.Header>
-          <div>Tx ID</div>
+          <div>Tr-Id</div>
           <div>Book</div>
           <div>Customer</div>
           <div>Status</div>

@@ -25,19 +25,8 @@ const variants = {
   formbutton:
     'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-text-50 dark:text-white transition-colors',
 
-  delivery: `
-  flex items-center gap-1 justify-center
-  rounded-full
-  bg-[#b38a0e]
-  hover:bg-yellow-600
-  px-2 py-1.5
-  text-[13px]
-  font-semibold
-  text-white
-  shadow-sm
-  transition-all
-  hover:shadow-md
-  `,
+  delivery: `inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition border border-primary-200 bg-primary-500 text-white shadow-sm shadow-primary-300/40 hover:bg-primary-600 `,
+  collected: `inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition cursor-not-allowed border border-background-200 bg-background-100 text-text-400`,
 };
 
 function Button({ children, onClick, variant = 'primary', customStyle = '' }) {

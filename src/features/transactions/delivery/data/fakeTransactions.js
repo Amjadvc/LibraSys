@@ -12,7 +12,7 @@ export const transactions = [
     },
     status: 'reserved', // reserved | collected
     quantity: 1,
-    createdAt: '2026-02-01 10:30',
+    createdAt: '2026-02-01',
     dueDate: '2026-02-15',
   },
   {
@@ -28,7 +28,7 @@ export const transactions = [
     },
     status: 'collected',
     quantity: 1,
-    createdAt: '2026-01-28 14:10',
+    createdAt: '2026-01-28',
     dueDate: '2026-02-11',
   },
   {
@@ -44,7 +44,7 @@ export const transactions = [
     },
     status: 'reserved',
     quantity: 2,
-    createdAt: '2026-02-02 09:00',
+    createdAt: '2026-02-02',
     dueDate: '2026-02-16',
   },
   {
@@ -60,7 +60,7 @@ export const transactions = [
     },
     status: 'collected',
     quantity: 1,
-    createdAt: '2026-01-25 16:45',
+    createdAt: '2026-01-25',
     dueDate: '2026-02-08',
   },
 ];

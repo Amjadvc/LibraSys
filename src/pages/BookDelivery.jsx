@@ -1,7 +1,8 @@
 import PageTitle from '../components/ui/PageTitle';
 import Row from '../components/ui/Row';
-import BookDeliveryOperations from '../features/transactions-delivery/BookDeliveryOperations';
-import BookDeliveryTable from '../features/transactions-delivery/BookDeliveryTable';
+import AddTransactionDelivery from '../features/transactions/delivery/AddTransactionDelivery';
+import BookDeliveryOperations from '../features/transactions/delivery/BookDeliveryOperations';
+import BookDeliveryTable from '../features/transactions/delivery/BookDeliveryTable';
 
 function BookDelivery() {
   return (
@@ -16,6 +17,7 @@ function BookDelivery() {
         <BookDeliveryOperations />
       </Row>
       <BookDeliveryTable />
+      <AddTransactionDelivery />
     </>
   );
 }

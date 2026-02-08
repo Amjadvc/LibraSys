@@ -1,5 +1,5 @@
-import Filter from '../../components/ui/Filter';
-import TableOperations from '../../components/ui/TableOperations';
+import Filter from '../../../components/ui/Filter';
+import TableOperations from '../../../components/ui/TableOperations';
 
 function BookDeliveryOperations() {
   return (
