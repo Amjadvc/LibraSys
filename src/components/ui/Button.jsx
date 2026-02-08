@@ -24,6 +24,20 @@ const variants = {
 
   formbutton:
     'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-text-50 dark:text-white transition-colors',
+
+  delivery: `
+  flex items-center gap-1 justify-center
+  rounded-full
+  bg-[#b38a0e]
+  hover:bg-yellow-600
+  px-2 py-1.5
+  text-[13px]
+  font-semibold
+  text-white
+  shadow-sm
+  transition-all
+  hover:shadow-md
+  `,
 };
 
 function Button({ children, onClick, variant = 'primary', customStyle = '' }) {

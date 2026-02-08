@@ -1,5 +1,11 @@
+import PageTitle from '../components/ui/PageTitle';
+
 function BookReturns() {
-  return <div>BookReturns</div>;
+  return (
+    <>
+      <PageTitle title="Book Delivery" />
+    </>
+  );
 }
 
 export default BookReturns;
