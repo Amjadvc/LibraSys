@@ -7,7 +7,7 @@ function AddAuthor() {
     <div>
       <Modal>
         <Modal.Open opens="author">
-          <Button variant="formbutton" customStyle="py-2 px-[8px]">
+          <Button variant="formbutton" customStyle="py-3 text-sm">
             Add Author
           </Button>
         </Modal.Open>

@@ -1,17 +1,18 @@
 import Button from '../../../components/ui/Button';
 import Modal from '../../../components/ui/Modal';
+import CreateTransactionDeliveryForm from './CreateTransactionDeliveryForm';
 
 function AddTransactionDelivery() {
   return (
     <div>
       <Modal>
-        <Modal.Open opens="addBook">
-          <Button variant="formbutton" customStyle="py-2 px-[8px]">
+        <Modal.Open opens="addTransactionDeliver">
+          <Button variant="formbutton" customStyle="py-3 text-sm">
             Add Transaction Delivery
           </Button>
         </Modal.Open>
-        <Modal.Window name="addBook" type="form">
-          {/* <CreateBookForm /> */}
+        <Modal.Window name="addTransactionDeliver" type="form">
+          <CreateTransactionDeliveryForm />
         </Modal.Window>
       </Modal>
     </div>

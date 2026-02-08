@@ -7,7 +7,7 @@ function AddBook() {
     <div>
       <Modal>
         <Modal.Open opens="addBook">
-          <Button variant="formbutton" customStyle="py-2 px-[8px]">
+          <Button variant="formbutton" customStyle="py-3 text-sm">
             Add Book
           </Button>
         </Modal.Open>
