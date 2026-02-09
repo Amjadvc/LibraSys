@@ -137,12 +137,7 @@ function ConfirmReturnTransaction({ transaction }) {
           Cancel
         </Button>
 
-        <Button
-          variant="formbutton"
-          customStyle="w-1/2 bg-green-600 hover:bg-green-700"
-        >
-          Confirm Return
-        </Button>
+        <Button variant="confirmReturn">Confirm Return</Button>
       </div>
     </div>
   );

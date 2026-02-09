@@ -14,7 +14,7 @@ import BookDetails from './features/books/BookDetails';
 import Inventory from './pages/Inventory';
 import BookDelivery from './pages/BookDelivery';
 import BookReturns from './pages/BookReturns';
-import TerminateBooks from './pages/TerminateBooks';
+import BookTerminate from './pages/BookTerminate';
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
             <Route path="transactions">
               <Route index element={<BookDelivery />} />
               <Route path="returns" element={<BookReturns />} />
-              <Route path="terminate" element={<TerminateBooks />} />
+              <Route path="terminate" element={<BookTerminate />} />
             </Route>
 
             <Route path="/book-requests" element={<BookRequests />} />

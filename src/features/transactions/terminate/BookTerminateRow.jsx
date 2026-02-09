@@ -1,10 +1,10 @@
-import Table from '../../../components/ui/Table';
-import Modal from '../../../components/ui/Modal';
-import StatusBadge from '../../books/StatusBadge';
 import Button from '../../../components/ui/Button';
-import ConfirmTransaction from '../../../components/ui/ConfirmTransaction';
+import Modal from '../../../components/ui/Modal';
+import Table from '../../../components/ui/Table';
+import StatusBadge from '../../books/StatusBadge';
+import ConfirmTerminateTransaction from './ConfirmTerminateTransaction';
 
-function BookDeliveryRow({ transaction }) {
+function BookTerminateRow({ transaction }) {
   const {
     id,
     book,
@@ -14,13 +14,8 @@ function BookDeliveryRow({ transaction }) {
     dueDate,
     price: transactionPrice,
     mortgage: transactionMortgage,
-    extraPrice,
-    extensionCount,
   } = transaction;
 
-  const isCollected = status === 'collected';
-
-  // حساب المبلغ الإجمالي
   const totalPrice = (transactionPrice || book.price || 0) * quantity;
   const totalMortgage = (transactionMortgage || book.mortgage || 0) * quantity;
 
@@ -71,22 +66,16 @@ function BookDeliveryRow({ transaction }) {
 
       {/* Actions */}
       <Modal>
-        {!isCollected ? (
-          <Modal.Open opens="delivery">
-            <Button variant="delivery">Deliver</Button>
-          </Modal.Open>
-        ) : (
-          <Button variant="collected" disabled={isCollected}>
-            Collected
-          </Button>
-        )}
+        <Modal.Open opens="terminate">
+          <Button variant="terminate">Terminate</Button>
+        </Modal.Open>
 
-        <Modal.Window name="delivery" type="select">
-          <ConfirmTransaction actionType="Delivery" targetStatus="Collected" />
+        <Modal.Window name="terminate" type="selectTerminate">
+          <ConfirmTerminateTransaction transaction={transaction} />
         </Modal.Window>
       </Modal>
     </Table.Row>
   );
 }
 
-export default BookDeliveryRow;
+export default BookTerminateRow;
