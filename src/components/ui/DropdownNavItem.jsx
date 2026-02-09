@@ -24,10 +24,10 @@ function DropdownNavItem({
       >
         <NavLink to={to} className={NavLinkStyle} onClick={closeAllMenus}>
           <Icon className={iconStyle} />
-          <span className="flex items-center gap-[5px] text-[17px] font-medium">
+          <span className="flex items-center gap-[5px] text-[16px] font-medium">
             {label}
             <HiChevronRight
-              className="h-full w-6 transition-transform duration-300 ease-in-out"
+              className="h-full w-4 transition-transform duration-300 ease-in-out"
               style={{
                 transform:
                   openMenu === label ? 'rotate(90deg)' : 'rotate(0deg)',

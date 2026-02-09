@@ -1,6 +1,5 @@
 import Filter from '../../components/ui/Filter';
 import SearchInput from '../../components/ui/SearchInput';
-import SortBy from '../../components/ui/SortBy';
 import TableOperations from '../../components/ui/TableOperations';
 
 function BookTableOperations() {

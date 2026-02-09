@@ -107,6 +107,9 @@ const variants = {
     justify-center
     gap-3
   `,
+  review: `
+    inline-flex h-8 items-center justify-center rounded-full border px-3 text-[11px] font-medium md:text-xs border-violet-500 bg-violet-600 text-white
+  `,
 };
 
 function Button({
