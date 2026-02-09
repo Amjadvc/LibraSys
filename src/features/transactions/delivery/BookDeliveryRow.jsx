@@ -1,4 +1,3 @@
-import { HiCheckCircle } from 'react-icons/hi2';
 import Table from '../../../components/ui/Table';
 import Modal from '../../../components/ui/Modal';
 import StatusBadge from '../../books/StatusBadge';
