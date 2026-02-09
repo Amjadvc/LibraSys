@@ -8,7 +8,7 @@ function Table({ columns, minWidth = 800, children }) {
       <div
         role="table"
         style={{ minWidth }}
-        className="w-full overflow-hidden rounded-[7px] border border-background-200 bg-background-50 text-[14px]"
+        className="w-full overflow-hidden rounded-[7px] border border-background-200 bg-white text-[14px] dark:bg-background-50"
       >
         {children}
       </div>
@@ -22,7 +22,7 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-background-200 bg-background-100 px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-text-700"
+      className="grid items-center gap-x-6 border-b border-background-200 bg-background-50 px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-text-700 dark:bg-background-100"
     >
       {children}
     </div>
@@ -59,7 +59,7 @@ function TableFooter({ children }) {
   if (!children) return null;
 
   return (
-    <footer className="flex justify-center bg-background-100 px-4 py-3">
+    <footer className="flex justify-center bg-background-50 px-4 py-3 dark:bg-background-100">
       {children}
     </footer>
   );

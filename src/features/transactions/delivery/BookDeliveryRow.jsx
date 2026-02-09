@@ -5,10 +5,24 @@ import Button from '../../../components/ui/Button';
 import ConfirmTransaction from '../../../components/ui/ConfirmTransaction';
 
 function BookDeliveryRow({ transaction }) {
-  const { id, book, customer, status, quantity, createdAt, dueDate } =
-    transaction;
+  const {
+    id,
+    book,
+    customer,
+    status,
+    quantity,
+    dueDate,
+    price: transactionPrice,
+    mortgage: transactionMortgage,
+    extraPrice,
+    extensionCount,
+  } = transaction;
 
   const isCollected = status === 'collected';
+
+  // حساب المبلغ الإجمالي
+  const totalPrice = (transactionPrice || book.price || 0) * quantity;
+  const totalMortgage = (transactionMortgage || book.mortgage || 0) * quantity;
 
   return (
     <Table.Row className="hover:bg-background-50">
@@ -42,8 +56,15 @@ function BookDeliveryRow({ transaction }) {
         <StatusBadge status={status} />
       </div>
 
-      {/* Created At */}
-      <div className="text-sm text-text-600">{createdAt}</div>
+      {/* PRICE/MORT*/}
+      <div className="space-y-0.5 text-sm">
+        <div className="font-medium text-text-800">
+          ${totalPrice.toFixed(2)}
+        </div>
+        <div className="text-xs text-text-500">
+          Mort: ${totalMortgage.toFixed(2)}
+        </div>
+      </div>
 
       {/* Due Date */}
       <div className="text-sm text-text-600">{dueDate}</div>

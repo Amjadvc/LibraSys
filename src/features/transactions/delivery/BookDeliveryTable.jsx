@@ -13,7 +13,7 @@ function BookDeliveryTable() {
           <div>Book</div>
           <div>Customer</div>
           <div>Status</div>
-          <div>Created At</div>
+          <div>PRICE/MORT</div>
           <div>Due Date</div>
           <div>Action</div>
         </Table.Header>
