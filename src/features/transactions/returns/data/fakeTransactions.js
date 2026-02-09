@@ -1,0 +1,178 @@
+export const transactions = [
+  {
+    id: 101,
+    book: {
+      id: 1,
+      title: 'Clean Code',
+      cover: 'https://picsum.photos/40/60?random=1',
+      price: 25,
+      mortgage: 10,
+    },
+    customer: {
+      id: 201,
+      name: 'Ahmed Ali',
+    },
+    status: 'collected', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-02-01',
+    dueDate: '2026-02-15',
+    price: 18.0,
+    mortgage: 20.0,
+    extraPrice: 3,
+    extensionCount: 2,
+  },
+  {
+    id: 102,
+    book: {
+      id: 2,
+      title: 'The Pragmatic Programmer',
+      cover: 'https://picsum.photos/40/60?random=2',
+      price: 50,
+      mortgage: 29,
+    },
+    customer: {
+      id: 202,
+      name: 'Sara Hassan',
+    },
+    status: 'paid', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-01-28',
+    dueDate: '2026-02-11',
+    price: 20.0,
+    mortgage: 70.0,
+    extraPrice: 20,
+    extensionCount: 10,
+  },
+  {
+    id: 103,
+    book: {
+      id: 3,
+      title: 'Clean Architecture',
+      cover: 'https://picsum.photos/40/60?random=3',
+      price: 22,
+      mortgage: 15,
+    },
+    customer: {
+      id: 203,
+      name: 'Omar Khaled',
+    },
+    status: 'collected', // ✅ يمكن إرجاعه
+    quantity: 2,
+    createdAt: '2026-02-02',
+    dueDate: '2026-02-16',
+    price: 15.0,
+    mortgage: 30.0,
+    extraPrice: 0,
+    extensionCount: 0,
+  },
+  {
+    id: 104,
+    book: {
+      id: 4,
+      title: 'Refactoring',
+      cover: 'https://picsum.photos/40/60?random=4',
+      price: 5,
+      mortgage: 12,
+    },
+    customer: {
+      id: 204,
+      name: 'Lina Youssef',
+    },
+    status: 'collected', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-01-25',
+    dueDate: '2026-02-08',
+    price: 19.0,
+    mortgage: 80.0,
+    extraPrice: 50,
+    extensionCount: 88,
+  },
+  {
+    id: 105,
+    book: {
+      id: 5,
+      title: 'Design Patterns',
+      cover: 'https://picsum.photos/40/60?random=5',
+      price: 30,
+      mortgage: 15,
+    },
+    customer: {
+      id: 205,
+      name: 'Mohammed Saleh',
+    },
+    status: 'paid', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-01-30',
+    dueDate: '2026-02-13',
+    price: 25.0,
+    mortgage: 50.0,
+    extraPrice: 5,
+    extensionCount: 1,
+  },
+  {
+    id: 106,
+    book: {
+      id: 6,
+      title: 'JavaScript: The Good Parts',
+      cover: 'https://picsum.photos/40/60?random=6',
+      price: 28,
+      mortgage: 14,
+    },
+    customer: {
+      id: 206,
+      name: 'Fatima Nasser',
+    },
+    status: 'collected', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-02-05',
+    dueDate: '2026-02-19',
+    price: 28.0,
+    mortgage: 14.0,
+    extraPrice: 0,
+    extensionCount: 0,
+  },
+  {
+    id: 107,
+    book: {
+      id: 7,
+      title: 'Eloquent JavaScript',
+      cover: 'https://picsum.photos/40/60?random=7',
+      price: 35,
+      mortgage: 18,
+    },
+    customer: {
+      id: 207,
+      name: 'Khalid Mahmoud',
+    },
+    status: 'paid', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-02-03',
+    dueDate: '2026-02-17',
+    price: 35.0,
+    mortgage: 18.0,
+    extraPrice: 0,
+    extensionCount: 0,
+  },
+  {
+    id: 108,
+    book: {
+      id: 8,
+      title: 'React Explained',
+      cover: 'https://picsum.photos/40/60?random=8',
+      price: 40,
+      mortgage: 20,
+    },
+    customer: {
+      id: 208,
+      name: 'Noura Ahmed',
+    },
+    status: 'collected', // ✅ يمكن إرجاعه
+    quantity: 1,
+    createdAt: '2026-01-20',
+    dueDate: '2026-02-03',
+    price: 40.0,
+    mortgage: 20.0,
+    extraPrice: 25,
+    extensionCount: 3,
+  },
+];

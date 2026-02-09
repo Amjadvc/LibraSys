@@ -17,11 +17,11 @@ function StatusBadge({ status }) {
 
     // 🔄 Transaction statuses
     case 'reserved':
-      styles = 'bg-yellow-100 text-yellow-700';
+      styles = 'bg-yellow-100 text-yellow-700 border border-yellow-200';
       break;
 
     case 'collected':
-      styles = 'bg-green-100 text-green-700';
+      styles = 'bg-green-100 text-green-700 border border-green-200';
       break;
 
     case 'returned':
@@ -29,7 +29,7 @@ function StatusBadge({ status }) {
       break;
 
     case 'paid':
-      styles = 'bg-purple-100 text-purple-700';
+      styles = 'bg-orange-100 text-orange-700 border border-orange-200';
       break;
 
     case 'terminated':
