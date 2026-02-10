@@ -18,6 +18,10 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
     catergoryFormStyle: `
       grid items-center gap-6
     `,
+    deliveryFormStyle: `
+      grid items-center gap-2
+      grid-cols-[200px,1fr]
+    `,
     createBookFormStyle: `
       grid items-center gap-6
       grid-cols-[200px_1fr_1fr]

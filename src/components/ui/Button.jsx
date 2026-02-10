@@ -95,18 +95,6 @@ const variants = {
     disabled:active:scale-100
   `,
 
-  payment: `
-    flex-1
-    rounded-xl
-    border-2
-    p-4
-    transition-all
-    duration-200
-    flex
-    items-center
-    justify-center
-    gap-3
-  `,
   review: `
     inline-flex h-8 items-center justify-center rounded-full border px-3 text-[11px] font-medium md:text-xs border-violet-500 bg-violet-600 text-white
   `,

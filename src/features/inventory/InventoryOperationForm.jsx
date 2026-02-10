@@ -6,6 +6,9 @@ import Select from 'react-select';
 import { customStyles } from '../../styles/CustomeStye';
 import Input from '../../components/ui/Input';
 import Button from '../../components/ui/Button';
+import SegmentedRadioGroup from '../../components/ui/SegmentedRadioGroup';
+import { BiBookAdd } from 'react-icons/bi';
+import { LuBookX } from 'react-icons/lu';
 
 function InventoryOperationForm() {
   const [type, setType] = useState('add');
@@ -42,25 +45,25 @@ function InventoryOperationForm() {
       </FormRow>
 
       <FormRow label="Operation" type="createBookFormStyle">
-        <div className="flex justify-between gap-6 font-semibold">
-          <label className="flex items-center gap-2">
-            <input
-              type="radio"
-              checked={type === 'add'}
-              onChange={() => setType('add')}
-            />
-            Add copies
-          </label>
-
-          <label className="flex items-center gap-2 text-red-500">
-            <input
-              type="radio"
-              checked={type === 'destroy'}
-              onChange={() => setType('destroy')}
-            />
-            Destroy copies
-          </label>
-        </div>
+        <SegmentedRadioGroup
+          name="inventoryOperation"
+          value={type}
+          onChange={setType}
+          options={[
+            {
+              value: 'add',
+              label: 'Add copies',
+              icon: BiBookAdd,
+              activeClass: 'border-green-500 bg-green-50 text-green-700',
+            },
+            {
+              value: 'destroy',
+              label: 'Destroy copies',
+              icon: LuBookX,
+              activeClass: 'border-red-500 bg-red-50 text-red-700',
+            },
+          ]}
+        />
       </FormRow>
 
       <FormRow label="Quantity" type="createBookFormStyle">

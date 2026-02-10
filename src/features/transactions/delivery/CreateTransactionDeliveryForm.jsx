@@ -8,6 +8,7 @@ import Form from '../../../components/ui/Form';
 import Button from '../../../components/ui/Button';
 import PriceSummary from './PriceSummary';
 import Select from 'react-select';
+import SegmentedRadioGroup from '../../../components/ui/SegmentedRadioGroup';
 
 const bookOptions = books.map((book) => ({
   value: book.id,
@@ -35,8 +36,9 @@ function CreateTransactionDeliveryForm() {
   const totalPrice = bookPrice + mortgagePrice;
 
   return (
-    <Form>
-      <FormRow label="Select Book" type="catergoryFormStyle">
+    <Form varinet="regular">
+      {/* Book Selection */}
+      <FormRow label="Select Book" type="deliveryFormStyle">
         <Select
           options={bookOptions}
           placeholder="Select a book..."
@@ -56,7 +58,8 @@ function CreateTransactionDeliveryForm() {
         />
       </FormRow>
 
-      <FormRow label="Select Customer" type="catergoryFormStyle">
+      {/* Customer Selection */}
+      <FormRow label="Select Customer" type="deliveryFormStyle">
         <Select
           options={customerOptions}
           placeholder="Select a customer..."
@@ -64,8 +67,8 @@ function CreateTransactionDeliveryForm() {
         />
       </FormRow>
 
-      <FormRow label="Quantity" htmlFor="quantity" type="catergoryFormStyle">
-        <div className="flex items-center justify-start gap-3">
+      <FormRow label="Quantity" htmlFor="quantity" type="deliveryFormStyle">
+        <div className="flex items-center gap-3">
           <Button
             type="button"
             variant="quantity"
@@ -96,49 +99,33 @@ function CreateTransactionDeliveryForm() {
         </div>
       </FormRow>
 
-      <FormRow label="Payment Method" type="catergoryFormStyle">
-        <div className="flex gap-4">
-          {/* Cash */}
-          <Button
-            type="button"
-            variant="payment"
-            onClick={() => setPaymentMethod('cash')}
-            customStyle={`
-              ${
-                paymentMethod === 'cash'
-                  ? 'border-primary-500 bg-primary-50 text-primary-700'
-                  : 'border-background-200 bg-background-50 text-text-700 hover:bg-background-100'
-              }
-            `}
-          >
-            <HiBanknotes className="text-2xl" />
-            <div className="flex flex-col text-left">
-              <span className="font-medium">Cash</span>
-            </div>
-          </Button>
-
-          {/* Online */}
-          <Button
-            type="button"
-            variant="payment"
-            onClick={() => setPaymentMethod('online')}
-            customStyle={`
-              ${
-                paymentMethod === 'online'
-                  ? 'border-primary-500 bg-primary-50 text-primary-700'
-                  : 'border-background-200 bg-background-50 text-text-700 hover:bg-background-100'
-              }
-            `}
-          >
-            <HiCreditCard className="text-2xl" />
-            <div className="flex flex-col text-left">
-              <span className="font-medium">Online</span>
-            </div>
-          </Button>
-        </div>
+      <FormRow label="Payment Method" type="deliveryFormStyle">
+        <SegmentedRadioGroup
+          name="paymentMethod"
+          value={paymentMethod}
+          onChange={setPaymentMethod}
+          options={[
+            {
+              value: 'cash',
+              label: 'Cash',
+              icon: HiBanknotes,
+              activeClass: 'border-lime-500 bg-lime-100 text-lime-800',
+            },
+            {
+              value: 'online',
+              label: 'Online',
+              icon: HiCreditCard,
+              activeClass: 'border-cyan-400 bg-cyan-50 text-cyan-800',
+            },
+          ]}
+        />
       </FormRow>
 
-      <FormRow type="catergoryFormStyle">
+      {/* Price Summary */}
+      <FormRow
+        type="catergoryFormStyle"
+        customeClasses="pt-6 border-t border-background-200"
+      >
         <PriceSummary
           bookPrice={bookPrice}
           mortgagePrice={mortgagePrice}
