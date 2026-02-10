@@ -15,6 +15,7 @@ import Inventory from './pages/Inventory';
 import BookDelivery from './pages/BookDelivery';
 import BookReturns from './pages/BookReturns';
 import BookTerminate from './pages/BookTerminate';
+import Settings from './pages/Settings';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
 
             <Route path="/book-requests" element={<BookRequests />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/settings" element={<Settings />} />
           </Route>
 
           <Route path="/login" element={<Login />} />

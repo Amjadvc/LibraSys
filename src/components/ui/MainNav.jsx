@@ -9,6 +9,7 @@ import {
 import NavItem from './NavItem';
 import DropdownNavItem from './DropdownNavItem';
 import { HiOutlineArchiveBox } from 'react-icons/hi2';
+import { IoSettingsOutline } from 'react-icons/io5';
 
 function MainNav() {
   const [openMenu, setOpenMenu] = useState(null);
@@ -67,6 +68,11 @@ function MainNav() {
         <NavItem to="/users" onClick={closeAllMenus}>
           <HiOutlineUsers className={iconStyle} />
           <span className="text-[16px] font-medium">Users</span>
+        </NavItem>
+
+        <NavItem to="/settings" onClick={closeAllMenus}>
+          <IoSettingsOutline className={iconStyle} />
+          <span className="text-[16px] font-medium">Settings</span>
         </NavItem>
       </ul>
     </nav>

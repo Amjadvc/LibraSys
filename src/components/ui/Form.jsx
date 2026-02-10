@@ -6,6 +6,7 @@ const variants = {
     text-text-700
     shadow-sm`,
   modal: `w-[800px] `,
+  settingModal: `flex justify-center gap-6`,
 };
 
 function Form({ varinet = 'regular', children }) {
