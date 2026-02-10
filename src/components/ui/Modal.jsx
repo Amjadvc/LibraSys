@@ -11,7 +11,7 @@ const baseModalClasses = `
   -translate-x-1/2 -translate-y-1/2
   max-h-[calc(100vh-50px)]
   text-text-700
-  rounded-2xl bg-background-50 shadow-lg
+  rounded-2xl bg-background-50 dark:bg-background-100 shadow-lg
   transition-all duration-500
   overflow-y-auto
   scrollbar-thin

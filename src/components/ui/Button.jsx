@@ -34,7 +34,7 @@ const variants = {
     'rounded-[8px] bg-red-600 hover:bg-red-700 px-5 py-2 text-[16px] font-medium text-white',
 
   formbutton:
-    'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-text-50 dark:text-white transition-colors',
+    'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-white transition-colors',
 
   collected: `inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition cursor-not-allowed border border-background-200 bg-background-100 text-text-400`,
 

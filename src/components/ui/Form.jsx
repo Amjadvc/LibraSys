@@ -2,11 +2,11 @@ const variants = {
   regular: `px-10 py-6
     rounded-[12px]
     border border-background-200
-    bg-background-50
+    bg-background-50 dark:bg-background-100
     text-text-700
     shadow-sm`,
   modal: `w-[800px] `,
-  settingModal: `flex justify-center gap-6`,
+  settingModal: `flex flex-col justify-center gap-6`,
 };
 
 function Form({ varinet = 'regular', children }) {

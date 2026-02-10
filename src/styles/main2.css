@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Kaushan Script';
+  src: url('../assets/fonts/kaushan/KaushanScript-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf')
+    format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* --text-50: #eeecf9;
+    --text-100: #ddd8f3;
+    --text-200: #bab1e7;
+    --text-300: #988bda;
+    --text-400: #7664ce;
+    --text-500: #533dc2;
+    --text-600: #43319b;
+    --text-700: #322574; 
+    --text-800: #21184e;
+    --text-900: #110c27;
+    --text-950: #080613; */
+
+    --text-50: #f8f9fc;
+    --text-100: #e9ebf5;
+    --text-200: #cfd3e8;
+    --text-300: #a9b0d6;
+    --text-400: #7d86b5;
+    --text-500: #5b6399;
+    --text-600: #40467a;
+    --text-700: #2e3361;
+    --text-800: #1f2347;
+    --text-900: #141730;
+    --text-950: #0b0d1a;
+
+    /* --background-50: #eeecf9; main */
+
+    /* --background-50: #eeecf9;  */
+    /* --background-50: #f7f8fc; 2*/
+    --background-50: #fbfaff;
+
+    /* --background-100: #dcd8f3; sidebar */
+
+    --background-100: #ffffff;
+
+    /* --background-200: #bab2e6; sidebar border */
+    --background-200: #e6e8f0;
+
+    --background-300: #d0d4e4;
+    --background-400: #b8bed8;
+
+    /* --background-300: #978bda;
+    --background-400: #7565cd; */
+    --background-500: #523ec1;
+    --background-600: #42329a;
+    --background-700: #312574;
+    --background-800: #21194d;
+    --background-900: #100c27;
+    --background-950: #080613;
+
+    /* --primary-50: #eeecf8;
+    --primary-100: #ddd9f2;
+    --primary-200: #bbb3e5;
+    --primary-300: #988dd8;
+    --primary-400: #7667cb;
+    --primary-500: #5441be;
+    --primary-600: #433498;
+    --primary-700: #322772;
+    --primary-800: #221a4c;
+    --primary-900: #110d26;
+    --primary-950: #080713; */
+
+    --primary-50: #f2effb;
+    --primary-100: #e0daf6;
+    --primary-200: #c2b6ed;
+    --primary-300: #a492e4;
+    --primary-400: #876edb;
+    --primary-500: #6d54d1; /* MAIN BRAND */
+    --primary-600: #5743aa;
+    --primary-700: #413283;
+    --primary-800: #2b215c;
+    --primary-900: #161036;
+
+    --secondary-50: #efeef7;
+    --secondary-100: #dfddee;
+    --secondary-200: #bfbbdd;
+    --secondary-300: #9f98cd;
+    --secondary-400: #7e76bc;
+    --secondary-500: #5e54ab;
+    --secondary-600: #4b4389;
+    --secondary-700: #393267;
+    --secondary-800: #262244;
+    --secondary-900: #131122;
+    --secondary-950: #090811;
+
+    --accent-50: #f6ecf8;
+    --accent-100: #ecd9f2;
+    --accent-200: #d9b3e5;
+    --accent-300: #c68dd8;
+    --accent-400: #b467cb;
+    --accent-500: #a141be; /* used sidebar */
+    --accent-600: #813498;
+    --accent-700: #602772;
+    --accent-800: #401a4c;
+    --accent-900: #200d26;
+    --accent-950: #100713;
+  }
+  .dark {
+    --text-50: #080613;
+    --text-100: #110c27;
+    --text-200: #21184e;
+    --text-300: #322574;
+    --text-400: #43319b;
+    --text-500: #533dc2;
+    --text-600: #7664ce;
+    --text-700: #988bda;
+    --text-800: #bab1e7;
+    --text-900: #ddd8f3;
+    --text-950: #eeecf9;
+
+    --background-50: #080613;
+    --background-100: #100c27;
+    --background-200: #21194d;
+    --background-300: #312574;
+    --background-400: #42329a;
+    --background-500: #523ec1;
+    --background-600: #7565cd;
+    --background-700: #978bda;
+    --background-800: #bab2e6;
+    --background-900: #dcd8f3;
+    --background-950: #eeecf9;
+
+    --primary-50: #080713;
+    --primary-100: #110d26;
+    --primary-200: #221a4c;
+    --primary-300: #322772;
+    --primary-400: #433498;
+    --primary-500: #5441be;
+    --primary-600: #7667cb;
+    --primary-700: #988dd8;
+    --primary-800: #bbb3e5;
+    --primary-900: #ddd9f2;
+    --primary-950: #eeecf8;
+
+    --secondary-50: #090811;
+    --secondary-100: #131122;
+    --secondary-200: #262244;
+    --secondary-300: #393267;
+    --secondary-400: #4b4389;
+    --secondary-500: #5e54ab;
+    --secondary-600: #7e76bc;
+    --secondary-700: #9f98cd;
+    --secondary-800: #bfbbdd;
+    --secondary-900: #dfddee;
+    --secondary-950: #efeef7;
+
+    --accent-50: #100713;
+    --accent-100: #200d26;
+    --accent-200: #401a4c;
+    --accent-300: #602772;
+    --accent-400: #813498;
+    --accent-500: #a141be;
+    --accent-600: #b467cb;
+    --accent-700: #c68dd8;
+    --accent-800: #d9b3e5;
+    --accent-900: #ecd9f2;
+    --accent-950: #f6ecf8;
+  }
+
+  input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+}

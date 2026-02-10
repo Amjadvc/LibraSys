@@ -14,15 +14,15 @@ function SearchInput({ placeholder }) {
   }
 
   return (
-    <div className="border-background-200 bg-background-50 flex min-h-11 min-w-[300px] items-center gap-2 rounded-lg border px-3 py-[9px] text-[16px] font-semibold shadow-md">
-      <HiMagnifyingGlass className="text-text-600 h-5 w-5" />
+    <div className="flex min-h-11 min-w-[300px] items-center gap-2 rounded-lg border border-background-200 bg-background-50 px-3 py-[9px] text-[16px] font-semibold shadow-md">
+      <HiMagnifyingGlass className="h-5 w-5 text-text-600" />
       <input
         type="text"
         name="guestQuery"
         placeholder={placeholder}
         value={searchTerm}
         onChange={handleChange}
-        className="text-text-700 placeholder:text-text-400 w-full border-none bg-transparent bg-none text-[16px] outline-none"
+        className="w-full border-none bg-transparent bg-none text-[16px] text-text-800 outline-none placeholder:text-text-400 dark:text-text-900"
       />
     </div>
   );

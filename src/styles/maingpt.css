@@ -48,43 +48,43 @@
     --background-950: #141826;
 
     /* ================= PRIMARY ================= */
-    --primary-50: #eeecf8;
-    --primary-100: #ddd9f2;
-    --primary-200: #bbb3e5;
-    --primary-300: #988dd8;
-    --primary-400: #7667cb;
-    --primary-500: #5441be;
-    --primary-600: #433498;
-    --primary-700: #322772;
-    --primary-800: #221a4c;
-    --primary-900: #110d26;
-    --primary-950: #080713;
+    --primary-50: #f1f0ff;
+    --primary-100: #e0ddff;
+    --primary-200: #c2bbff;
+    --primary-300: #a297ff;
+    --primary-400: #8573f4;
+    --primary-500: #6b4de6; /* main action */
+    --primary-600: #563cc2;
+    --primary-700: #422e96;
+    --primary-800: #2d2069;
+    --primary-900: #1a133f;
+    --primary-950: #0d091f;
 
     /* ================= SECONDARY ================= */
-    --secondary-50: #efeef7;
-    --secondary-100: #dfddee;
-    --secondary-200: #bfbbdd;
-    --secondary-300: #9f98cd;
-    --secondary-400: #7e76bc;
-    --secondary-500: #5e54ab;
-    --secondary-600: #4b4389;
-    --secondary-700: #393267;
-    --secondary-800: #262244;
-    --secondary-900: #131122;
-    --secondary-950: #090811;
+    --secondary-50: #f5f6fa;
+    --secondary-100: #e9ecf4;
+    --secondary-200: #d6dbee;
+    --secondary-300: #bcc3e4;
+    --secondary-400: #9da6d6;
+    --secondary-500: #7f88c8;
+    --secondary-600: #646cab;
+    --secondary-700: #4c5386;
+    --secondary-800: #343a5e;
+    --secondary-900: #1e2238;
+    --secondary-950: #0f111c;
 
     /* ================= ACCENT ================= */
-    --accent-50: #f6ecf8;
-    --accent-100: #ecd9f2;
-    --accent-200: #d9b3e5;
-    --accent-300: #c68dd8;
-    --accent-400: #b467cb;
-    --accent-500: #a141be; /* used sidebar */
-    --accent-600: #813498;
-    --accent-700: #602772;
-    --accent-800: #401a4c;
-    --accent-900: #200d26;
-    --accent-950: #100713;
+    --accent-50: #faf5ff;
+    --accent-100: #f1e6ff;
+    --accent-200: #e0caff;
+    --accent-300: #c9a3ff;
+    --accent-400: #b17cff;
+    --accent-500: #9a55f2; /* highlights / sidebar active */
+    --accent-600: #7c41c7;
+    --accent-700: #5e3198;
+    --accent-800: #3f2269;
+    --accent-900: #221338;
+    --accent-950: #120a1f;
   }
 
   /* ================= DARK MODE ================= */
@@ -115,17 +115,6 @@
 
     --primary-500: #7c6cff;
     --accent-500: #b88cff;
-    --accent-50: #100713;
-    --accent-100: #200d26;
-    --accent-200: #401a4c;
-    --accent-300: #602772;
-    --accent-400: #813498;
-    --accent-500: #a141be;
-    --accent-600: #b467cb;
-    --accent-700: #c68dd8;
-    --accent-800: #d9b3e5;
-    --accent-900: #ecd9f2;
-    --accent-950: #f6ecf8;
   }
 
   input[type='date']::-webkit-calendar-picker-indicator {
