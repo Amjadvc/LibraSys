@@ -7,7 +7,7 @@ import UserRow from './UserRow';
 function UserTable() {
   return (
     <ScrollWrapper>
-      <Table columns="1fr 1fr 1fr 1fr 1fr 1fr">
+      <Table columns="2.8fr 2fr 1fr 1.5fr 1.5fr 120px">
         <Table.Header>
           <div>User</div>
           <div>Phone</div>

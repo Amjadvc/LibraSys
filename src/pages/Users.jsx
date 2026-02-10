@@ -7,7 +7,12 @@ function Users() {
   return (
     <>
       <Row type="horizontal">
-        <PageTitle title="Users" />
+        <Row type="virtical-sm">
+          <PageTitle title="Users" />
+          <p className="font-medium text-text-600">
+            Manage and monitor registered users
+          </p>
+        </Row>
         <UserTableOperations />
       </Row>
       <UserTable />

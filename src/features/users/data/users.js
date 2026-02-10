@@ -54,4 +54,14 @@ export const mockCustomers = [
     status: 'Active',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Kareem',
   },
+  {
+    id: 6,
+    name: 'Amjad Mahmoud',
+    email: 'kareem.m@example.com',
+    phone: '+963 988 567 890',
+    gender: 'M',
+    dob: '1988-06-30',
+    joinDate: '2023-05-12',
+    status: 'Active',
+  },
 ];

@@ -36,7 +36,7 @@ function TableRow({ children, className }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className={`grid items-center gap-x-6 border-b border-background-200 px-6 py-3 transition-colors duration-200 last:border-b-0 ${className}`}
+      className={`grid items-center gap-x-6 border-b border-background-200 px-6 py-5 transition-colors duration-200 last:border-b-0 ${className}`}
     >
       {children}
     </div>
@@ -59,7 +59,7 @@ function TableFooter({ children }) {
   if (!children) return null;
 
   return (
-    <footer className="flex justify-center bg-background-50 px-4 py-3 dark:bg-background-100">
+    <footer className="flex justify-center bg-background-50 px-4 py-5 dark:bg-background-100">
       {children}
     </footer>
   );
