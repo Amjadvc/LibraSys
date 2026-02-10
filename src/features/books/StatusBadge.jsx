@@ -37,7 +37,7 @@ function StatusBadge({ status }) {
       styles = 'bg-red-100 text-red-700';
       break;
 
-    //Transaction statuses
+    //book request statuses
     case 'new':
       styles = 'bg-blue-100 text-blue-600';
       showDot = true;

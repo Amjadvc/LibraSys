@@ -1,10 +1,17 @@
-import PageTitle from "../components/ui/PageTitle";
+import PageTitle from '../components/ui/PageTitle';
+import Row from '../components/ui/Row';
+import UserTable from '../features/users/UserTable';
+import UserTableOperations from '../features/users/UserTableOperations';
 
 function Users() {
   return (
-    <div>
-      <PageTitle title="Users" />
-    </div>
+    <>
+      <Row type="horizontal">
+        <PageTitle title="Users" />
+        <UserTableOperations />
+      </Row>
+      <UserTable />
+    </>
   );
 }
 
