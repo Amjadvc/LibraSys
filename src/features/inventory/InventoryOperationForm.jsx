@@ -23,7 +23,7 @@ function InventoryOperationForm() {
   }));
 
   return (
-    <Form>
+    <Form varinet="inventoryModal">
       <FormRow label="Book" type="createBookFormStyle">
         <Select
           options={bookOptions}

@@ -7,6 +7,13 @@ const variants = {
     shadow-sm`,
   modal: `w-[800px] `,
   settingModal: `flex flex-col justify-center gap-6`,
+  inventoryModal: `
+  px-10 py-6
+    rounded-[12px]
+    border border-background-200
+    bg-background-100 dark:bg-background-100
+    text-text-700
+    shadow-sm`,
 };
 
 function Form({ varinet = 'regular', children }) {

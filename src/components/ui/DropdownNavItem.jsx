@@ -5,7 +5,17 @@ import { NavLink } from 'react-router-dom';
 const NavLinkStyle =
   'text-text-600 hover:text-text-800 aria-[current=page]:text-text-800 aria-[current=page]:bg-background-200 hover:bg-background-200 aria-[current=page]:before:bg-accent-500 group flex w-full items-center gap-3 rounded-md px-[24px] py-[12px] transition-all duration-300 aria-[current=page]:before:left-0 aria-[current=page]:before:top-1/2 aria-[current=page]:before:h-6 aria-[current=page]:before:w-1 aria-[current=page]:before:rounded-r';
 const InnerLinkStyle = `text-text-600 hover:text-text-800 aria-[current=page]:text-text-800 group flex w-full items-center gap-[10px] rounded-md px-[24px] py-[4px] transition-all duration-300 `;
-const iconStyle = `h-[20px] w-[20px] text-text-500 transition-all duration-300 group-hover:text-text-700 group-aria-[current=page]:text-primary-700 `;
+
+const iconStyle = `
+  h-5 w-5
+  text-text-600
+  transition-colors duration-200
+  group-hover:text-text-800
+  group-aria-[current=page]:text-primary-500
+  dark:text-text-400
+  dark:group-hover:text-primary-500
+  dark:group-aria-[current=page]:text-primary-500
+`;
 
 function DropdownNavItem({
   to,

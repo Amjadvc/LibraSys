@@ -21,7 +21,6 @@
 
 @layer base {
   :root {
-    /* ================= TEXT ================= */
     --text-50: #f5f6fb;
     --text-100: #e6e8f2;
     --text-200: #cfd3e6;
@@ -29,15 +28,14 @@
     --text-400: #8c96c2;
     --text-500: #6a76b0;
     --text-600: #505c8f;
-    --text-700: #3b456e; /* logo / sidebar text */
+    --text-700: #3b456e;
     --text-800: #262f4d;
     --text-900: #151a2e;
     --text-950: #0c0f1f;
 
-    /* ================= BACKGROUND ================= */
-    --background-50: #f7f8fc; /* main */
-    --background-100: #eef0f8; /* sidebar */
-    --background-200: #dde1f0; /* borders */
+    --background-50: #f7f8fc;
+    --background-100: #eef0f8;
+    --background-200: #dde1f0;
     --background-300: #c7cde4;
     --background-400: #aeb6d7;
     --background-500: #8f99c7;
@@ -47,7 +45,6 @@
     --background-900: #232a3f;
     --background-950: #141826;
 
-    /* ================= PRIMARY ================= */
     --primary-50: #eeecf8;
     --primary-100: #ddd9f2;
     --primary-200: #bbb3e5;
@@ -60,7 +57,6 @@
     --primary-900: #110d26;
     --primary-950: #080713;
 
-    /* ================= SECONDARY ================= */
     --secondary-50: #efeef7;
     --secondary-100: #dfddee;
     --secondary-200: #bfbbdd;
@@ -73,13 +69,12 @@
     --secondary-900: #131122;
     --secondary-950: #090811;
 
-    /* ================= ACCENT ================= */
     --accent-50: #f6ecf8;
     --accent-100: #ecd9f2;
     --accent-200: #d9b3e5;
     --accent-300: #c68dd8;
     --accent-400: #b467cb;
-    --accent-500: #a141be; /* used sidebar */
+    --accent-500: #a141be;
     --accent-600: #813498;
     --accent-700: #602772;
     --accent-800: #401a4c;
@@ -87,7 +82,6 @@
     --accent-950: #100713;
   }
 
-  /* ================= DARK MODE ================= */
   .dark {
     --text-50: #0c0f1f;
     --text-100: #151a2e;

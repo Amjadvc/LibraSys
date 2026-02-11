@@ -18,7 +18,16 @@ function MainNav() {
     setOpenMenu(null);
   }
 
-  const iconStyle = `h-[20px] w-[20px] text-text-500 transition-all duration-300 group-hover:text-text-700 group-aria-[current=page]:text-primary-700 `;
+  const iconStyle = `
+  h-5 w-5
+  text-text-600
+  transition-colors duration-200
+  group-hover:text-text-800
+  group-aria-[current=page]:text-primary-500
+  dark:text-text-400
+  dark:group-hover:text-primary-500
+  dark:group-aria-[current=page]:text-primary-500
+`;
 
   return (
     <nav>

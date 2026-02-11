@@ -22,7 +22,7 @@ function TableHeader({ children }) {
     <div
       role="row"
       style={{ gridTemplateColumns: columns }}
-      className="grid items-center gap-x-6 border-b border-background-200 bg-background-50 px-6 py-4 text-[14px] font-semibold uppercase tracking-wide text-text-700 dark:bg-background-100"
+      className="grid items-center gap-x-6 border-b border-background-200 bg-background-50 px-6 py-6 text-[14px] font-semibold uppercase tracking-wide text-text-700 dark:bg-background-100"
     >
       {children}
     </div>

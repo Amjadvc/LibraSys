@@ -16,10 +16,8 @@ function UserRow({ user }) {
 
       <div className="text-text-600">{user.phone}</div>
       <GenderBadge gender={user.gender} />
-      <div className="text-slate-600 dark:text-secondary-800">{user.dob}</div>
-      <div className="text-slate-600 dark:text-secondary-800">
-        {user.joinDate}
-      </div>
+      <div className="text-accent-400">{user.dob}</div>
+      <div className="text-accent-400">{user.joinDate}</div>
 
       <StatusBadge status={user.status.toLowerCase()} />
     </Table.Row>
