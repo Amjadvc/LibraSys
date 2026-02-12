@@ -70,13 +70,13 @@ function DashboardLayout() {
                 dataKey="name"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: '#64748b' }}
+                tick={{ fill: '#64748b', fontSize: 13 }}
               />
               <YAxis
                 dataKey="borrowed"
                 axisLine={false}
                 tickLine={false}
-                tick={{ fill: '#64748b' }}
+                tick={{ fill: '#64748b', fontSize: 13 }}
               />
               <Tooltip
                 contentStyle={{

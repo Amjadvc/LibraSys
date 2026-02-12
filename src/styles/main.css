@@ -135,3 +135,10 @@
 .recharts-pie-sector {
   outline: none;
 }
+
+.recharts-surface > * {
+  outline: none;
+}
+.recharts-surface {
+  outline: none;
+}

@@ -1,4 +1,27 @@
+import { useEffect, useState } from 'react';
+
 function Stat({ title, value, icon: Icon, color }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 500; // animation duration (1s)
+    const increment = value / (duration / 16); // 60fps approx
+
+    const counter = setInterval(() => {
+      start += increment;
+
+      if (start >= value) {
+        setCount(value);
+        clearInterval(counter);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(counter);
+  }, [value]);
+
   return (
     <div className="flex items-center justify-between rounded-xl border border-background-200 bg-background-100 p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-background-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] dark:shadow-none">
       <div>
@@ -6,7 +29,7 @@ function Stat({ title, value, icon: Icon, color }) {
           {title}
         </p>
         <h3 className="mt-1 text-2xl font-bold text-text-800 dark:text-text-900">
-          {value}
+          {count}
         </h3>
       </div>
       <div className={`rounded-lg p-3 ${color} bg-opacity-10`}>
