@@ -4,7 +4,7 @@ import Modal from '../../components/ui/Modal';
 import Button from '../../components/ui/Button';
 import { GoClock } from 'react-icons/go';
 import ReviewRequest from './ReviewRequest';
-import StatusBadge from '../books/StatusBadge';
+import StatusBadge from '../../components/ui/StatusBadge';
 
 function BookRequestRow({ request }) {
   return (

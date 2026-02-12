@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi2';
-import StatusBadge from './StatusBadge';
+import StatusBadge from '../../components/ui/StatusBadge';
 import Button from '../../components/ui/Button';
 import { books } from './data/books';
 import PageTitle from '../../components/ui/PageTitle';

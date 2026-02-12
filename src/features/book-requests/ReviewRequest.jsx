@@ -1,6 +1,6 @@
 import Button from '../../components/ui/Button';
+import StatusBadge from '../../components/ui/StatusBadge';
 import Textarea from '../../components/ui/Textarea';
-import StatusBadge from '../books/StatusBadge';
 
 function ReviewRequest({ request }) {
   return (

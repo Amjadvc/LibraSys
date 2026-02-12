@@ -1,8 +1,8 @@
 import Table from '../../../components/ui/Table';
 import Modal from '../../../components/ui/Modal';
-import StatusBadge from '../../books/StatusBadge';
 import Button from '../../../components/ui/Button';
 import ConfirmTransaction from '../../../components/ui/ConfirmTransaction';
+import StatusBadge from '../../../components/ui/StatusBadge';
 
 function BookDeliveryRow({ transaction }) {
   const {

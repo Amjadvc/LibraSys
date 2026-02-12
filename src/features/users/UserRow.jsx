@@ -1,7 +1,7 @@
 import Table from '../../components/ui/Table';
-import StatusBadge from '../books/StatusBadge';
 import GenderBadge from '../../components/ui/GenderBadge';
 import Avatar from '../../components/ui/Avatar';
+import StatusBadge from '../../components/ui/StatusBadge';
 
 function UserRow({ user }) {
   return (

@@ -1,7 +1,7 @@
 import Button from '../../../components/ui/Button';
 import Modal from '../../../components/ui/Modal';
+import StatusBadge from '../../../components/ui/StatusBadge';
 import Table from '../../../components/ui/Table';
-import StatusBadge from '../../books/StatusBadge';
 import ConfirmTerminateTransaction from './ConfirmTerminateTransaction';
 
 function BookTerminateRow({ transaction }) {

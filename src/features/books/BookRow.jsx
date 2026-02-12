@@ -4,9 +4,9 @@ import Menus from '../../components/ui/Menus';
 import Table from '../../components/ui/Table';
 import Modal from '../../components/ui/Modal';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
-import StatusBadge from './StatusBadge';
 import { useNavigate } from 'react-router-dom';
 import EditBookForm from './EditBookForm';
+import StatusBadge from '../../components/ui/StatusBadge';
 
 function BookRow({
   book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },
