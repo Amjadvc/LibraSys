@@ -127,3 +127,10 @@
     cursor: pointer;
   }
 }
+
+.recharts-surface {
+  outline: none;
+}
+.recharts-pie-sector {
+  outline: none;
+}
