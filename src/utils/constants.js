@@ -1,9 +1,10 @@
 export const PAGE_SIZE = 10;
 
+//pie chart colors
 export const CHART_COLORS = [
-  '#6366f1', // primary
-  '#10b981', // secondary
-  '#f59e0b', // accent
+  '#6366f1',
+  '#10b981',
+  '#f59e0b',
   '#ef4444',
   '#8b5cf6',
 ];

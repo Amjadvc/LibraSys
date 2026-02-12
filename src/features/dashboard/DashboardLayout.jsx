@@ -42,7 +42,7 @@ function DashboardLayout() {
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <ChartBox>
-          <ChartTitle title=" Books by Category" />
+          <ChartTitle title="Borrowing Trends" />
         </ChartBox>
 
         <ChartBox>
