@@ -10,7 +10,7 @@ function Stat({ title, value, icon: Icon, color }) {
         </h3>
       </div>
       <div className={`rounded-lg p-3 ${color} bg-opacity-10`}>
-        <Icon size={22} />
+        <Icon size={28} />
       </div>
     </div>
   );
