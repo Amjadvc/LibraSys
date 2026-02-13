@@ -1,17 +1,3 @@
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  Legend,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Sector,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
 import { books, members, transactions } from './data/dashboard.mock';
 import {
   getBorrowingTrends,

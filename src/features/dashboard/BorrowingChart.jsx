@@ -11,9 +11,19 @@ import {
 import ChartBox from './ChartBox';
 import ChartTitle from './ChartTitle';
 import { useDarkMode } from '../../context/DarkModeContext';
+import { useEffect, useState } from 'react';
 
 function BorrowingChart({ borrowingData }) {
   const { isDarkMode } = useDarkMode();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  //update when screen resizes
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  });
+
   return (
     <ChartBox>
       <ChartTitle title="Borrowing Trends" />
@@ -33,12 +43,15 @@ function BorrowingChart({ borrowingData }) {
             tickLine={false}
             tick={{ fill: '#64748b', fontSize: 13 }}
           />
-          <YAxis
-            dataKey="borrowed"
-            axisLine={false}
-            tickLine={false}
-            tick={{ fill: '#64748b', fontSize: 13 }}
-          />
+          {!isMobile && (
+            <YAxis
+              dataKey="borrowed"
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#64748b', fontSize: 13 }}
+            />
+          )}
+
           <Tooltip
             contentStyle={{
               backgroundColor: '#fff',
