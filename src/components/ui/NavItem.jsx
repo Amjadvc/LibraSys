@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavItem({ to, onClick, children }) {
   return (
-    <li className="mr-[10px]">
+    <li className="sm:mr-[10px]">
       <NavLink
         to={to}
         onClick={onClick}

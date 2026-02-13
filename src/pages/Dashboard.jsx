@@ -6,7 +6,7 @@ import Row from '../components/ui/Row';
 function Dashboard() {
   return (
     <>
-      <Row type="horizontal">
+      <Row type="horizontal" columnBreakpoint="lg">
         <PageTitle title="Dashboard" />
         <DashboardFilter />
       </Row>

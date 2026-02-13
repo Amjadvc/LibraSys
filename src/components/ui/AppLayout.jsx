@@ -18,7 +18,7 @@ function AppLayout() {
       />
       <main
         onClick={handleCloseSidebar}
-        className="mx-auto my-0 flex w-full flex-col gap-[2.4px] overflow-auto scroll-smooth bg-background-50 px-[3rem] pb-[32px] pt-[40px] scrollbar-thin scrollbar-track-background-100 scrollbar-thumb-background-600 dark:scrollbar-thumb-primary-700"
+        className="mx-auto my-0 flex w-full flex-col gap-[2.4px] overflow-auto scroll-smooth bg-background-50 px-2 pb-[32px] pt-[40px] scrollbar-thin scrollbar-track-background-100 scrollbar-thumb-background-600 dark:scrollbar-thumb-primary-700 sm:px-[3rem]"
       >
         <div className="container mx-auto my-0 flex flex-col gap-[24px]">
           <Outlet />
