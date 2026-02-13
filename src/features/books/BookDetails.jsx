@@ -50,7 +50,7 @@ function BookDetails() {
       {/* Content */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
         {/* Cover */}
-        <div className="rounded-2xl border border-background-200 bg-background-50 p-4 shadow-sm">
+        <div className="flex rounded-2xl border border-background-200 bg-background-50 p-2 shadow-sm">
           <img
             src={cover || '/placeholder-book.png'}
             alt={title}
