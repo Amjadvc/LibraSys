@@ -2,15 +2,15 @@ import HeaderMenu from './HeaderMenu';
 
 function Header() {
   return (
-    <header className="bg-background-50 border-background-200 flex items-center justify-end border-b px-12 py-3 shadow-sm">
+    <header className="flex items-center justify-end border-b border-background-200 bg-background-50 px-12 py-3 shadow-sm">
       <div className="flex items-center gap-6">
-        <div className="text-text-700 flex items-center gap-3 text-[14px] font-medium">
+        <div className="flex items-center gap-3 text-[14px] font-medium text-text-700">
           <img
             src="/default-user.jpg"
             alt="user avatar"
-            className="border-background-200 block w-9 rounded-full border object-cover"
+            className="block w-9 rounded-full border border-background-200 object-cover"
           />
-          <span>test</span>
+          <span>demo</span>
         </div>
 
         <HeaderMenu />

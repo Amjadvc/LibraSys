@@ -16,6 +16,7 @@ import BookDelivery from './pages/BookDelivery';
 import BookReturns from './pages/BookReturns';
 import BookTerminate from './pages/BookTerminate';
 import Settings from './pages/Settings';
+import Account from './pages/Account';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/account" element={<Account />} />
 
             <Route path="books">
               <Route index element={<Books />} />

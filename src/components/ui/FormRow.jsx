@@ -27,6 +27,7 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
       grid-cols-[200px_1fr_1fr]
       min-[993px]:max-[1200px]:grid-cols-[150px_230px_1fr]
     `,
+    hasbuttons: `flex justify-end gap-[10px] items-center`,
   };
 
   const rowClasses =
