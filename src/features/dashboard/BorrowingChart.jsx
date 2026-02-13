@@ -54,11 +54,17 @@ function BorrowingChart({ borrowingData }) {
 
           <Tooltip
             contentStyle={{
-              backgroundColor: '#fff',
+              backgroundColor: 'var(--background-50)',
               borderRadius: '8px',
-              border: '1px solid #e2e8f0',
+              border: '1px solid var(--background-200)',
               boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
             }}
+            labelStyle={{
+              color: 'var(--text-700)',
+              fontWeight: 600,
+              fontSize: '13px',
+            }}
+            cursor={{ fill: 'var(--background-200)' }}
           />
           <Legend
             iconType="circle"

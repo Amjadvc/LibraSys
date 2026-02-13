@@ -7,8 +7,8 @@ import BookTableOperations from '../features/books/BookTableOperations';
 function Books() {
   return (
     <>
-      <Row type="horizontal">
-        <PageTitle title="Books Management" />
+      <Row type="horizontal" columnBreakpoint="xl">
+        <PageTitle title="Books" />
         <BookTableOperations />
       </Row>
       <BookTable />

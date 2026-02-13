@@ -1,10 +1,37 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi2';
+import { books } from './data/books';
 import StatusBadge from '../../components/ui/StatusBadge';
 import Button from '../../components/ui/Button';
-import { books } from './data/books';
 import PageTitle from '../../components/ui/PageTitle';
 import Row from '../../components/ui/Row';
+
+function Stat({ label, value, accent }) {
+  return (
+    <div className="rounded-xl border border-background-200 bg-background-100 p-4">
+      <p className="text-xs uppercase tracking-wide text-text-500">{label}</p>
+      <p
+        className={`mt-1 text-lg font-semibold ${
+          accent ? 'text-accent-500' : 'text-text-800'
+        }`}
+      >
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function BookCover({ title, cover }) {
+  return (
+    <div className="flex rounded-2xl border border-background-200 bg-background-50 p-2 shadow-sm">
+      <img
+        src={cover || '/placeholder-book.png'}
+        alt={title}
+        className="h-auto max-h-[300px] w-full rounded-xl shadow-md transition hover:scale-[1.02] sm:max-h-full"
+      />
+    </div>
+  );
+}
 
 function BookDetails() {
   const { id } = useParams();
@@ -34,7 +61,6 @@ function BookDetails() {
 
   return (
     <div className="space-y-8">
-      {/* Header */}
       <Row type="horizontal">
         <PageTitle title="Book Details" />
         <Button
@@ -47,20 +73,10 @@ function BookDetails() {
         </Button>
       </Row>
 
-      {/* Content */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
-        {/* Cover */}
-        <div className="flex rounded-2xl border border-background-200 bg-background-50 p-2 shadow-sm">
-          <img
-            src={cover || '/placeholder-book.png'}
-            alt={title}
-            className="w-full rounded-xl object-cover shadow-md transition hover:scale-[1.02]"
-          />
-        </div>
+        <BookCover title={title} cover={cover} />
 
-        {/* Info */}
         <div className="rounded-2xl border border-background-200 bg-background-50 p-6 shadow-sm">
-          {/* Top */}
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div className="space-y-1">
               <h2 className="text-2xl font-semibold text-text-800">{title}</h2>
@@ -74,7 +90,6 @@ function BookDetails() {
             <StatusBadge status={status} />
           </div>
 
-          {/* Stats */}
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
             <Stat label="Published" value={publishedAt} />
             <Stat label="Pages" value={pages} />
@@ -88,22 +103,6 @@ function BookDetails() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-/* ---------- Small stat card ---------- */
-function Stat({ label, value, accent }) {
-  return (
-    <div className="rounded-xl border border-background-200 bg-background-100 p-4">
-      <p className="text-xs uppercase tracking-wide text-text-500">{label}</p>
-      <p
-        className={`mt-1 text-lg font-semibold ${
-          accent ? 'text-accent-500' : 'text-text-800'
-        }`}
-      >
-        {value}
-      </p>
     </div>
   );
 }

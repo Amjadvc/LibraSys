@@ -12,6 +12,7 @@ function Row({ children, type = 'virtical', columnBreakpoint = 'md' }) {
 
         columnBreakpoint === 'md' && 'max-md:flex-col max-md:gap-8',
         columnBreakpoint === 'lg' && 'max-lg:flex-col max-lg:gap-8',
+        columnBreakpoint === 'xl' && 'max-xl:flex-col max-xl:gap-8',
       )}
     >
       {children}
