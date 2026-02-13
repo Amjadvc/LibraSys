@@ -30,7 +30,7 @@ function MainNav() {
 `;
 
   return (
-    <nav>
+    <nav className="overflow-auto scroll-smooth scrollbar-thin scrollbar-track-background-100 scrollbar-thumb-background-600 dark:scrollbar-thumb-primary-700">
       <ul className="flex flex-col gap-3">
         <NavItem to="/dashboard" onClick={closeAllMenus}>
           <HiOutlineHome className={iconStyle} />
