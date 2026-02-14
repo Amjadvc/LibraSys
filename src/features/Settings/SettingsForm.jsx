@@ -12,7 +12,7 @@ const baseInputStyles =
 function SettingsForm() {
   return (
     <Form varinet="settingModal">
-      <div className="flex gap-6">
+      <div className="flex flex-col gap-6 lg:flex-row">
         <SettingsSection
           icon={FiBookOpen}
           title="Borrowing Rules"

@@ -15,7 +15,7 @@ function DashboardLayout() {
   const borrowingData = getBorrowingTrends(transactions);
 
   return (
-    <div className="mt-4 flex flex-col gap-6">
+    <div className="flex flex-col gap-6">
       <Stats books={books} members={members} />
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

@@ -1,7 +1,8 @@
 import { MdMenuOpen } from 'react-icons/md';
-import ToggleButton from '../ToggleButton';
+
 import Logo from './Logo';
 import MainNav from './MainNav';
+import ToggleButton from './ToggleButton';
 
 function Sidebar({ isOpen, handleToggleSidebar }) {
   return (

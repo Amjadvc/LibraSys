@@ -1,6 +1,6 @@
 function SettingsSection({ icon: Icon, title, iconStyle, children }) {
   return (
-    <section className="w-1/2 rounded-2xl border border-background-200 bg-background-100 p-6 shadow-sm dark:border-background-300">
+    <section className="w-full rounded-2xl border border-background-200 bg-background-100 p-6 shadow-sm dark:border-background-300 lg:w-1/2">
       <div className="mb-6 flex items-center gap-3">
         <div
           className={`flex h-9 w-9 items-center justify-center rounded-lg ${iconStyle}`}

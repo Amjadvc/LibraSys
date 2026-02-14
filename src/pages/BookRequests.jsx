@@ -6,13 +6,8 @@ import BookRequestsTable from '../features/book-requests/BookRequestsTable';
 function BookRequests() {
   return (
     <>
-      <Row type="horizontal">
-        <Row type="virtical-sm">
-          <PageTitle title="Book Requests" />
-          <p className="font-medium text-text-600">
-            Manage book requests from your customers
-          </p>
-        </Row>
+      <Row type="horizontal" columnBreakpoint="xl">
+        <PageTitle title="Book Requests" />
         <BookRequestsOperations />
       </Row>
       <BookRequestsTable />

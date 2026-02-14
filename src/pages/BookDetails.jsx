@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi2';
-import { books } from './data/books';
-import StatusBadge from '../../components/ui/StatusBadge';
-import Button from '../../components/ui/Button';
-import PageTitle from '../../components/ui/PageTitle';
-import Row from '../../components/ui/Row';
-
+import { books } from '../features/books/data/books';
+import StatusBadge from '../components/ui/StatusBadge';
+import Button from '../components/ui/Button';
+import PageTitle from '../components/ui/PageTitle';
+import Row from '../components/ui/Row';
+ 
 function Stat({ label, value, accent }) {
   return (
     <div className="rounded-xl border border-background-200 bg-background-100 p-4">

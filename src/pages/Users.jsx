@@ -6,13 +6,8 @@ import UserTableOperations from '../features/users/UserTableOperations';
 function Users() {
   return (
     <>
-      <Row type="horizontal">
-        <Row type="virtical-sm">
-          <PageTitle title="Users" />
-          <p className="font-medium text-text-600">
-            Manage and monitor registered users
-          </p>
-        </Row>
+      <Row type="horizontal" columnBreakpoint="xl">
+        <PageTitle title="Users" />
         <UserTableOperations />
       </Row>
       <UserTable />

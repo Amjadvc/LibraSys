@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { DarkModeProvider } from './context/DarkModeContext';
 import Dashboard from './pages/Dashboard';
 import Authors from './pages/Authors';
 import Books from './pages/Books';
@@ -9,14 +10,14 @@ import Users from './pages/Users';
 import Login from './pages/Login';
 import BookRequests from './pages/BookRequests';
 import AppLayout from './components/ui/AppLayout';
-import { DarkModeProvider } from './context/DarkModeContext';
-import BookDetails from './features/books/BookDetails';
+
 import Inventory from './pages/Inventory';
 import BookDelivery from './pages/BookDelivery';
 import BookReturns from './pages/BookReturns';
 import BookTerminate from './pages/BookTerminate';
 import Settings from './pages/Settings';
 import Account from './pages/Account';
+import BookDetails from './pages/BookDetails';
 
 function App() {
   return (

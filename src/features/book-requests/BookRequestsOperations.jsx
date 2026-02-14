@@ -8,7 +8,6 @@ function BookRequestsOperations() {
         filterField="discount"
         options={[
           { value: 'all', label: 'All' },
-          { value: 'new', label: 'New' },
           { value: 'read', label: 'Read' },
           { value: 'processed', label: 'Processed' },
           { value: 'rejected', label: 'Rejected' },

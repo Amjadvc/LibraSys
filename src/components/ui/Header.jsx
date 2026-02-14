@@ -1,6 +1,6 @@
 import { TfiMenuAlt } from 'react-icons/tfi';
-import ToggleButton from '../ToggleButton';
 import HeaderMenu from './HeaderMenu';
+import ToggleButton from './ToggleButton';
 
 function Header({ onToggleSidebar }) {
   return (
