@@ -90,7 +90,7 @@ function ConfirmTerminateTransaction({ transaction }) {
           Cancel
         </Button>
 
-        <Button variant="confirmTerminate">Terminate Transaction</Button>
+        <Button variant="confirmTerminate">Terminate</Button>
       </div>
     </div>
   );

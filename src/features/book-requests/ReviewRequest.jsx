@@ -42,7 +42,7 @@ function ReviewRequest({ request }) {
       </div>
 
       {/* Action Buttons */}
-      <div className="flex justify-end gap-4 max-sm:flex-col">
+      <div className="flex justify-end gap-4">
         <Button
           variant="formbutton"
           customStyle="bg-green-600 hover:bg-green-700 text-white w-1/2"

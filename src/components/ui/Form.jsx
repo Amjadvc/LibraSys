@@ -1,5 +1,5 @@
 const variants = {
-  regular: `px-10 py-6
+  regular: ` py-[1.4rem] px-[1.5rem] sm:px-10 sm:py-6
     rounded-[12px]
     border border-background-200
     bg-background-50 dark:bg-background-100

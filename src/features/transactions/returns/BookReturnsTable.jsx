@@ -7,7 +7,7 @@ import { transactions } from './data/fakeTransactions';
 function BookReturnsTable() {
   return (
     <ScrollWrapper>
-      <Table columns="70px 2.4fr 1.4fr 100px 1fr 1fr 100px" minWidth={800}>
+      <Table columns="70px 2.4fr 1.4fr 100px 1fr 1fr 100px" minWidth={1100}>
         <Table.Header>
           <div>Tr-Id</div>
           <div>Book</div>

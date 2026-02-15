@@ -6,8 +6,8 @@ import BookTerminateTable from '../features/transactions/terminate/BookTerminate
 function BookTerminate() {
   return (
     <>
-      <Row type="horizontal">
-        <Row type="virtical-sm">
+      <Row type="horizontal" columnBreakpoint="lg">
+        <Row type="virtical-sm" columnBreakpoint="sm">
           <PageTitle title="Terminate Transactions" />
           <p className="font-medium text-text-600">
             End paid transactions for unreturned books

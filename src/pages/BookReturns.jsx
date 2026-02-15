@@ -6,8 +6,8 @@ import BookReturnsTable from '../features/transactions/returns/BookReturnsTable'
 function BookReturns() {
   return (
     <>
-      <Row type="horizontal">
-        <Row type="virtical-sm">
+      <Row type="horizontal" columnBreakpoint="lg">
+        <Row type="virtical-sm" columnBreakpoint="sm">
           <PageTitle title="Book Returns" />
           <p className="font-medium text-text-600">
             Process book returns and calculate refunds

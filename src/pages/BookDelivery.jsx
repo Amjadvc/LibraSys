@@ -7,8 +7,8 @@ import BookDeliveryTable from '../features/transactions/delivery/BookDeliveryTab
 function BookDelivery() {
   return (
     <>
-      <Row type="horizontal">
-        <Row type="virtical-sm">
+      <Row type="horizontal" columnBreakpoint="lg">
+        <Row type="virtical-sm" columnBreakpoint="sm">
           <PageTitle title="Book Delivery" />
           <p className="font-medium text-text-600">
             Manage reserved and direct borrow transactions

@@ -29,7 +29,7 @@ function ConfirmTransaction({
         </Button>
 
         <Button variant="formbutton" onClick={onConfirm} disabled={disabled}>
-          Confirm {actionType}
+          Confirm
         </Button>
       </div>
     </div>

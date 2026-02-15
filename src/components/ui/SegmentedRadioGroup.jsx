@@ -7,7 +7,7 @@ function SegmentedRadioGroup({ name, value, onChange, options }) {
         return (
           <label
             key={option.value}
-            className={`w-1/2 cursor-pointer rounded-lg border px-4 py-3 font-semibold transition ${
+            className={`w-1/2 cursor-pointer rounded-lg border px-[0.5rem] py-3 font-semibold transition xl:px-4 ${
               isChecked
                 ? option.activeClass
                 : 'border-background-200 bg-background-50 text-text-700 hover:bg-background-100'
@@ -22,8 +22,8 @@ function SegmentedRadioGroup({ name, value, onChange, options }) {
               className="sr-only"
             />
 
-            <div className="flex items-center gap-3">
-              {option.icon && <option.icon className="text-2xl" />}
+            <div className="flex flex-col items-center justify-center gap-2 text-[13px] xl:flex-row xl:gap-3">
+              {option.icon && <option.icon className="text-xl" />}
               <span>{option.label}</span>
             </div>
           </label>

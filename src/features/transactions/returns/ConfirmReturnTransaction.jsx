@@ -137,7 +137,7 @@ function ConfirmReturnTransaction({ transaction }) {
           Cancel
         </Button>
 
-        <Button variant="confirmReturn">Confirm Return</Button>
+        <Button variant="confirmReturn">Confirm</Button>
       </div>
     </div>
   );

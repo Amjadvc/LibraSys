@@ -17,15 +17,16 @@ function FormRow({ children, label, error, type, row, customeClasses }) {
     `,
     catergoryFormStyle: `
       grid items-center gap-6
+      max-[992px]:grid-cols-1 max-[992px]:gap-4
     `,
     deliveryFormStyle: `
       grid items-center gap-2
-      grid-cols-[200px,1fr]
+     
     `,
     createBookFormStyle: `
       grid items-center gap-6
-      grid-cols-[200px_1fr_1fr]
-      min-[993px]:max-[1200px]:grid-cols-[150px_230px_1fr]
+      grid-cols-[200px_1.2fr_1fr]
+     max-[1400px]:grid-cols-1 max-[992px]:gap-4
     `,
     hasbuttons: `flex justify-end gap-[10px] items-center`,
   };
