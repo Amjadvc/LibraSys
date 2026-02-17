@@ -1,7 +1,6 @@
 import { mockCustomers } from '../../users/data/users';
 import { books } from '../../books/data/books';
 import { customStyles } from '../../../styles/CustomeStye';
-import { useState } from 'react';
 import { HiBanknotes, HiCreditCard } from 'react-icons/hi2';
 import FormRow from '../../../components/ui/FormRow';
 import Form from '../../../components/ui/Form';
@@ -9,6 +8,7 @@ import Button from '../../../components/ui/Button';
 import PriceSummary from './PriceSummary';
 import Select from 'react-select';
 import SegmentedRadioGroup from '../../../components/ui/SegmentedRadioGroup';
+import { Controller, useForm } from 'react-hook-form';
 
 const bookOptions = books.map((book) => ({
   value: book.id,
@@ -20,67 +20,116 @@ const bookOptions = books.map((book) => ({
 
 const customerOptions = mockCustomers.map((customer) => ({
   value: customer.id,
-  label: `${customer.name}`,
+  label: customer.name,
   customer,
 }));
 
 function CreateTransactionDeliveryForm() {
-  const [quantity, setQuantity] = useState(1);
-  const [paymentMethod, setPaymentMethod] = useState('cash');
+  const {
+    control,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      book: null,
+      customer: null,
+      quantity: 1,
+      paymentMethod: 'cash',
+    },
+  });
 
-  const selectedBook = books[0];
+  const selectedBook = watch('book')?.book;
+  const quantity = watch('quantity');
+  const paymentMethod = watch('paymentMethod');
+
   const maxQty = selectedBook?.remainingCopies ?? 1;
 
   const bookPrice = selectedBook ? selectedBook.price * quantity : 0;
   const mortgagePrice = selectedBook ? selectedBook.mortgage * quantity : 0;
   const totalPrice = bookPrice + mortgagePrice;
 
+  const onSubmit = (data) => {
+    console.log('Delivery data:', data);
+  };
+
   return (
-    <Form varinet="regular">
+    <Form varinet="regular" onSubmit={handleSubmit(onSubmit)}>
       {/* Book Selection */}
-      <FormRow label="Select Book" type="deliveryFormStyle">
-        <Select
-          options={bookOptions}
-          placeholder="Select a book..."
-          styles={customStyles}
-          formatOptionLabel={(option) => (
-            <div className="flex items-center gap-2">
-              <img
-                src={option.cover}
-                alt={option.label}
-                className="h-8 w-6 rounded object-cover"
-              />
-              <span>
-                {option.label} ({option.remaining} available)
-              </span>
-            </div>
+      <FormRow
+        label="Select Book"
+        type="deliveryFormStyle"
+        error={errors?.book?.message}
+      >
+        <Controller
+          name="book"
+          control={control}
+          rules={{ required: 'Please select a book' }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={bookOptions}
+              placeholder="Select a book..."
+              styles={customStyles}
+              value={field.value}
+              onChange={(option) => {
+                field.onChange(option);
+                setValue('quantity', 1); // reset quantity when book changes
+              }}
+              formatOptionLabel={(option) => (
+                <div className="flex items-center gap-2">
+                  <img
+                    src={option.cover}
+                    alt={option.label}
+                    className="h-8 w-6 rounded object-cover"
+                  />
+                  <span>{option.label}</span>
+                </div>
+              )}
+            />
           )}
         />
       </FormRow>
 
       {/* Customer Selection */}
-      <FormRow label="Select Customer" type="deliveryFormStyle">
-        <Select
-          options={customerOptions}
-          placeholder="Select a customer..."
-          styles={customStyles}
+      <FormRow
+        label="Select Customer"
+        type="deliveryFormStyle"
+        error={errors?.customer?.message}
+      >
+        <Controller
+          name="customer"
+          control={control}
+          rules={{ required: 'Please select a customer' }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={customerOptions}
+              placeholder="Select a customer..."
+              styles={customStyles}
+            />
+          )}
         />
       </FormRow>
 
-      <FormRow label="Quantity" htmlFor="quantity" type="deliveryFormStyle">
+      {/* Quantity */}
+      <FormRow
+        label="Quantity"
+        type="deliveryFormStyle"
+        error={errors?.quantity?.message}
+      >
         <div className="flex items-center gap-3">
           <Button
             type="button"
             variant="quantity"
-            onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+            onClick={() => setValue('quantity', Math.max(1, quantity - 1))}
             disabled={quantity <= 1}
-            aria-label="Decrease quantity"
           >
             -
           </Button>
 
           <input
-            id="quantity"
             type="text"
             value={quantity}
             readOnly
@@ -90,34 +139,40 @@ function CreateTransactionDeliveryForm() {
           <Button
             type="button"
             variant="quantity"
-            onClick={() => setQuantity((q) => Math.min(maxQty, q + 1))}
+            onClick={() => setValue('quantity', Math.min(maxQty, quantity + 1))}
             disabled={quantity >= maxQty}
-            aria-label="Increase quantity"
           >
             +
           </Button>
         </div>
       </FormRow>
 
+      {/* Payment Method */}
       <FormRow label="Payment Method" type="deliveryFormStyle">
-        <SegmentedRadioGroup
+        <Controller
           name="paymentMethod"
-          value={paymentMethod}
-          onChange={setPaymentMethod}
-          options={[
-            {
-              value: 'cash',
-              label: 'Cash',
-              icon: HiBanknotes,
-              activeClass: 'border-lime-500 bg-lime-100 text-lime-800',
-            },
-            {
-              value: 'online',
-              label: 'Online',
-              icon: HiCreditCard,
-              activeClass: 'border-cyan-400 bg-cyan-50 text-cyan-800',
-            },
-          ]}
+          control={control}
+          render={({ field }) => (
+            <SegmentedRadioGroup
+              {...field}
+              value={paymentMethod}
+              onChange={(value) => field.onChange(value)}
+              options={[
+                {
+                  value: 'cash',
+                  label: 'Cash',
+                  icon: HiBanknotes,
+                  activeClass: 'border-lime-500 bg-lime-100 text-lime-800',
+                },
+                {
+                  value: 'online',
+                  label: 'Online',
+                  icon: HiCreditCard,
+                  activeClass: 'border-cyan-400 bg-cyan-50 text-cyan-800',
+                },
+              ]}
+            />
+          )}
         />
       </FormRow>
 
@@ -133,12 +188,17 @@ function CreateTransactionDeliveryForm() {
         />
       </FormRow>
 
+      {/* Buttons */}
       <FormRow
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancel</Button>
-        <Button variant="formbutton">Confirm Delivery</Button>
+        <Button type="button" variant="third">
+          Cancel
+        </Button>
+        <Button type="submit" variant="formbutton">
+          Confirm Delivery
+        </Button>
       </FormRow>
     </Form>
   );
