@@ -13,6 +13,12 @@ function Input({ type = 'text', isDarkMode, className = '', ...props }) {
   focus:ring-2 focus:ring-primary-400
   focus:border-primary-500
   dark:text-text-900
+  disabled:cursor-not-allowed
+  disabled:opacity-70
+  disabled:bg-background-200
+  disabled:text-text-800
+  disabled:border-background-300
+  dark:disabled:bg-background-300
   `;
 
   const dateClasses =

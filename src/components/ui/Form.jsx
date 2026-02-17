@@ -8,7 +8,8 @@ const variants = {
   modal: `w-[800px] `,
   settingModal: `flex flex-col justify-center gap-6`,
   inventoryModal: `
-    px-10 py-6
+      py-[1.4rem] px-[1.5rem]
+      sm:px-10 sm:py-6
       rounded-[12px]
       border border-background-200
       bg-background-100 dark:bg-background-100
