@@ -23,7 +23,7 @@ const modalVariants = {
   select: 'max-w-[500px] w-[95%] overflow-y-visible px-9 sm:px-12 py-8',
   selectTerminate:
     'max-w-[555px] w-[92%] overflow-y-visible px-8 sm:px-12 py-8',
-  form: 'w-[92%] lg:max-w-[800px] px-1 py-1 sm:px-12 sm:py-8 ', //book
+  form: 'w-[92%] lg:max-w-[850px] px-1 py-1 sm:px-12 sm:py-8 ', //book
   smallForm:
     'w-[92%] max-w-[450px]  px-1 py-1 sm:px-12 sm:py-6 overflow-y-visible', //category //autheor
   reviewRequest: 'w-[92%] max-w-[550px] px-8 sm:px-12 py-6', //category //autheor

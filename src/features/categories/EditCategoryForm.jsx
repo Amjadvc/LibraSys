@@ -1,19 +1,47 @@
+import { useForm } from 'react-hook-form';
 import Button from '../../components/ui/Button';
 import Form from '../../components/ui/Form';
 import FormRow from '../../components/ui/FormRow';
 import Input from '../../components/ui/Input';
 
 function EditCategoryForm() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
-    <Form>
-      <FormRow label="Category Name *" type="catergoryFormStyle">
-        <Input type="text" name="title" className="h-[40px]" />
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <FormRow
+        label="Category Name"
+        type="catergoryFormStyle"
+        error={errors?.title?.message}
+      >
+        <Input
+          type="text"
+          name="title"
+          className="h-[40px]"
+          {...register('title', {
+            required: 'Category name is required',
+            minLength: {
+              value: 3,
+              message: 'Category name must be at least 3 characters',
+            },
+          })}
+        />
       </FormRow>
       <FormRow
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancle</Button>
+        <Button variant="third" type="button" onClick={() => reset()}>
+          Cancle
+        </Button>
         <Button variant="formbutton">Edit Category</Button>
       </FormRow>
     </Form>

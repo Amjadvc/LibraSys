@@ -6,56 +6,112 @@ import Select from 'react-select';
 import { useCountry } from '../../hooks/useCountry';
 import { customStyles } from '../../styles/CustomeStye.js';
 import { useDarkMode } from '../../context/DarkModeContext.jsx';
+import { Controller, useForm } from 'react-hook-form';
 
 function EditAuthorForm() {
   const { countries } = useCountry();
   const { isDarkMode } = useDarkMode();
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
-    <Form>
-      <FormRow label="Author name" type="bookFormStyle">
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      {/* name */}
+      <FormRow
+        label="Author name"
+        type="bookFormStyle"
+        error={errors?.name?.message}
+      >
         <Input
           type="text"
-          name="name"
           placeholder="e.g. Robert C. Martin"
           className="h-[44px]"
+          {...register('name', {
+            required: 'Author name is required',
+            minLength: {
+              value: 3,
+              message: 'Name must be at least 3 characters',
+            },
+          })}
         />
       </FormRow>
 
-      <FormRow label="Birth date" type="bookFormStyle">
+      {/* birth_date */}
+      <FormRow
+        label="Birth date"
+        type="bookFormStyle"
+        error={errors?.birth_date?.message}
+      >
         <Input
           type="date"
-          name="birth_date"
           className="h-[44px]"
           isDarkMode={isDarkMode}
+          {...register('birth_date', {
+            required: 'Birth date is required',
+          })}
         />
       </FormRow>
 
-      <FormRow label="Country" type="bookFormStyle">
-        <Select
-          options={countries}
-          styles={customStyles}
-          placeholder="Select a nationality..."
-          formatOptionLabel={(option) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img
-                src={option.flag}
-                alt={`${option?.label} Flag`}
-                width="20"
-                height="15"
-                style={{ borderRadius: '3px', objectFit: 'cover' }}
-              />
-              <span>{option.label}</span>
-            </div>
+      {/* Country */}
+      <FormRow
+        label="Country"
+        type="bookFormStyle"
+        error={errors?.country?.message}
+      >
+        <Controller
+          name="country"
+          control={control}
+          rules={{ required: 'Country is required' }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={countries}
+              styles={customStyles}
+              placeholder="Select a nationality..."
+              formatOptionLabel={(option) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                >
+                  <img
+                    src={option.flag}
+                    alt={`${option?.label} Flag`}
+                    width="20"
+                    height="15"
+                    style={{ borderRadius: '3px', objectFit: 'cover' }}
+                  />
+                  <span>{option.label}</span>
+                </div>
+              )}
+              value={field.value || null}
+              onChange={field.onChange}
+            />
           )}
         />
       </FormRow>
 
+      {/* Buttons */}
       <FormRow
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancel</Button>
-        <Button variant="formbutton">Add Author</Button>
+        <Button variant="third" type="button" onClick={() => reset()}>
+          Cancel
+        </Button>
+
+        <Button variant="formbutton">Edit Author</Button>
       </FormRow>
     </Form>
   );

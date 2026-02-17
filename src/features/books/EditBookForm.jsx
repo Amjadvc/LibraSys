@@ -6,6 +6,7 @@ import Input from '../../components/ui/Input';
 import Select from 'react-select';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
+import { Controller, useForm } from 'react-hook-form';
 
 const categories = [
   { value: 1, label: 'Fiction' },
@@ -59,54 +60,188 @@ const authorOptions = authors.map((author) => ({
 
 function EditBookForm() {
   const { isDarkMode } = useDarkMode();
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
   return (
-    <Form>
-      <FormRow label="Title" type="bookFormStyle">
-        <Input type="text" name="title" className="h-[40px]" />
-      </FormRow>
-      <FormRow label="Price" type="bookFormStyle">
-        <Input type="number" step="0.01" name="price" className="h-[40px]" />
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      {/* ISBN */}
+      <FormRow label="ISBN" type="bookFormStyle" error={errors?.ISBN?.message}>
+        <Input
+          type="text"
+          placeholder="13-digit ISBN"
+          maxLength={13}
+          className="h-[44px]"
+          {...register('ISBN', {
+            required: 'ISBN is required',
+            pattern: {
+              value: /^[0-9]{13}$/,
+              message: 'ISBN must be exactly 13 digits',
+            },
+          })}
+        />
       </FormRow>
 
-      <FormRow label="Mortgage" type="bookFormStyle">
-        <Input type="number" step="0.01" name="mortgage" className="h-[40px]" />
+      {/* book title */}
+      <FormRow
+        label="Title"
+        type="bookFormStyle"
+        error={errors?.title?.message}
+      >
+        <Input
+          type="text"
+          placeholder="Enter book title"
+          className="h-[44px]"
+          {...register('title', {
+            required: 'Title is required',
+            minLength: {
+              value: 3,
+              message: 'Title must be at least 3 characters',
+            },
+          })}
+        />
       </FormRow>
 
-      <FormRow label="Authorship Date" type="bookFormStyle">
+      {/* Price */}
+      <FormRow
+        label="Price"
+        type="bookFormStyle"
+        error={errors?.price?.message}
+      >
+        <Input
+          type="number"
+          step="0.01"
+          name="price"
+          placeholder="Enter price (e.g. 19.99)"
+          className="h-[44px]"
+          {...register('price', {
+            required: 'Price is required',
+            min: {
+              value: 0,
+              message: 'Price cannot be negative',
+            },
+            valueAsNumber: true,
+          })}
+        />
+      </FormRow>
+
+      {/* Pages */}
+      <FormRow
+        label="Pages"
+        type="bookFormStyle"
+        error={errors?.pages?.message}
+      >
+        <Input
+          type="number"
+          step="1"
+          placeholder="Enter pages number"
+          className="h-[44px]"
+          {...register('pages', {
+            required: 'Pages number is required',
+            min: {
+              value: 1,
+              message: 'Pages must be at least 1',
+            },
+            valueAsNumber: true,
+          })}
+        />
+      </FormRow>
+
+      {/* Authorship Date */}
+      <FormRow
+        label="Authorship Date"
+        type="bookFormStyle"
+        error={errors?.authorship_date?.message}
+      >
         <Input
           type="date"
-          name="authorship_date"
-          className="h-[40px]"
+          placeholder="Select authorship date"
+          className="h-[44px]"
           isDarkMode={isDarkMode}
+          {...register('authorship_date', {
+            required: 'Authorship date is required',
+          })}
         />
       </FormRow>
 
-      <FormRow label="Category" type="bookFormStyle">
-        <Select
-          options={categories}
-          styles={customStyles}
-          placeholder="Select Category..."
+      {/* Category */}
+      <FormRow
+        label="Category"
+        type="bookFormStyle"
+        error={errors?.category?.message}
+      >
+        <Controller
+          name="category"
+          control={control}
+          rules={{ required: 'Category is required' }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={categories}
+              styles={customStyles}
+              placeholder="Select Category..."
+              value={field.value}
+              onChange={(option) => field.onChange(option)}
+            />
+          )}
         />
       </FormRow>
 
-      <FormRow label="Authors" type="bookFormStyle">
-        <Select
-          options={authorOptions}
-          styles={customStyles}
-          placeholder="Select author..."
-          isMulti
+      {/* Authors */}
+      <FormRow
+        label="Authors"
+        type="bookFormStyle"
+        error={errors?.authors?.message}
+      >
+        <Controller
+          name="authors"
+          control={control}
+          rules={{ required: 'At least one author is required' }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={authorOptions}
+              isMulti
+              styles={customStyles}
+              placeholder="Select authors..."
+              value={field.value}
+              onChange={(options) => field.onChange(options)}
+            />
+          )}
         />
       </FormRow>
 
-      <FormRow label="Book Cover" type="bookFormStyle">
-        <FileInput name="cover" disabled={false} accept="image/*" />
+      {/* Book Cover */}
+      <FormRow
+        type="bookFormStyle"
+        label="Book Cover"
+        error={errors?.cover?.message}
+      >
+        <FileInput
+          type="file"
+          accept="image/*"
+          {...register('cover', {
+            required: 'Cover image is required',
+          })}
+        />
       </FormRow>
 
+      {/* buttons  */}
       <FormRow
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third">Cancle</Button>
+        <Button variant="third" type="button" onClick={() => reset()}>
+          Reset
+        </Button>
         <Button variant="formbutton">Edit book</Button>
       </FormRow>
     </Form>
