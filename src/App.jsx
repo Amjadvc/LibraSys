@@ -18,42 +18,49 @@ import BookTerminate from './pages/BookTerminate';
 import Settings from './pages/Settings';
 import Account from './pages/Account';
 import BookDetails from './pages/BookDetails';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+// Create a client
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <DarkModeProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="dashboard" />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/account" element={<Account />} />
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <DarkModeProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/account" element={<Account />} />
 
-            <Route path="books">
-              <Route index element={<Books />} />
-              <Route path="book/:id" element={<BookDetails />} />
-              <Route path="categories" element={<Categories />} />
-              <Route path="authors" element={<Authors />} />
+              <Route path="books">
+                <Route index element={<Books />} />
+                <Route path="book/:id" element={<BookDetails />} />
+                <Route path="categories" element={<Categories />} />
+                <Route path="authors" element={<Authors />} />
+              </Route>
+
+              <Route path="/inventory" element={<Inventory />} />
+
+              <Route path="transactions">
+                <Route index element={<BookDelivery />} />
+                <Route path="returns" element={<BookReturns />} />
+                <Route path="terminate" element={<BookTerminate />} />
+              </Route>
+
+              <Route path="/book-requests" element={<BookRequests />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/settings" element={<Settings />} />
             </Route>
 
-            <Route path="/inventory" element={<Inventory />} />
-
-            <Route path="transactions">
-              <Route index element={<BookDelivery />} />
-              <Route path="returns" element={<BookReturns />} />
-              <Route path="terminate" element={<BookTerminate />} />
-            </Route>
-
-            <Route path="/book-requests" element={<BookRequests />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/settings" element={<Settings />} />
-          </Route>
-
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </DarkModeProvider>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </DarkModeProvider>
+    </QueryClientProvider>
   );
 }
 

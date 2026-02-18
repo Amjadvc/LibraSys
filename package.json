@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.43.0",
+    "@tanstack/react-query-devtools": "^4.43.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
@@ -22,6 +24,7 @@
     "recharts": "^3.7.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.43.0",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
