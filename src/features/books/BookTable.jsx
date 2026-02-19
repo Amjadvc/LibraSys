@@ -14,7 +14,7 @@ function BookTable() {
 
   if (isLoading) return <Spinner title="books" />;
 
-  if (true) return <Empty resourceName="books" />;
+  // if (true) return <Empty resourceName="books" />;
 
   return (
     <Menus>
