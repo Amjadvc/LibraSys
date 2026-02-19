@@ -40,7 +40,7 @@ function BookRow({
             <Menus.Button
               icon={<HiEye className="text-accent-500" />}
               className="text-accent-500 hover:bg-accent-50"
-              onClick={() => navigate(`book/${bookId}`)}
+              onClick={() => navigate(`${bookId}`)}
             >
               See Details
             </Menus.Button>

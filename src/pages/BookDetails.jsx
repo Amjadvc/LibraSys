@@ -1,11 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi2';
-// import { books } from '../features/books/data/books';
+import { useBook } from '../features/books/useBook';
 import StatusBadge from '../components/ui/StatusBadge';
 import Button from '../components/ui/Button';
 import PageTitle from '../components/ui/PageTitle';
 import Row from '../components/ui/Row';
-import { useBooks } from '../features/books/useBooks';
 import Spinner from '../components/ui/Spinner';
 
 function Stat({ label, value, accent }) {
@@ -40,13 +39,11 @@ function BookCover({ title, cover }) {
 }
 
 function BookDetails() {
-  const { books, isLoading } = useBooks();
-  const { id } = useParams();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const { book, isLoading } = useBook(id);
 
   if (isLoading) return <Spinner title="books" />;
-
-  const book = books.find((b) => String(b.id) === id);
 
   if (!book) {
     return <div className="p-6 text-text-600">Book not found</div>;
