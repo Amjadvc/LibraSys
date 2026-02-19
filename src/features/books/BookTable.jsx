@@ -1,11 +1,21 @@
-import Menus from "../../components/ui/Menus";
-import Pagination from "../../components/ui/Pagination";
-import ScrollWrapper from "../../components/ui/ScrollWrapper";
-import Table from "../../components/ui/Table";
-import BookRow from "./BookRow";
-import { books } from "./data/books";
+import Empty from '../../components/ui/Empty';
+import Menus from '../../components/ui/Menus';
+import Pagination from '../../components/ui/Pagination';
+import ScrollWrapper from '../../components/ui/ScrollWrapper';
+import Spinner from '../../components/ui/Spinner';
+import Table from '../../components/ui/Table';
+import BookRow from './BookRow';
+import { books } from './data/books';
+import { useBooks } from './useBooks';
 
 function BookTable() {
+  const { booksApi, isLoading } = useBooks();
+  console.log(booksApi);
+
+  if (isLoading) return <Spinner title="books" />;
+
+  if (true) return <Empty resourceName="books" />;
+
   return (
     <Menus>
       <ScrollWrapper>

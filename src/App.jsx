@@ -19,6 +19,7 @@ import Settings from './pages/Settings';
 import Account from './pages/Account';
 import BookDetails from './pages/BookDetails';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ function App() {
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
       <DarkModeProvider>
+        <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayout />}>
