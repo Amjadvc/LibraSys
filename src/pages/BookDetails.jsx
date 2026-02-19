@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi2';
-import { books } from '../features/books/data/books';
+// import { books } from '../features/books/data/books';
 import StatusBadge from '../components/ui/StatusBadge';
 import Button from '../components/ui/Button';
 import PageTitle from '../components/ui/PageTitle';
 import Row from '../components/ui/Row';
- 
+import { useBooks } from '../features/books/useBooks';
+import Spinner from '../components/ui/Spinner';
+
 function Stat({ label, value, accent }) {
   return (
     <div className="rounded-xl border border-background-200 bg-background-100 p-4">
@@ -26,6 +28,10 @@ function BookCover({ title, cover }) {
     <div className="flex rounded-2xl border border-background-200 bg-background-50 p-2 shadow-sm">
       <img
         src={cover || '/placeholder-book.png'}
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = '/placeholder-book.png';
+        }}
         alt={title}
         className="h-auto max-h-[300px] w-full rounded-xl shadow-md transition hover:scale-[1.02] sm:max-h-full"
       />
@@ -34,15 +40,17 @@ function BookCover({ title, cover }) {
 }
 
 function BookDetails() {
+  const { books, isLoading } = useBooks();
   const { id } = useParams();
   const navigate = useNavigate();
+
+  if (isLoading) return <Spinner title="books" />;
 
   const book = books.find((b) => String(b.id) === id);
 
   if (!book) {
     return <div className="p-6 text-text-600">Book not found</div>;
   }
-
   const {
     title,
     ISBN,
@@ -52,11 +60,10 @@ function BookDetails() {
     price,
     mortgage,
     pages,
-    loanDuration,
-    publishedAt,
+    remaining_copies,
+    total_copies,
     status,
-    totalCopies,
-    remainingCopies,
+    authorship_date,
   } = book;
 
   return (
@@ -91,15 +98,12 @@ function BookDetails() {
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
-            <Stat label="Published" value={publishedAt} />
+            <Stat label="Total Copies" value={total_copies} />
+            <Stat label="Remaining Copies" value={remaining_copies} />
             <Stat label="Pages" value={pages} />
-            <Stat label="Loan duration" value={`${loanDuration} days`} />
+            <Stat label="Authorship Date" value={authorship_date} />
             <Stat label="Price" value={`${price} $`} accent />
             <Stat label="Mortgage" value={`${mortgage} $`} accent />
-            <Stat
-              label="Availability"
-              value={`${remainingCopies} / ${totalCopies}`}
-            />
           </div>
         </div>
       </div>

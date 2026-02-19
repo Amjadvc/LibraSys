@@ -5,16 +5,16 @@ import ScrollWrapper from '../../components/ui/ScrollWrapper';
 import Spinner from '../../components/ui/Spinner';
 import Table from '../../components/ui/Table';
 import BookRow from './BookRow';
-import { books } from './data/books';
+// import { books } from './data/books';
 import { useBooks } from './useBooks';
 
 function BookTable() {
-  const { booksApi, isLoading } = useBooks();
-  console.log(booksApi);
+  const { books, isLoading } = useBooks();
+  console.log(books);
 
   if (isLoading) return <Spinner title="books" />;
 
-  // if (true) return <Empty resourceName="books" />;
+  if (!books.length) return <Empty resourceName="books" />;
 
   return (
     <Menus>

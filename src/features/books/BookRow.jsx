@@ -9,7 +9,7 @@ import EditBookForm from './EditBookForm';
 import StatusBadge from '../../components/ui/StatusBadge';
 
 function BookRow({
-  book: { id: bookId, ISBN, title, cover, category, price, mortgage, status },
+  book: { id: bookId, title, cover, category, price, mortgage, status },
 }) {
   const navigate = useNavigate();
   return (
@@ -18,6 +18,10 @@ function BookRow({
         <img
           src={cover || '/placeholder-book.png'}
           alt={title}
+          onError={(e) => {
+            e.currentTarget.onerror = null; // prevent looping
+            e.currentTarget.src = '/placeholder-book.png';
+          }}
           className="h-12 w-20 rounded border border-background-200 object-cover"
         />
       </div>
