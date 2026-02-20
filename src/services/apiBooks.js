@@ -13,7 +13,7 @@ export async function getBooks() {
   } catch (error) {
     console.error(error);
     throw new Error('Books could not be loaded');
-  }
+  } 
 }
 
 // find one book
@@ -26,3 +26,7 @@ export async function getBook(id) {
     throw new Error('Book could not be loaded');
   }
 }
+
+//create a book
+
+export async function createBookApi() {}

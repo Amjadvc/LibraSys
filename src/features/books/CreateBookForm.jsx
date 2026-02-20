@@ -7,6 +7,7 @@ import Select from 'react-select';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
 import { Controller, useForm } from 'react-hook-form';
+import { useCreateBook } from './useCreateBook';
 
 const categories = [
   { value: 1, label: 'Fiction' },
@@ -58,7 +59,7 @@ const authorOptions = authors.map((author) => ({
   label: author.name,
 }));
 
-function CreateBookForm() {
+function CreateBookForm({ onCloseModal }) {
   const { isDarkMode } = useDarkMode();
 
   const {
@@ -69,7 +70,27 @@ function CreateBookForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const { createBook } = useCreateBook();
+
+  async function onSubmit(data) {
+    const formattedData = {
+      ...data,
+      category_id: data.category_id.value,
+      authors: data.authors.map((author) => author.value),
+      cover: data.cover[0],
+      total_copies: 0,
+      remaining_copies: 0,
+    };
+
+    createBook(data, {
+      onSuccess: (data) => {
+        reset();
+        onCloseModal?.();
+      },
+    });
+    console.log(formattedData);
+  }
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       {/* ISBN */}
@@ -118,7 +139,6 @@ function CreateBookForm() {
         <Input
           type="number"
           step="0.01"
-          name="price"
           placeholder="Enter price (e.g. 19.99)"
           className="h-[44px]"
           {...register('price', {
@@ -126,6 +146,28 @@ function CreateBookForm() {
             min: {
               value: 0,
               message: 'Price cannot be negative',
+            },
+            valueAsNumber: true,
+          })}
+        />
+      </FormRow>
+
+      {/* Mortgage */}
+      <FormRow
+        label="Mortgage"
+        type="bookFormStyle"
+        error={errors?.mortgage?.message}
+      >
+        <Input
+          type="number"
+          step="0.01"
+          placeholder="Enter mortgage (e.g. 19.99)"
+          className="h-[44px]"
+          {...register('mortgage', {
+            required: 'Mortgage is required',
+            min: {
+              value: 0,
+              message: 'Mortgage cannot be negative',
             },
             valueAsNumber: true,
           })}
@@ -154,6 +196,28 @@ function CreateBookForm() {
         />
       </FormRow>
 
+      {/* Borrow Duration */}
+      <FormRow
+        label=" Borrow Duration"
+        type="bookFormStyle"
+        error={errors?.borrow_duration?.message}
+      >
+        <Input
+          type="number"
+          step="1"
+          placeholder="Enter borrow duration"
+          className="h-[44px]"
+          {...register('borrow_duration', {
+            required: ' borrow duration number is required',
+            min: {
+              value: 1,
+              message: ' borrow duration must be at least 1',
+            },
+            valueAsNumber: true,
+          })}
+        />
+      </FormRow>
+
       {/* Authorship Date */}
       <FormRow
         label="Authorship Date"
@@ -175,10 +239,10 @@ function CreateBookForm() {
       <FormRow
         label="Category"
         type="bookFormStyle"
-        error={errors?.category?.message}
+        error={errors?.category_id?.message}
       >
         <Controller
-          name="category"
+          name="category_id"
           control={control}
           rules={{ required: 'Category is required' }}
           render={({ field }) => (
