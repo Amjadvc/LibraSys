@@ -82,7 +82,7 @@ function CreateBookForm({ onCloseModal }) {
       remaining_copies: 0,
     };
 
-    createBook(data, {
+    createBook(formattedData, {
       onSuccess: (data) => {
         reset();
         onCloseModal?.();

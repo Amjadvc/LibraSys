@@ -13,7 +13,7 @@ export async function getBooks() {
   } catch (error) {
     console.error(error);
     throw new Error('Books could not be loaded');
-  } 
+  }
 }
 
 // find one book
@@ -28,5 +28,32 @@ export async function getBook(id) {
 }
 
 //create a book
+export async function createBookApi(newBook) {
+  try {
+    const formData = new FormData();
+    Object.entries(newBook).forEach(([key, value]) => {
+      if (key === 'authors') {
+        value.forEach((authorId) => {
+          formData.append('authors[]', authorId);
+        });
+      } else {
+        formData.append(key, value);
+      }
+    });
 
-export async function createBookApi() {}
+    const { data } = await api.post(`/api/books`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    return data;
+  } catch (error) {
+    console.log('Full error:', error);
+    console.log('Laravel response:', error.response?.data);
+
+    throw new Error(
+      error.response?.data?.message || 'Book could not be created',
+    );
+  }
+}
