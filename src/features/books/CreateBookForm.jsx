@@ -4,10 +4,12 @@ import Input from '../../components/ui/Input';
 import FileInput from '../../components/ui/FileInput';
 import Button from '../../components/ui/Button';
 import Select from 'react-select';
+import SpinnerMini from '../../components/ui/SpinnerMini';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
 import { Controller, useForm } from 'react-hook-form';
 import { useCreateBook } from './useCreateBook';
+import { useUpdateBook } from './useUpdateBook';
 
 const categories = [
   { value: 1, label: 'Fiction' },
@@ -59,8 +61,15 @@ const authorOptions = authors.map((author) => ({
   label: author.name,
 }));
 
-function CreateBookForm({ onCloseModal }) {
+function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
   const { isDarkMode } = useDarkMode();
+
+  const { id: editId, ...editValues } = bookToEdit;
+
+  const isEditSession = Boolean(editId);
+
+  const { createBook, isCreatingBook } = useCreateBook();
+  const { updateBook, isUpdatingBook } = useUpdateBook();
 
   const {
     register,
@@ -68,27 +77,51 @@ function CreateBookForm({ onCloseModal }) {
     control,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: isEditSession
+      ? {
+          ...editValues,
+          category_id: editValues.category
+            ? { value: editValues.category.id, label: editValues.category.name }
+            : null,
+          authors: editValues.authors?.map((a) => ({
+            value: a.id,
+            label: a.name,
+          })),
+        }
+      : {},
+  });
 
-  const { createBook } = useCreateBook();
+  const isWorking = isCreatingBook || isUpdatingBook;
 
   async function onSubmit(data) {
     const formattedData = {
       ...data,
       category_id: data.category_id.value,
       authors: data.authors.map((author) => author.value),
-      cover: data.cover[0],
+      cover: typeof data.cover === 'string' ? data.cover : data.cover?.[0],
       total_copies: 0,
       remaining_copies: 0,
     };
 
-    createBook(formattedData, {
-      onSuccess: (data) => {
-        reset();
-        onCloseModal?.();
-      },
-    });
-    console.log(formattedData);
+    if (isEditSession) {
+      updateBook(
+        { id: editId, newBookData: formattedData },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
+        },
+      );
+    } else {
+      createBook(formattedData, {
+        onSuccess: () => {
+          reset();
+          onCloseModal?.();
+        },
+      });
+    }
   }
 
   return (
@@ -146,6 +179,10 @@ function CreateBookForm({ onCloseModal }) {
             min: {
               value: 0,
               message: 'Price cannot be negative',
+            },
+            max: {
+              value: 200,
+              message: 'Price cannot be more than 99',
             },
             valueAsNumber: true,
           })}
@@ -292,7 +329,7 @@ function CreateBookForm({ onCloseModal }) {
           type="file"
           accept="image/*"
           {...register('cover', {
-            required: 'Cover image is required',
+            required: isEditSession ? false : 'Cover image is required',
           })}
         />
       </FormRow>
@@ -305,7 +342,15 @@ function CreateBookForm({ onCloseModal }) {
         <Button variant="third" type="button" onClick={() => reset()}>
           Reset
         </Button>
-        <Button variant="formbutton">Add new book</Button>
+        <Button variant="formbutton">
+          {isWorking ? (
+            <SpinnerMini />
+          ) : isEditSession ? (
+            'Edit book'
+          ) : (
+            'Add new book'
+          )}
+        </Button>
       </FormRow>
     </Form>
   );

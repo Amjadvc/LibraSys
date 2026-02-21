@@ -27,3 +27,4 @@ dist-ssr
 
 
 src/services/apiAuth-v2.js
+src/services/apiBooks-v2.js

@@ -1,12 +1,12 @@
 import { HiEye, HiPencil, HiTrash } from 'react-icons/hi2';
 import { formatCurrency } from '../../utils/helpers';
+import { useNavigate } from 'react-router-dom';
 import Menus from '../../components/ui/Menus';
 import Table from '../../components/ui/Table';
 import Modal from '../../components/ui/Modal';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
-import { useNavigate } from 'react-router-dom';
-import EditBookForm from './EditBookForm';
 import StatusBadge from '../../components/ui/StatusBadge';
+import CreateBookForm from './CreateBookForm';
 
 function BookRow({
   book: { id: bookId, title, cover, category, price, mortgage, status },
@@ -68,7 +68,17 @@ function BookRow({
           <ConfirmDelete resourceName="books" />
         </Modal.Window>
         <Modal.Window name="edit" type="form">
-          <EditBookForm />
+          <CreateBookForm
+            bookToEdit={{
+              id: bookId,
+              title,
+              cover,
+              category,
+              price,
+              mortgage,
+              status,
+            }}
+          />
         </Modal.Window>
       </Modal>
     </Table.Row>

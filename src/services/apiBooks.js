@@ -1,11 +1,19 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
-  withCredentials: true, // VERY IMPORTANT for Laravel cookies
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true,
+  withXSRFToken: true,
 });
 
-//Fetch all books
+// Get CSRF cookie
+export async function getCsrfCookie() {
+  return await api.get('/sanctum/csrf-cookie');
+}
+
+// --------------------
+// GET ALL BOOKS
+// --------------------
 export async function getBooks() {
   try {
     const { data } = await api.get('/api/books');
@@ -16,7 +24,9 @@ export async function getBooks() {
   }
 }
 
-// find one book
+// --------------------
+// GET SINGLE BOOK
+// --------------------
 export async function getBook(id) {
   try {
     const { data } = await api.get(`/api/books/${id}`);
@@ -27,53 +37,69 @@ export async function getBook(id) {
   }
 }
 
+// --------------------
+// HELPER: Build FormData
+// --------------------
+function buildFormData(book) {
+  const formData = new FormData();
 
-//create a book
+  Object.entries(book).forEach(([key, value]) => {
+    if (key === 'authors') {
+      value.forEach((authorId) => {
+        formData.append('authors[]', authorId);
+      });
+    } else if (value !== undefined && value !== null) {
+      formData.append(key, value);
+    }
+  });
+
+  return formData;
+}
+
+// --------------------
+// CREATE BOOK
+// --------------------
 export async function createBookApi(newBook) {
   try {
-    console.log('📚 Creating book with data:', newBook);
-    console.log('Current cookies before request:', document.cookie);
-
-    const formData = new FormData();
-    Object.entries(newBook).forEach(([key, value]) => {
-      if (key === 'authors') {
-        value.forEach((authorId) => {
-          formData.append('authors[]', authorId);
-        });
-      } else {
-        formData.append(key, value);
-      }
-    });
-
-    // Log FormData contents
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-    }
-
-    const { data } = await api.post(`/dashboard/books`, formData, {
+    await getCsrfCookie();
+    const formData = buildFormData(newBook);
+    const { data } = await api.post(`/api/dashboard/books`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
-        // Add these headers explicitly
         Accept: 'application/json',
+        'Content-Type': 'multipart/form-data',
         'X-Requested-With': 'XMLHttpRequest',
       },
     });
 
-    console.log('✅ Book created successfully:', data);
     return data;
   } catch (error) {
-    console.log('❌ Full error:', error);
-    console.log('❌ Laravel response:', error.response?.data);
-    console.log('❌ Error status:', error.response?.status);
-
-    // Check if it's an authentication issue
-    if (error.response?.status === 401) {
-      console.log('🔐 Authentication failed - session cookie may be missing');
-      console.log('Cookies at time of error:', document.cookie);
-    }
-
     throw new Error(
       error.response?.data?.message || 'Book could not be created',
+    );
+  }
+}
+
+// --------------------
+// UPDATE BOOK
+// --------------------
+export async function updateBookApi(id, updatedBook) {
+  try {
+    await getCsrfCookie();
+
+    const formData = buildFormData(updatedBook);
+
+    const { data } = await api.post(`/api/dashboard/books/${id}`, formData, {
+      headers: {
+        'X-HTTP-Method-Override': 'PUT',
+        'Content-Type': 'multipart/form-data',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    });
+
+    return data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || 'Book could not be updated',
     );
   }
 }
