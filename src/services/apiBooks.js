@@ -27,9 +27,13 @@ export async function getBook(id) {
   }
 }
 
+
 //create a book
 export async function createBookApi(newBook) {
   try {
+    console.log('📚 Creating book with data:', newBook);
+    console.log('Current cookies before request:', document.cookie);
+
     const formData = new FormData();
     Object.entries(newBook).forEach(([key, value]) => {
       if (key === 'authors') {
@@ -41,16 +45,32 @@ export async function createBookApi(newBook) {
       }
     });
 
-    const { data } = await api.post(`/api/books`, formData, {
+    // Log FormData contents
+    for (let pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    const { data } = await api.post(`/dashboard/books`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
+        // Add these headers explicitly
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
       },
     });
 
+    console.log('✅ Book created successfully:', data);
     return data;
   } catch (error) {
-    console.log('Full error:', error);
-    console.log('Laravel response:', error.response?.data);
+    console.log('❌ Full error:', error);
+    console.log('❌ Laravel response:', error.response?.data);
+    console.log('❌ Error status:', error.response?.status);
+
+    // Check if it's an authentication issue
+    if (error.response?.status === 401) {
+      console.log('🔐 Authentication failed - session cookie may be missing');
+      console.log('Cookies at time of error:', document.cookie);
+    }
 
     throw new Error(
       error.response?.data?.message || 'Book could not be created',

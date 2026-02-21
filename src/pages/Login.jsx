@@ -1,5 +1,5 @@
-import HeroImgLogin from "../components/ui/HeroImgLogin";
-import LoginContent from "../components/ui/LoginContent";
+import HeroImgLogin from '../components/ui/HeroImgLogin';
+import LoginContent from '../components/ui/LoginContent';
 
 function Login() {
   return (

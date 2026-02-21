@@ -1,5 +1,5 @@
-import LoginForm from "../../features/authentication/LoginForm";
-import PageTitle from "./PageTitle";
+import LoginForm from '../../features/authentication/LoginForm';
+import PageTitle from './PageTitle';
 
 function LoginContent() {
   return (
@@ -7,7 +7,7 @@ function LoginContent() {
       <div className="intro flex max-w-[400px] flex-col items-center justify-center">
         <PageTitle
           title="Admin Login"
-          classes="mb-2 text-center text-[35px] md:text-[50px]"
+          classes="mb-2 text-center text-[35px] md:text-[50px] dark:text-[#262f4d]"
         />
         <p className="text-center text-[15px] text-[#363062]">
           Welcome back! Please enter your credentials below to access the admin
