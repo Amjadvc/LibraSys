@@ -1,4 +1,5 @@
 import Button from './Button';
+import SpinnerMini from './SpinnerMini';
 
 function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
   return (
@@ -13,10 +14,12 @@ function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
       </p>
 
       <div className="flex justify-end gap-5 max-sm:justify-center">
-        <Button variant="third">Cancel</Button>
+        <Button variant="third" disabled={disabled} onClick={onCloseModal}>
+          Cancel
+        </Button>
 
         <Button variant="danger" onClick={onConfirm} disabled={disabled}>
-          Delete
+          {disabled ? <SpinnerMini /> : 'Delete'}
         </Button>
       </div>
     </div>

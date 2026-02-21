@@ -14,11 +14,16 @@ const api = axios.create({
 api.defaults.xsrfCookieName = 'XSRF-TOKEN';
 api.defaults.xsrfHeaderName = 'X-XSRF-TOKEN';
 
-// Get CSRF cookie
+// --------------------
+// HELPER: Get CSRF cookie
+// --------------------
 export async function getCsrfCookie() {
   return await api.get('/sanctum/csrf-cookie');
 }
 
+// --------------------
+// LOGIN
+// --------------------
 export async function login({ email, password }) {
   await getCsrfCookie();
 
@@ -32,12 +37,14 @@ export async function login({ email, password }) {
 
   if (user) return user;
 
-  // fallback if user not returned
+  // fallback: fetch user info if not returned in login response
   const userResponse = await api.get('/api/user');
   return userResponse.data;
 }
 
-//get user
+// --------------------
+// GET AUTHENTICATED USER
+// --------------------
 export async function getUser() {
   const response = await api.get('/api/user');
   return response.data;

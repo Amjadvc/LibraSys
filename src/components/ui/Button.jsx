@@ -1,4 +1,5 @@
-const baseStyles = 'flex items-center justify-center outline-none transition';
+const baseStyles =
+  'flex items-center justify-center outline-none transition  disabled:cursor-not-allowed disabled:opacity-50';
 
 const transaction = `
   inline-flex items-center justify-center
@@ -31,7 +32,7 @@ const variants = {
   `,
 
   danger:
-    'rounded-[8px] bg-red-600 hover:bg-red-700 px-5 py-2 text-[16px] font-medium text-white',
+    'rounded-[8px] min-w-[89px] bg-red-600 hover:bg-red-700 px-5 py-2 text-[16px] font-medium text-white',
 
   formbutton:
     'rounded-[8px] bg-primary-500 hover:bg-primary-600 px-6 py-2 text-[16px] font-medium text-white transition-colors',

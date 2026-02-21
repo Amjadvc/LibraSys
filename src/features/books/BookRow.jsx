@@ -7,11 +7,14 @@ import Modal from '../../components/ui/Modal';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
 import StatusBadge from '../../components/ui/StatusBadge';
 import CreateBookForm from './CreateBookForm';
+import { useDeleteBook } from './useDeleteBook';
 
 function BookRow({
   book: { id: bookId, title, cover, category, price, mortgage, status },
 }) {
   const navigate = useNavigate();
+  const { deleteBook, isDeleting } = useDeleteBook();
+
   return (
     <Table.Row className="hover:bg-50">
       <div>
@@ -44,6 +47,7 @@ function BookRow({
             >
               See Details
             </Menus.Button>
+
             <Modal.Open opens="edit">
               <Menus.Button
                 icon={<HiPencil className="text-accent-500" />}
@@ -65,8 +69,13 @@ function BookRow({
         </Menus.Menu>
 
         <Modal.Window name="delete" type="select">
-          <ConfirmDelete resourceName="books" />
+          <ConfirmDelete
+            resourceName="books"
+            disabled={isDeleting}
+            onConfirm={() => deleteBook(bookId)}
+          />
         </Modal.Window>
+
         <Modal.Window name="edit" type="form">
           <CreateBookForm
             bookToEdit={{
