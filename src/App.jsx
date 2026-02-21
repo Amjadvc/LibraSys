@@ -20,6 +20,7 @@ import Account from './pages/Account';
 import BookDetails from './pages/BookDetails';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import ProtactRoute from './features/authentication/ProtactRoute';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -38,7 +39,13 @@ function App() {
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtactRoute>
+                  <AppLayout />
+                </ProtactRoute>
+              }
+            >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/account" element={<Account />} />

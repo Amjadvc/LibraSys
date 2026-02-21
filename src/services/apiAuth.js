@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000',
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
   withXSRFToken: true,
   headers: {
@@ -37,6 +37,7 @@ export async function login({ email, password }) {
   return userResponse.data;
 }
 
+//get user
 export async function getUser() {
   const response = await api.get('/api/user');
   return response.data;
