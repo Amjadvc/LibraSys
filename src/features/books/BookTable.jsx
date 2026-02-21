@@ -9,7 +9,7 @@ import BookRow from './BookRow';
 import { useBooks } from './useBooks';
 
 function BookTable() {
-  const { books, isLoading } = useBooks();
+  const { books, isLoading, total } = useBooks();
   console.log(books);
 
   if (isLoading) return <Spinner title="books" />;
@@ -36,7 +36,7 @@ function BookTable() {
           />
 
           <Table.Footer>
-            <Pagination count={100} />
+            <Pagination count={total} />
           </Table.Footer>
         </Table>
       </ScrollWrapper>
