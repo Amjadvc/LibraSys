@@ -1,9 +1,17 @@
+import Empty from '../../components/ui/Empty';
 import ScrollWrapper from '../../components/ui/ScrollWrapper';
+import Spinner from '../../components/ui/Spinner';
 import Table from '../../components/ui/Table';
-import AuthorRow from './authorRow';
-import { authors } from './data/author';
+import AuthorRow from './AuthorRow';
+import { useAuthors } from './useAuthors';
 
 function AuthorTable() {
+  const { authors, isLoading } = useAuthors();
+
+  if (isLoading) return <Spinner title="authors" />;
+
+  if (!authors.length) return <Empty resourceName="authors" />;
+
   return (
     <ScrollWrapper>
       <Table columns="2fr 2fr 2fr 1fr" minWidth={700}>
@@ -24,4 +32,3 @@ function AuthorTable() {
 }
 
 export default AuthorTable;
-  

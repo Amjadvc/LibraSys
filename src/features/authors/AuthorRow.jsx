@@ -1,12 +1,15 @@
 import { HiPencil, HiTrash } from 'react-icons/hi2';
+import { useCountry } from '../../hooks/useCountry';
 import Modal from '../../components/ui/Modal';
 import Table from '../../components/ui/Table';
 import ButtonIcon from '../../components/ui/ButtonIcon';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
-import { useCountry } from '../../hooks/useCountry';
-import EditAuthorForm from './EditAuthorForm';
+import CreateAuthorForm from './CreateAuthorForm';
+import { useDeleteAuthor } from './useDeleteAuthor';
 
-function AuthorRow({ author: { name, birth_date, country } }) {
+function AuthorRow({ author: { id, name, birth_date, country } }) {
+  const { deleteAuthor, isDeleting } = useDeleteAuthor();
+
   const { countries } = useCountry();
   const countryMap = countries.reduce((acc, c) => {
     acc[c.label] = c; // key by country name
@@ -46,11 +49,22 @@ function AuthorRow({ author: { name, birth_date, country } }) {
         </div>
 
         <Modal.Window name="edit" type="form">
-          <EditAuthorForm />
+          <CreateAuthorForm
+            authorToEdit={{
+              id,
+              name,
+              birth_date,
+              country,
+            }}
+          />
         </Modal.Window>
 
         <Modal.Window name="delete" type="select">
-          <ConfirmDelete resourceName="author" />
+          <ConfirmDelete
+            resourceName="author"
+            disabled={isDeleting}
+            onConfirm={() => deleteAuthor(id)}
+          />
         </Modal.Window>
       </Modal>
     </Table.Row>

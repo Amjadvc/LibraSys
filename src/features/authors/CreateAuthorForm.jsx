@@ -7,10 +7,19 @@ import { useCountry } from '../../hooks/useCountry';
 import { customStyles } from '../../styles/CustomeStye.js';
 import { useDarkMode } from '../../context/DarkModeContext.jsx';
 import { Controller, useForm } from 'react-hook-form';
+import { useCreateAuthor } from './useCreateAuthor.js';
+import { useUpdateAuthor } from './useUpdateAuthor.js';
+import SpinnerMini from '../../components/ui/SpinnerMini.jsx';
 
-function CreateAuthorForm() {
+function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
   const { countries } = useCountry();
   const { isDarkMode } = useDarkMode();
+
+  const { id: editId, ...editValues } = authorToEdit;
+  const isEditSession = Boolean(editId);
+
+  const { createAuthor, isCreatingAuthor } = useCreateAuthor();
+  const { updateAuthor, isUpdatingAuthor } = useUpdateAuthor();
 
   const {
     register,
@@ -18,11 +27,43 @@ function CreateAuthorForm() {
     control,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: isEditSession
+      ? {
+          ...editValues,
+          country: countries.find((c) => c.label === editValues.country),
+        }
+      : {},
+  });
 
-  const onSubmit = (data) => {
+  const isWorking = isCreatingAuthor || isUpdatingAuthor;
+
+  function onSubmit(data) {
     console.log(data);
-  };
+    const formattedData = {
+      ...data,
+      country: data.country.label,
+    };
+
+    if (isEditSession) {
+      updateAuthor(
+        { id: editId, newAuthorData: formattedData },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
+        },
+      );
+    } else {
+      createAuthor(formattedData, {
+        onSuccess: () => {
+          reset();
+          onCloseModal?.();
+        },
+      });
+    }
+  }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -108,11 +149,24 @@ function CreateAuthorForm() {
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third" type="button" onClick={() => reset()}>
+        <Button
+          variant="third"
+          type="button"
+          onClick={() => reset()}
+          disabled={isWorking}
+        >
           Cancel
         </Button>
 
-        <Button variant="formbutton">Add Author</Button>
+        <Button variant="formbutton" disabled={isWorking}>
+          {isWorking ? (
+            <SpinnerMini />
+          ) : isEditSession ? (
+            'Edit Author'
+          ) : (
+            'Add Author'
+          )}
+        </Button>
       </FormRow>
     </Form>
   );

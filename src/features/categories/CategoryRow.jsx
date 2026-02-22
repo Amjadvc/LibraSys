@@ -33,7 +33,12 @@ function CategoryRow({
         </div>
 
         <Modal.Window name="edit" type="smallForm">
-          <CreateCategoryForm />
+          <CreateCategoryForm
+            categoryToEdit={{
+              id: categoryId,
+              name,
+            }}
+          />
         </Modal.Window>
 
         <Modal.Window name="delete" type="select">

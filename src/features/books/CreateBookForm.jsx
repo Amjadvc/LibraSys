@@ -339,10 +339,15 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
         type="hasbuttons"
         customeClasses="flex justify-end gap-[10px] items-center"
       >
-        <Button variant="third" type="button" onClick={() => reset()}>
+        <Button
+          variant="third"
+          type="button"
+          onClick={() => reset()}
+          disabled={isWorking}
+        >
           Reset
         </Button>
-        <Button variant="formbutton">
+        <Button variant="formbutton" disabled={isWorking}>
           {isWorking ? (
             <SpinnerMini />
           ) : isEditSession ? (
