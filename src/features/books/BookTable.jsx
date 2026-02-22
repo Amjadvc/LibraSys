@@ -10,7 +10,6 @@ import { useBooks } from './useBooks';
 
 function BookTable() {
   const { books, isLoading, total } = useBooks();
-  console.log(books);
 
   if (isLoading) return <Spinner title="books" />;
 

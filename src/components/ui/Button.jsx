@@ -29,6 +29,8 @@ const variants = {
     text-[16px]
     font-medium
     transition-colors
+    disabled:hover:bg-transparent
+    disabled:hover:border-primary-500
   `,
 
   danger:
