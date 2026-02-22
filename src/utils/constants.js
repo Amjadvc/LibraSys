@@ -1,4 +1,4 @@
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 5;
 
 //pie chart colors
 export const CHART_COLORS = [

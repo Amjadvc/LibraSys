@@ -2,16 +2,16 @@ import { useSearchParams } from 'react-router-dom';
 import { PAGE_SIZE } from '../../utils/constants';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
-function Pagination({ count }) {
+function Pagination({ pagination }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentPage = !searchParams.get('page')
-    ? 1
-    : Number(searchParams.get('page'));
 
-  const pageCount = Math.ceil(count / PAGE_SIZE);
+  const currentPage = pagination.current_page || 1;
+  const lastPage = pagination.last_page || 1;
+  const total = pagination.total || 0;
+  const perPage = pagination.per_page || 10;
 
   function nextPage() {
-    const next = currentPage === pageCount ? currentPage : currentPage + 1;
+    const next = currentPage === lastPage ? currentPage : currentPage + 1;
     searchParams.set('page', next);
     setSearchParams(searchParams);
   }
@@ -27,13 +27,13 @@ function Pagination({ count }) {
       <p className="ml-2 text-[14px] text-text-700">
         Shoing
         <span className="px-1 font-semibold text-text-800">
-          {(currentPage - 1) * PAGE_SIZE + 1}
+          {(currentPage - 1) * perPage + 1}
         </span>
         to
         <span className="px-1 font-semibold text-text-800">
-          {currentPage === pageCount ? count : currentPage * PAGE_SIZE}
+          {currentPage === lastPage ? total : currentPage * perPage}
         </span>
-        of<span className="px-1 font-semibold text-text-800">{count}</span>{' '}
+        of<span className="px-1 font-semibold text-text-800">{total}</span>{' '}
         results
       </p>
       <div className="flex gap-[6px]">
@@ -48,7 +48,7 @@ function Pagination({ count }) {
 
         <button
           onClick={nextPage}
-          disabled={currentPage === pageCount}
+          disabled={currentPage === lastPage}
           className="flex items-center justify-center gap-1 rounded-lg bg-background-50 px-[12px] py-[6px] text-[14px] font-semibold text-text-700 outline-none transition-all duration-300 hover:bg-accent-500 hover:text-white disabled:cursor-not-allowed disabled:text-text-400 disabled:opacity-50"
         >
           <span>Next</span>

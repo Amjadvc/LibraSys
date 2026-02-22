@@ -52,16 +52,17 @@ function BookDetails() {
     title,
     ISBN,
     cover,
-    category,
+    category_name: category,
     authors,
     price,
     mortgage,
     pages,
-    remaining_copies,
+    stock: remaining_copies,
     total_copies,
-    status,
+
     authorship_date,
   } = book;
+  const status = remaining_copies > 0 ? 'available' : 'borrowed';
 
   return (
     <div className="space-y-8">
@@ -85,7 +86,7 @@ function BookDetails() {
             <div className="space-y-1">
               <h2 className="text-2xl font-semibold text-text-800">{title}</h2>
               <p className="text-sm text-text-500">ISBN: {ISBN}</p>
-              <p className="text-sm text-text-500">Category: {category.name}</p>
+              <p className="text-sm text-text-500">Category: {category}</p>
               <p className="text-sm text-text-500">
                 By {authors.map((a) => a.name).join(', ')}
               </p>
@@ -96,7 +97,10 @@ function BookDetails() {
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
             <Stat label="Total Copies" value={total_copies} />
-            <Stat label="Remaining Copies" value={remaining_copies} />
+            <Stat
+              label="Remaining Copies"
+              value={remaining_copies === null ? 0 : ''}
+            />
             <Stat label="Pages" value={pages} />
             <Stat label="Authorship Date" value={authorship_date} />
             <Stat label="Price" value={`${price} $`} accent />

@@ -38,10 +38,13 @@ function buildFormData(book) {
 // --------------------
 // GET ALL BOOKS
 // --------------------
-export async function getBooks() {
+export async function getBooks(page = 1) {
   try {
-    const { data } = await api.get('/api/books');
-    return data.data;
+    const { data } = await api.get(`/api/books?page=${page}`);
+    return {
+      books: data.data.data, // array of books
+      pagination: data.data.pagination, // pagination info
+    };
   } catch (error) {
     console.error(error);
     throw new Error('Books could not be loaded');

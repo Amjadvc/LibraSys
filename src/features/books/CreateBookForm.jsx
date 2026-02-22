@@ -10,67 +10,82 @@ import { useDarkMode } from '../../context/DarkModeContext';
 import { Controller, useForm } from 'react-hook-form';
 import { useCreateBook } from './useCreateBook';
 import { useUpdateBook } from './useUpdateBook';
+import { useCategories } from '../categories/useCategories';
+import { useAuthors } from '../authors/useAuthors';
 
-const categories = [
-  { value: 1, label: 'Fiction' },
-  { value: 2, label: 'Non-Fiction' },
-  { value: 3, label: 'Science' },
-  { value: 4, label: 'History' },
-];
-const authors = [
-  {
-    id: 1,
-    name: 'Robert C. Martin',
-    birth_date: '1952-12-05',
-    country: 'Canada',
-  },
-  {
-    id: 2,
-    name: 'Andrew Hunt',
-    birth_date: '1964-01-01',
-    country: 'United States',
-  },
-  {
-    id: 3,
-    name: 'David Thomas',
-    birth_date: '1956-01-01',
-    country: 'Australia',
-  },
-  {
-    id: 4,
-    name: 'Donald Knuth',
-    birth_date: '1938-01-10',
-    country: 'Finland',
-  },
-  {
-    id: 5,
-    name: 'Fyodor Dostoevsky',
-    birth_date: '1821-11-11',
-    country: 'Russia',
-  },
-  {
-    id: 6,
-    name: 'Daniel Kahneman',
-    birth_date: '1934-03-05',
-    country: 'Syria',
-  },
-];
+// const categories = [
+//   { value: 1, label: 'Fiction' },
+//   { value: 2, label: 'Non-Fiction' },
+//   { value: 3, label: 'Science' },
+//   { value: 4, label: 'History' },
+// ];
+// const authors = [
+//   {
+//     id: 1,
+//     name: 'Robert C. Martin',
+//     birth_date: '1952-12-05',
+//     country: 'Canada',
+//   },
+//   {
+//     id: 2,
+//     name: 'Andrew Hunt',
+//     birth_date: '1964-01-01',
+//     country: 'United States',
+//   },
+//   {
+//     id: 3,
+//     name: 'David Thomas',
+//     birth_date: '1956-01-01',
+//     country: 'Australia',
+//   },
+//   {
+//     id: 4,
+//     name: 'Donald Knuth',
+//     birth_date: '1938-01-10',
+//     country: 'Finland',
+//   },
+//   {
+//     id: 5,
+//     name: 'Fyodor Dostoevsky',
+//     birth_date: '1821-11-11',
+//     country: 'Russia',
+//   },
+//   {
+//     id: 6,
+//     name: 'Daniel Kahneman',
+//     birth_date: '1934-03-05',
+//     country: 'Syria',
+//   },
+// ];
 
-const authorOptions = authors.map((author) => ({
-  value: author.id,
-  label: author.name,
-}));
+// const authorOptions = authors.map((author) => ({
+//   value: author.id,
+//   label: author.name,
+// }));
 
 function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
   const { isDarkMode } = useDarkMode();
-
-  const { id: editId, ...editValues } = bookToEdit;
-
-  const isEditSession = Boolean(editId);
+  const { authors: apiAuthors = [], isLoading: authorsLoading } = useAuthors();
+  const { categories: apiCategories = [], isLoading: categoriesLoading } =
+    useCategories();
 
   const { createBook, isCreatingBook } = useCreateBook();
   const { updateBook, isUpdatingBook } = useUpdateBook();
 
+  const authorOptions = apiAuthors.map((a) => ({
+    value: a.id,
+    label: a.name,
+  }));
+
+  const categoryOptions = apiCategories.map((c) => ({
+    value: c.id,
+    label: c.name,
+  }));
+
+  const { id: editId, ...editValues } = bookToEdit;
+  const isEditSession = Boolean(editId);
+
+  console.log(editValues);
   const {
     register,
     handleSubmit,
@@ -88,6 +103,7 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
             value: a.id,
             label: a.name,
           })),
+          cover: editValues.cover || null, // keep URL for preview
         }
       : {},
   });
@@ -123,6 +139,8 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
       });
     }
   }
+
+  if (authorsLoading || categoriesLoading) return <SpinnerMini />;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -285,7 +303,7 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
           render={({ field }) => (
             <Select
               {...field}
-              options={categories}
+              options={categoryOptions}
               styles={customStyles}
               placeholder="Select Category..."
               value={field.value}
