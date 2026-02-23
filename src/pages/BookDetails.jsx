@@ -26,12 +26,12 @@ function BookCover({ title, cover }) {
   return (
     <div className="flex rounded-2xl border border-background-200 bg-background-50 p-2 shadow-sm">
       <img
-        src={cover || '/placeholder-book.png'}
+        src={cover}
+        alt={title}
         onError={(e) => {
-          e.currentTarget.onerror = null;
+          e.currentTarget.onerror = null; // prevent looping
           e.currentTarget.src = '/placeholder-book.png';
         }}
-        alt={title}
         className="h-auto max-h-[300px] w-full rounded-xl shadow-md transition hover:scale-[1.02] sm:max-h-full"
       />
     </div>
@@ -52,7 +52,7 @@ function BookDetails() {
     title,
     ISBN,
     cover,
-    category_name: category,
+    category,
     authors,
     price,
     mortgage,
@@ -86,7 +86,7 @@ function BookDetails() {
             <div className="space-y-1">
               <h2 className="text-2xl font-semibold text-text-800">{title}</h2>
               <p className="text-sm text-text-500">ISBN: {ISBN}</p>
-              <p className="text-sm text-text-500">Category: {category}</p>
+              <p className="text-sm text-text-500">Category: {category.name}</p>
               <p className="text-sm text-text-500">
                 By {authors.map((a) => a.name).join(', ')}
               </p>

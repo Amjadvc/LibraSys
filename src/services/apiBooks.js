@@ -27,6 +27,10 @@ function buildFormData(book) {
       value.forEach((authorId) => {
         formData.append('authors[]', authorId);
       });
+    } else if (key === 'cover') {
+      if (value instanceof File) {
+        formData.append('cover', value);
+      }
     } else if (value !== undefined && value !== null) {
       formData.append(key, value);
     }

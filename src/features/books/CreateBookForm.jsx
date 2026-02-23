@@ -5,6 +5,7 @@ import FileInput from '../../components/ui/FileInput';
 import Button from '../../components/ui/Button';
 import Select from 'react-select';
 import SpinnerMini from '../../components/ui/SpinnerMini';
+import imageCompression from 'browser-image-compression';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
 import { Controller, useForm } from 'react-hook-form';
@@ -13,61 +14,10 @@ import { useUpdateBook } from './useUpdateBook';
 import { useCategories } from '../categories/useCategories';
 import { useAuthors } from '../authors/useAuthors';
 
-// const categories = [
-//   { value: 1, label: 'Fiction' },
-//   { value: 2, label: 'Non-Fiction' },
-//   { value: 3, label: 'Science' },
-//   { value: 4, label: 'History' },
-// ];
-// const authors = [
-//   {
-//     id: 1,
-//     name: 'Robert C. Martin',
-//     birth_date: '1952-12-05',
-//     country: 'Canada',
-//   },
-//   {
-//     id: 2,
-//     name: 'Andrew Hunt',
-//     birth_date: '1964-01-01',
-//     country: 'United States',
-//   },
-//   {
-//     id: 3,
-//     name: 'David Thomas',
-//     birth_date: '1956-01-01',
-//     country: 'Australia',
-//   },
-//   {
-//     id: 4,
-//     name: 'Donald Knuth',
-//     birth_date: '1938-01-10',
-//     country: 'Finland',
-//   },
-//   {
-//     id: 5,
-//     name: 'Fyodor Dostoevsky',
-//     birth_date: '1821-11-11',
-//     country: 'Russia',
-//   },
-//   {
-//     id: 6,
-//     name: 'Daniel Kahneman',
-//     birth_date: '1934-03-05',
-//     country: 'Syria',
-//   },
-// ];
-
-// const authorOptions = authors.map((author) => ({
-//   value: author.id,
-//   label: author.name,
-// }));
-
 function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
   const { isDarkMode } = useDarkMode();
-  const { authors: apiAuthors = [], isLoading: authorsLoading } = useAuthors();
-  const { categories: apiCategories = [], isLoading: categoriesLoading } =
-    useCategories();
+  const { authors: apiAuthors = [] } = useAuthors();
+  const { categories: apiCategories = [] } = useCategories();
 
   const { createBook, isCreatingBook } = useCreateBook();
   const { updateBook, isUpdatingBook } = useUpdateBook();
@@ -85,7 +35,6 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
   const { id: editId, ...editValues } = bookToEdit;
   const isEditSession = Boolean(editId);
 
-  console.log(editValues);
   const {
     register,
     handleSubmit,
@@ -97,13 +46,16 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
       ? {
           ...editValues,
           category_id: editValues.category
-            ? { value: editValues.category.id, label: editValues.category.name }
+            ? {
+                value: editValues.category?.id,
+                label: editValues.category?.name,
+              }
             : null,
           authors: editValues.authors?.map((a) => ({
             value: a.id,
             label: a.name,
           })),
-          cover: editValues.cover || null, // keep URL for preview
+          cover: editValues.cover || null,
         }
       : {},
   });
@@ -119,6 +71,8 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
       total_copies: 0,
       remaining_copies: 0,
     };
+
+    console.log(formattedData);
 
     if (isEditSession) {
       updateBook(
@@ -139,8 +93,6 @@ function CreateBookForm({ bookToEdit = {}, onCloseModal }) {
       });
     }
   }
-
-  if (authorsLoading || categoriesLoading) return <SpinnerMini />;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

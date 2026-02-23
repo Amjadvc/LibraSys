@@ -11,18 +11,18 @@ import { useDeleteBook } from './useDeleteBook';
 
 function BookRow({
   book: {
-    ISBN,
     id: bookId,
+    ISBN,
     title,
-    cover,
-    category_name: category,
     price,
     mortgage,
     pages,
-    remaining_copies,
     borrow_duration,
-    authors,
     authorship_date,
+    category,
+    authors,
+    cover,
+    remaining_copies,
   },
 }) {
   const status = remaining_copies > 0 ? 'available' : 'borrowed';
@@ -33,7 +33,7 @@ function BookRow({
     <Table.Row className="hover:bg-50">
       <div>
         <img
-          src={cover || '/placeholder-book.png'}
+          src={cover}
           alt={title}
           onError={(e) => {
             e.currentTarget.onerror = null; // prevent looping
@@ -43,7 +43,7 @@ function BookRow({
         />
       </div>
       <div className="font-medium text-text-800">{title}</div>
-      <div className="text-text-600">{category}</div>
+      <div className="text-text-600">{category.name}</div>
       <div className="text-accent-500">{formatCurrency(price)}</div>
       <div className="text-accent-400">{formatCurrency(mortgage)}</div>
       <div>
@@ -93,22 +93,17 @@ function BookRow({
         <Modal.Window name="edit" type="form">
           <CreateBookForm
             bookToEdit={{
-              ISBN,
               id: bookId,
+              ISBN,
               title,
-              cover,
-              category_id: category // <-- we need { value, label } format
-                ? { value: 1, label: category } // you can map ID if you have it
-                : null,
               price,
               mortgage,
               pages,
               borrow_duration,
-              authors: authors.map((a, index) => ({
-                value: a.id ?? index, // fallback if id missing
-                label: a.name,
-              })),
               authorship_date,
+              category,
+              authors,
+              cover,
             }}
           />
         </Modal.Window>
