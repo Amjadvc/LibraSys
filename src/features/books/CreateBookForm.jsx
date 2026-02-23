@@ -5,7 +5,7 @@ import FileInput from '../../components/ui/FileInput';
 import Button from '../../components/ui/Button';
 import Select from 'react-select';
 import SpinnerMini from '../../components/ui/SpinnerMini';
-import imageCompression from 'browser-image-compression';
+// import imageCompression from 'browser-image-compression';
 import { customStyles } from '../../styles/CustomeStye';
 import { useDarkMode } from '../../context/DarkModeContext';
 import { Controller, useForm } from 'react-hook-form';

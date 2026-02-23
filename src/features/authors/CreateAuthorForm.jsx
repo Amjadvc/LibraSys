@@ -3,16 +3,28 @@ import Form from '../../components/ui/Form';
 import FormRow from '../../components/ui/FormRow';
 import Input from '../../components/ui/Input';
 import Select from 'react-select';
-import { useCountry } from '../../hooks/useCountry';
-import { customStyles } from '../../styles/CustomeStye.js';
 import { useDarkMode } from '../../context/DarkModeContext.jsx';
 import { Controller, useForm } from 'react-hook-form';
 import { useCreateAuthor } from './useCreateAuthor.js';
 import { useUpdateAuthor } from './useUpdateAuthor.js';
 import SpinnerMini from '../../components/ui/SpinnerMini.jsx';
+import { memo } from 'react';
+import { customStyles } from '../../styles/CustomeStye.js';
 
-function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
-  const { countries } = useCountry();
+const OptionLabel = memo(({ option }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+    <img
+      src={option.flag}
+      alt={`${option.label} Flag`}
+      width="20"
+      height="15"
+      style={{ borderRadius: '3px', objectFit: 'cover' }}
+    />
+    <span>{option.label}</span>
+  </div>
+));
+
+function CreateAuthorForm({ authorToEdit = {}, onCloseModal, countries }) {
   const { isDarkMode } = useDarkMode();
 
   const { id: editId, ...editValues } = authorToEdit;
@@ -21,28 +33,30 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
   const { createAuthor, isCreatingAuthor } = useCreateAuthor();
   const { updateAuthor, isUpdatingAuthor } = useUpdateAuthor();
 
+  // Compute default country before initializing useForm
+  const defaultCountryOption =
+    isEditSession && countries.length > 0
+      ? countries.find((c) => c.label === editValues.country) || null
+      : null;
+
+  const defaultValues = isEditSession
+    ? { ...editValues, country: defaultCountryOption }
+    : { country: null };
+
   const {
     register,
     handleSubmit,
     control,
     reset,
     formState: { errors },
-  } = useForm({
-    defaultValues: isEditSession
-      ? {
-          ...editValues,
-          country: countries.find((c) => c.label === editValues.country),
-        }
-      : {},
-  });
+  } = useForm({ defaultValues });
 
   const isWorking = isCreatingAuthor || isUpdatingAuthor;
 
   function onSubmit(data) {
-    console.log(data);
     const formattedData = {
       ...data,
-      country: data.country.label,
+      country: data.country?.label || null,
     };
 
     if (isEditSession) {
@@ -50,7 +64,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
         { id: editId, newAuthorData: formattedData },
         {
           onSuccess: () => {
-            reset();
+            reset({ ...formattedData, country: defaultCountryOption });
             onCloseModal?.();
           },
         },
@@ -58,7 +72,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
     } else {
       createAuthor(formattedData, {
         onSuccess: () => {
-          reset();
+          reset({ name: '', birth_date: '', country: null });
           onCloseModal?.();
         },
       });
@@ -67,7 +81,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      {/* name */}
+      {/* Name */}
       <FormRow
         label="Author name"
         type="bookFormStyle"
@@ -87,7 +101,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
         />
       </FormRow>
 
-      {/* birth_date */}
+      {/* Birth date */}
       <FormRow
         label="Birth date"
         type="bookFormStyle"
@@ -97,9 +111,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
           type="date"
           className="h-[44px]"
           isDarkMode={isDarkMode}
-          {...register('birth_date', {
-            required: 'Birth date is required',
-          })}
+          {...register('birth_date', { required: 'Birth date is required' })}
         />
       </FormRow>
 
@@ -119,24 +131,7 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
               options={countries}
               styles={customStyles}
               placeholder="Select a nationality..."
-              formatOptionLabel={(option) => (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                >
-                  <img
-                    src={option.flag}
-                    alt={`${option?.label} Flag`}
-                    width="20"
-                    height="15"
-                    style={{ borderRadius: '3px', objectFit: 'cover' }}
-                  />
-                  <span>{option.label}</span>
-                </div>
-              )}
+              formatOptionLabel={(option) => <OptionLabel option={option} />}
               value={field.value || null}
               onChange={field.onChange}
             />
@@ -152,10 +147,10 @@ function CreateAuthorForm({ authorToEdit = {}, onCloseModal }) {
         <Button
           variant="third"
           type="button"
-          onClick={() => reset()}
+          onClick={() => reset(defaultValues)}
           disabled={isWorking}
         >
-          Cancel
+          Reset
         </Button>
 
         <Button variant="formbutton" disabled={isWorking}>

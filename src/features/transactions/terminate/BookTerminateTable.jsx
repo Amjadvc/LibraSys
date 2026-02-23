@@ -26,7 +26,7 @@ function BookTerminateTable() {
         />
 
         <Table.Footer>
-          <Pagination count={100} />
+          <Pagination pagination={{}} />
         </Table.Footer>
       </Table>
     </ScrollWrapper>

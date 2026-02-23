@@ -1,8 +1,10 @@
 import Button from '../../components/ui/Button';
 import Modal from '../../components/ui/Modal';
+import { useCountry } from '../../hooks/useCountry';
 import CreateAuthorForm from './CreateAuthorForm';
 
 function AddAuthor() {
+  const { countries } = useCountry();
   return (
     <div>
       <Modal>
@@ -12,7 +14,7 @@ function AddAuthor() {
           </Button>
         </Modal.Open>
         <Modal.Window name="author" type="form">
-          <CreateAuthorForm />
+          <CreateAuthorForm countries={countries} />
         </Modal.Window>
       </Modal>
     </div>

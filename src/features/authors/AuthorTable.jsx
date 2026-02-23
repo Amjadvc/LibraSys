@@ -2,11 +2,13 @@ import Empty from '../../components/ui/Empty';
 import ScrollWrapper from '../../components/ui/ScrollWrapper';
 import Spinner from '../../components/ui/Spinner';
 import Table from '../../components/ui/Table';
+import { useCountry } from '../../hooks/useCountry';
 import AuthorRow from './AuthorRow';
 import { useAuthors } from './useAuthors';
 
 function AuthorTable() {
   const { authors, isLoading } = useAuthors();
+  const { countries } = useCountry();
 
   if (isLoading) return <Spinner title="authors" />;
 
@@ -24,7 +26,9 @@ function AuthorTable() {
 
         <Table.Body
           data={authors}
-          render={(author) => <AuthorRow key={author.id} author={author} />}
+          render={(author) => (
+            <AuthorRow key={author.id} author={author} countries={countries} />
+          )}
         />
       </Table>
     </ScrollWrapper>

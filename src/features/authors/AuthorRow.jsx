@@ -1,20 +1,22 @@
 import { HiPencil, HiTrash } from 'react-icons/hi2';
-import { useCountry } from '../../hooks/useCountry';
 import Modal from '../../components/ui/Modal';
 import Table from '../../components/ui/Table';
 import ButtonIcon from '../../components/ui/ButtonIcon';
 import ConfirmDelete from '../../components/ui/ConfirmDelete';
 import CreateAuthorForm from './CreateAuthorForm';
 import { useDeleteAuthor } from './useDeleteAuthor';
+import { useMemo } from 'react';
 
-function AuthorRow({ author: { id, name, birth_date, country } }) {
+function AuthorRow({ author: { id, name, birth_date, country }, countries }) {
   const { deleteAuthor, isDeleting } = useDeleteAuthor();
 
-  const { countries } = useCountry();
-  const countryMap = countries.reduce((acc, c) => {
-    acc[c.label] = c; // key by country name
-    return acc;
-  }, {});
+  // memoize countryMap
+  const countryMap = useMemo(() => {
+    return countries.reduce((acc, c) => {
+      acc[c.label] = c;
+      return acc;
+    }, {});
+  }, [countries]);
 
   return (
     <Table.Row>
@@ -56,6 +58,7 @@ function AuthorRow({ author: { id, name, birth_date, country } }) {
               birth_date,
               country,
             }}
+            countries={countries}
           />
         </Modal.Window>
 
