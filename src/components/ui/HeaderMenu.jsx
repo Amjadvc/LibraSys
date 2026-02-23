@@ -1,7 +1,8 @@
-import { HiArrowRightOnRectangle, HiOutlineUser } from 'react-icons/hi2';
+import { useNavigate } from 'react-router-dom';
+import { HiOutlineUser } from 'react-icons/hi2';
 import ButtonIcon from './ButtonIcon';
 import DarkModeToggle from './DarkModeToggle';
-import { useNavigate } from 'react-router-dom';
+import Logout from '../../features/authentication/Logout';
 
 function HeaderMenu() {
   const navigate = useNavigate();
@@ -16,9 +17,7 @@ function HeaderMenu() {
         <DarkModeToggle />
       </li>
       <li>
-        <ButtonIcon>
-          <HiArrowRightOnRectangle className="h-6 w-6" />
-        </ButtonIcon>
+        <Logout />
       </li>
     </ul>
   );

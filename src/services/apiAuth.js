@@ -50,4 +50,18 @@ export async function getUser() {
   return response.data;
 }
 
-export default api;
+// --------------------
+// LOGOUT
+// --------------------
+
+export async function logout() {
+  await getCsrfCookie();
+
+  const response = await api.post('/logout');
+
+  if (!response.data.success) {
+    throw new Error(response.data.message || 'Logout failed');
+  }
+
+  return response.data;
+}
