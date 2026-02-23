@@ -30,28 +30,18 @@ function Spinner({ title = 'library' }) {
         {` Loading ${title}...`}
       </p>
 
-      <style jsx>{`
-        @keyframes bookOpen {
-          0%,
-          100% {
-            transform: rotateY(0deg);
-            opacity: 1;
-          }
-          50% {
-            transform: rotateY(20deg);
-            opacity: 0.8;
-          }
-        }
-        @keyframes fadeInOut {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.6;
-          }
-        }
-      `}</style>
+      <style>
+        {`
+    @keyframes bookOpen {
+      0%, 100% { transform: rotateY(0deg); opacity: 1; }
+      50% { transform: rotateY(20deg); opacity: 0.8; }
+    }
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+  `}
+      </style>
     </div>
   );
 }
