@@ -1,5 +1,4 @@
 import { useSearchParams } from 'react-router-dom';
-import { PAGE_SIZE } from '../../utils/constants';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 function Pagination({ pagination }) {
